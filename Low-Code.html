@@ -14,16 +14,17 @@
       <p>COPA Level 4 AI & Automation Practitioner | Session 4: Low-Code Automation & Delivery</p>
     </div>
     <div class="header-stats">
-      <div class="stat-pill">Triaged Scenarios: <strong id="score-display">0 / 6</strong></div>
+      <div class="stat-pill">Task 1 Scenarios: <strong id="score-display">0 / 6</strong></div>
+      <div class="stat-pill">Task 2 Classified: <strong id="task2-score-display">0 / 5</strong></div>
     </div>
   </header>
 
   <nav class="nav-tabs">
-    <button class="tab-btn active" onclick="switchTab('triage')">
+    <button class="tab-btn active" id="tab-nav-triage" onclick="switchTab('triage')">
       <span>1. Scenario Triage Simulator</span>
     </button>
-    <button class="tab-btn" onclick="switchTab('sandbox')">
-      <span>2. Architecture Decision Sandbox (Easy-Guide)</span>
+    <button class="tab-btn" id="tab-nav-classifier" onclick="switchTab('classifier')">
+      <span>2. Quick-Win Classifier Challenge</span>
     </button>
   </nav>
 
@@ -33,7 +34,7 @@
     <section class="hero-banner">
       <h2>Architectural Decision-Making: Balancing Cost, Velocity, Risk & Capability</h2>
       <p>
-        In modern enterprise digital transformation, every business problem demands the right architectural fit. Practitioners must decide whether to retain a <strong>Manual Process</strong>, build rapidly with a <strong>Low-Code Platform</strong>, engineer <strong>Custom Software</strong>, or deploy an <strong>AI-Assisted Copilot</strong>. Progression is locked until each scenario is solved correctly.
+        In modern enterprise digital transformation, every business problem demands the right architectural fit. Practitioners must decide whether to retain a <strong>Manual Process</strong>, build rapidly with a <strong>Low-Code Platform</strong>, engineer <strong>Custom Software</strong>, or deploy an <strong>AI-Assisted Copilot</strong>. Progression through Task 1 is locked until each scenario is solved correctly.
       </p>
     </section>
 
@@ -203,7 +204,7 @@
             </div>
             <div class="canvas-footer-right">
               <button class="btn-primary" id="btn-confirm" onclick="confirmTriageDecision()">Confirm Architecture Decision</button>
-              <button class="btn-secondary" id="btn-next" onclick="navigateScenario(1)" title="Progression locked until current scenario is correct">Next →</button>
+              <button class="btn-secondary" id="btn-next" onclick="handleNextClick()" title="Progression locked until current scenario is correct">Next →</button>
             </div>
           </div>
 
@@ -213,112 +214,89 @@
 
     </div>
 
-    <!-- TAB 2: SIMPLIFIED EASY-GUIDE DECISION SANDBOX -->
-    <div id="tab-sandbox" class="tab-pane">
+    <!-- TAB 2: TASK 2 — RAPID QUICK-WIN CLASSIFIER CHALLENGE -->
+    <div id="tab-classifier" class="tab-pane">
       
-      <!-- Instant Example Presets Bar -->
-      <section class="preset-bar">
-        <span>Try Common Presets:</span>
-        <button class="preset-chip" onclick="loadSandboxPreset('holiday')">🌴 Holiday Request Form</button>
-        <button class="preset-chip" onclick="loadSandboxPreset('invoices')">📄 Supplier Invoice Matching</button>
-        <button class="preset-chip" onclick="loadSandboxPreset('grievance')">🤝 Staff Grievance Case</button>
-        <button class="preset-chip" onclick="loadSandboxPreset('trading')">⚡ High-Speed Trading Engine</button>
-      </section>
-
-      <div class="sandbox-container">
+      <div class="task2-wrapper">
         
-        <!-- Left: 3 Simple Questions -->
-        <div class="sandbox-questions">
-          
-          <!-- Question 1 -->
-          <div class="question-block">
-            <h4>1. How often does this task happen?</h4>
-            <p>Select the typical frequency and volume across the team:</p>
-            <div class="option-cards">
-              <div class="option-chip active" id="opt-vol-low" onclick="setSandboxFactor('vol', 'low')">
-                <strong>Rare or Ad-Hoc</strong>
-                <span>A few times a month / year</span>
-              </div>
-              <div class="option-chip" id="opt-vol-med" onclick="setSandboxFactor('vol', 'med')">
-                <strong>Routine & Weekly</strong>
-                <span>Dozens to hundreds weekly</span>
-              </div>
-              <div class="option-chip" id="opt-vol-high" onclick="setSandboxFactor('vol', 'high')">
-                <strong>Massive High-Volume</strong>
-                <span>Thousands to millions daily</span>
-              </div>
-            </div>
+        <div class="task2-header-card">
+          <div>
+            <h3>Task 2: Quick-Win Delivery Classifier</h3>
+            <p>Classify each operational workplace requirement into its optimal delivery method (Low-Code, Custom Code, or Manual SOP).</p>
           </div>
-
-          <!-- Question 2 -->
-          <div class="question-block">
-            <h4>2. What kind of work or decision is it?</h4>
-            <p>Select the nature of the information and logic required:</p>
-            <div class="option-cards">
-              <div class="option-chip active" id="opt-nature-rules" onclick="setSandboxFactor('nature', 'rules')">
-                <strong>Clear Standard Rules</strong>
-                <span>Standard forms, checkboxes & clear policies</span>
-              </div>
-              <div class="option-chip" id="opt-nature-docs" onclick="setSandboxFactor('nature', 'docs')">
-                <strong>Messy Documents & Text</strong>
-                <span>PDFs, scans, emails & customer writing</span>
-              </div>
-              <div class="option-chip" id="opt-nature-sensitive" onclick="setSandboxFactor('nature', 'sensitive')">
-                <strong>Sensitive & Discretionary</strong>
-                <span>Requires human empathy, trust or moral context</span>
-              </div>
-              <div class="option-chip" id="opt-nature-extreme" onclick="setSandboxFactor('nature', 'extreme')">
-                <strong>Proprietary Math / Speed</strong>
-                <span>Microsecond speed or custom algorithms</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Question 3 -->
-          <div class="question-block">
-            <h4>3. How fast does the business need it?</h4>
-            <p>Select the delivery timeframe and available IT resource:</p>
-            <div class="option-cards">
-              <div class="option-chip active" id="opt-speed-urgent" onclick="setSandboxFactor('speed', 'urgent')">
-                <strong>Fast (Days to Weeks)</strong>
-                <span>Need it live quickly by citizen developers</span>
-              </div>
-              <div class="option-chip" id="opt-speed-patient" onclick="setSandboxFactor('speed', 'patient')">
-                <strong>Long-Term (6 to 18 Months)</strong>
-                <span>Dedicated software engineering team budget</span>
-              </div>
-            </div>
-          </div>
-
+          <div class="task2-progress-badge" id="task2-progress-badge">0 / 5 Correct</div>
         </div>
 
-        <!-- Right: Clear Live Recommendation Card -->
-        <div class="sandbox-card-result">
+        <div class="classifier-list">
           
-          <div class="result-header">
-            <span class="rec-pill badge-lowcode" id="rec-pill">Best Architectural Route</span>
-            <div class="rec-heading" id="rec-title">Low-Code Solution</div>
-          </div>
-
-          <div class="result-summary" id="rec-summary">
-            A visual low-code platform is the best fit. It allows citizen developers to quickly build standard forms and multi-step approvals without waiting months for central IT.
-          </div>
-
-          <div class="fit-reasons">
-            <h5>Why this option wins:</h5>
-            <ul id="rec-reasons">
-              <li>• Simple rules can be built visually in days.</li>
-              <li>• Avoids expensive custom programming.</li>
-              <li>• Connects natively with company software like Microsoft 365.</li>
-            </ul>
-          </div>
-
-          <div class="recommended-tools">
-            <div>
-              <h6>Recommended Tech Stack:</h6>
-              <p id="rec-tools">Microsoft Power Apps / Power Automate</p>
+          <!-- Item 1 -->
+          <div class="classifier-card" id="card-t2-1">
+            <div class="classifier-content">
+              <h4>1. Internal Employee Expenses & Receipt Sign-Off</h4>
+              <p>Staff need a simple mobile form to upload photo receipts for expenses under £100. It must check spending limits, email the team manager for approval, and update payroll records.</p>
             </div>
-            <span style="font-size:1.5rem;" id="rec-icon">⚡</span>
+            <div class="classifier-buttons">
+              <button class="class-btn" onclick="submitClassifier(1, 'lowcode')">⚡ Low-Code App (e.g. Power Apps)</button>
+              <button class="class-btn" onclick="submitClassifier(1, 'custom')">💻 Custom Software Build</button>
+              <button class="class-btn" onclick="submitClassifier(1, 'manual')">✍️ Keep Manual Paper/Email</button>
+            </div>
+            <div class="class-explanation" id="expl-t2-1"></div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="classifier-card" id="card-t2-2">
+            <div class="classifier-content">
+              <h4>2. High-Frequency Automated Warehousing Robot Dispatch</h4>
+              <p>An automated logistics warehouse coordinates 80 autonomous mobile robots navigating narrow aisles simultaneously with sub-millisecond collision avoidance and custom spatial algorithms.</p>
+            </div>
+            <div class="classifier-buttons">
+              <button class="class-btn" onclick="submitClassifier(2, 'lowcode')">⚡ Low-Code App (e.g. Power Apps)</button>
+              <button class="class-btn" onclick="submitClassifier(2, 'custom')">💻 Custom Software Build</button>
+              <button class="class-btn" onclick="submitClassifier(2, 'manual')">✍️ Keep Manual Paper/Email</button>
+            </div>
+            <div class="class-explanation" id="expl-t2-2"></div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="classifier-card" id="card-t2-3">
+            <div class="classifier-content">
+              <h4>3. Sensitive Workplace Whistleblowing & Safeguarding Interview</h4>
+              <p>A highly confidential whistleblowing disclosure regarding executive misconduct. It requires personal discretion, legal discernment, and protective empathy for the reporting individual.</p>
+            </div>
+            <div class="classifier-buttons">
+              <button class="class-btn" onclick="submitClassifier(3, 'lowcode')">⚡ Low-Code App (e.g. Power Apps)</button>
+              <button class="class-btn" onclick="submitClassifier(3, 'custom')">💻 Custom Software Build</button>
+              <button class="class-btn" onclick="submitClassifier(3, 'manual')">✍️ Keep Manual Paper/Email</button>
+            </div>
+            <div class="class-explanation" id="expl-t2-3"></div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="classifier-card" id="card-t2-4">
+            <div class="classifier-content">
+              <h4>4. Office Equipment & Desk Booking Portal</h4>
+              <p>Employees returning to the office need to reserve hot-desks and monitor equipment 48 hours in advance. Managers want live occupancy visibility without spreadsheet collisions.</p>
+            </div>
+            <div class="classifier-buttons">
+              <button class="class-btn" onclick="submitClassifier(4, 'lowcode')">⚡ Low-Code App (e.g. Power Apps)</button>
+              <button class="class-btn" onclick="submitClassifier(4, 'custom')">💻 Custom Software Build</button>
+              <button class="class-btn" onclick="submitClassifier(4, 'manual')">✍️ Keep Manual Paper/Email</button>
+            </div>
+            <div class="class-explanation" id="expl-t2-4"></div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="classifier-card" id="card-t2-5">
+            <div class="classifier-content">
+              <h4>5. IT Support Desk Ticket Triage & SLA Notification</h4>
+              <p>Frontline staff log internal IT issues (printers, logins, screens). Requests route to Tier 1 technicians with automatic alerts if a ticket sits unresolved for more than 4 hours.</p>
+            </div>
+            <div class="classifier-buttons">
+              <button class="class-btn" onclick="submitClassifier(5, 'lowcode')">⚡ Low-Code App (e.g. Power Apps)</button>
+              <button class="class-btn" onclick="submitClassifier(5, 'custom')">💻 Custom Software Build</button>
+              <button class="class-btn" onclick="submitClassifier(5, 'manual')">✍️ Keep Manual Paper/Email</button>
+            </div>
+            <div class="class-explanation" id="expl-t2-5"></div>
           </div>
 
         </div>
@@ -334,32 +312,32 @@
           <span>Next Apprenticeship Task:</span> 
           <span style="color:#38BDF8;">Process Map Quality Audit & Improvement Proposal</span>
         </h4>
-        <p id="next-task-status-text">Complete all 6 scenarios in the triage simulator above to unlock this next activity.</p>
+        <p id="next-task-status-text">Complete all 6 scenarios in Task 1 to unlock this next activity.</p>
       </div>
-      <!-- Configurable link: point this to your next GitHub Pages file (e.g. process_map_audit.html or improvementopp.html) -->
+      <!-- Configurable link: point this to your next GitHub Pages file -->
       <a href="process_map_audit.html" id="btn-next-module" class="btn-next-module locked">
-        <span>Proceed to Next Task</span> →
+        <span>Proceed to Next Module</span> →
       </a>
     </section>
 
   </main>
 
-  <!-- Completion Modal -->
-  <div class="modal-overlay" id="completion-modal">
+  <!-- Task 1 Transition Modal -->
+  <div class="modal-overlay" id="t1-complete-modal">
     <div class="modal-box">
-      <h3>All Scenarios Successfully Triaged!</h3>
+      <h3>Task 1 Complete! 🎉</h3>
       <p>
-        Outstanding work! You have solved all 6 scenarios correctly and unlocked the next practical module. You are now ready to progress to the next task.
+        Outstanding work! You have successfully triaged all 6 enterprise scenarios. You are now ready to tackle <strong>Task 2: Quick-Win Delivery Classifier</strong>.
       </p>
       <div style="display:flex; justify-content:center; gap:0.75rem;">
-        <button class="btn-secondary" onclick="closeModal()">Review Triage</button>
-        <a href="process_map_audit.html" class="btn-primary" style="text-decoration:none;">Go to Next Task →</a>
+        <button class="btn-secondary" onclick="closeModal('t1-complete-modal')">Review Scenarios</button>
+        <button class="btn-primary" onclick="proceedToTask2FromModal()">Proceed to Task 2 →</button>
       </div>
     </div>
   </div>
 
   <script>
-    // 6 Diverse Enterprise Business Scenarios
+    // 6 Diverse Enterprise Business Scenarios for Task 1
     const scenarios = [
       {
         id: "sc-1",
@@ -437,7 +415,6 @@
     function init() {
       renderScenarioList();
       loadScenario(0);
-      updateEasySandbox();
       updateNextActivityStatus();
     }
 
@@ -542,8 +519,8 @@
 
       // Check if all are correct
       const correctCount = Object.values(userTriageResults).filter(r => r.isCorrect).length;
-      if (correctCount === scenarios.length) {
-        document.getElementById("completion-modal").style.display = "flex";
+      if (correctCount === scenarios.length && isCorrect) {
+        document.getElementById("t1-complete-modal").style.display = "flex";
       }
     }
 
@@ -576,13 +553,11 @@
       const s = scenarios[currentIdx];
       selectedChoice = s.correct;
       
-      // Highlight the correct button
       document.querySelectorAll(".choice-btn").forEach(btn => {
         btn.classList.toggle("selected", btn.dataset.choice === s.correct);
         btn.classList.toggle("revealed-correct", btn.dataset.choice === s.correct);
       });
 
-      // Mark as correct
       userTriageResults[s.id] = { choice: s.correct, isCorrect: true };
       
       const box = document.getElementById("decision-feedback-box");
@@ -595,7 +570,6 @@
       statusPill.className = "archetype-badge badge-lowcode";
       statusPill.innerText = "Answer Revealed";
 
-      // Unlock next
       if (currentIdx + 1 > maxUnlockedIdx) {
         maxUnlockedIdx = Math.min(scenarios.length - 1, currentIdx + 1);
       }
@@ -606,32 +580,42 @@
 
       const correctCount = Object.values(userTriageResults).filter(r => r.isCorrect).length;
       if (correctCount === scenarios.length) {
-        document.getElementById("completion-modal").style.display = "flex";
+        document.getElementById("t1-complete-modal").style.display = "flex";
       }
     }
 
+    // FIX FOR FINAL SCENARIO BUTTON LINKING TO TASK 2
     function updateNavButtons() {
       const btnPrev = document.getElementById("btn-prev");
       const btnNext = document.getElementById("btn-next");
 
-      // Previous button
       btnPrev.disabled = currentIdx === 0;
 
-      // Next button locked unless current scenario is correctly triaged
       const currentResult = userTriageResults[scenarios[currentIdx].id];
       const isCurrentCorrect = currentResult && currentResult.isCorrect;
 
       if (currentIdx === scenarios.length - 1) {
-        btnNext.disabled = true;
-        btnNext.innerText = "Final Scenario";
+        // On the final scenario, button links to Task 2!
+        btnNext.innerText = "Proceed to Task 2 →";
+        btnNext.style.background = isCurrentCorrect ? "var(--copa-navy)" : "#94A3B8";
+        btnNext.style.color = "#FFFFFF";
+        btnNext.disabled = !isCurrentCorrect;
+        btnNext.title = isCurrentCorrect ? "Click to jump to Task 2: Quick-Win Classifier" : "Progression locked until final scenario is correct";
       } else {
         btnNext.innerText = "Next →";
+        btnNext.style.background = "";
+        btnNext.style.color = "";
         btnNext.disabled = !isCurrentCorrect;
-        if (!isCurrentCorrect) {
-          btnNext.title = "Progression locked until current scenario is correct";
-        } else {
-          btnNext.title = "Proceed to the next scenario";
-        }
+        btnNext.title = isCurrentCorrect ? "Proceed to the next scenario" : "Progression locked until current scenario is correct";
+      }
+    }
+
+    function handleNextClick() {
+      if (currentIdx === scenarios.length - 1) {
+        // Jump directly to Task 2!
+        switchTab('classifier');
+      } else {
+        navigateScenario(1);
       }
     }
 
@@ -666,125 +650,102 @@
 
       if (correctCount === scenarios.length) {
         nextBtn.classList.remove("locked");
-        statusText.innerHTML = `<span style="color:#86EFAC; font-weight:600;">✓ Module complete! All 6 scenarios resolved. Click the button to proceed.</span>`;
+        statusText.innerHTML = `<span style="color:#86EFAC; font-weight:600;">✓ Module complete! All 6 scenarios resolved. Click to progress to the Process Map Audit module.</span>`;
       } else {
         nextBtn.classList.add("locked");
-        statusText.innerText = `Complete all 6 scenarios in the triage simulator above to unlock this next activity (${correctCount}/6 solved).`;
+        statusText.innerText = `Complete all 6 scenarios in Task 1 to unlock this next activity (${correctCount}/6 solved).`;
       }
     }
 
     function switchTab(tabId) {
       document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
       document.querySelectorAll(".tab-pane").forEach(p => p.classList.remove("active"));
-      event.currentTarget.classList.add("active");
-      document.getElementById(`tab-${tabId}`).classList.add("active");
+      
+      if (tabId === 'triage') {
+        document.getElementById("tab-nav-triage").classList.add("active");
+        document.getElementById("tab-triage").classList.add("active");
+      } else {
+        document.getElementById("tab-nav-classifier").classList.add("active");
+        document.getElementById("tab-classifier").classList.add("active");
+      }
+      window.scrollTo({ top: 400, behavior: 'smooth' });
+    }
+
+    function proceedToTask2FromModal() {
+      closeModal('t1-complete-modal');
+      switchTab('classifier');
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = "none";
     }
 
     // ==========================================
-    // SIMPLIFIED DECISION SANDBOX CONTROLLER
+    // TASK 2: RAPID CLASSIFIER LOGIC & DATA
     // ==========================================
-    let sandboxState = {
-      vol: "med",
-      nature: "rules",
-      speed: "urgent"
+    const task2Answers = {
+      1: {
+        correct: "lowcode",
+        title: "Low-Code App (Power Apps)",
+        expl: "<strong>✓ Correct: Low-Code Solution.</strong> Internal expense claims follow standard form fields, photo attachments, and manager email approvals. Building custom software takes too long, and paper forms cause lost receipts."
+      },
+      2: {
+        correct: "custom",
+        title: "Custom Software Build",
+        expl: "<strong>✓ Correct: Custom Software Build.</strong> Sub-millisecond robotic collision avoidance and multi-robot spatial concurrency cannot run on low-code. It requires bespoke low-level algorithms (e.g. C++/ROS) and real-time hardware memory control."
+      },
+      3: {
+        correct: "manual",
+        title: "Manual Process (Confidential Review)",
+        expl: "<strong>✓ Correct: Manual Process (Strict SOP).</strong> A sensitive whistleblowing disclosure demands confidential human interviews, empathy, and legal discretion. Automating this through an app introduces serious breach risks."
+      },
+      4: {
+        correct: "lowcode",
+        title: "Low-Code App (Power Apps)",
+        expl: "<strong>✓ Correct: Low-Code Solution.</strong> Hot-desk and room booking is an ideal citizen developer project. It connects cleanly to an existing SharePoint or Dataverse table with automated booking confirmations in days."
+      },
+      5: {
+        correct: "lowcode",
+        title: "Low-Code Workflow (Power Automate)",
+        expl: "<strong>✓ Correct: Low-Code Solution.</strong> Internal ticketing and SLA timeout notifications match standard workflow automation rules. Low-code templates handle ticket assignment and email/Teams escalation out of the box."
+      }
     };
 
-    function setSandboxFactor(factor, value) {
-      sandboxState[factor] = value;
-      
-      // Update UI active states
-      if (factor === 'vol') {
-        ['low', 'med', 'high'].forEach(v => document.getElementById(`opt-vol-${v}`).classList.toggle('active', v === value));
-      } else if (factor === 'nature') {
-        ['rules', 'docs', 'sensitive', 'extreme'].forEach(v => document.getElementById(`opt-nature-${v}`).classList.toggle('active', v === value));
-      } else if (factor === 'speed') {
-        ['urgent', 'patient'].forEach(v => document.getElementById(`opt-speed-${v}`).classList.toggle('active', v === value));
-      }
+    let task2State = {};
 
-      updateEasySandbox();
-    }
+    function submitClassifier(itemNum, chosenOption) {
+      const data = task2Answers[itemNum];
+      const card = document.getElementById(`card-t2-${itemNum}`);
+      const explBox = document.getElementById(`expl-t2-${itemNum}`);
 
-    function loadSandboxPreset(presetKey) {
-      if (presetKey === 'holiday') {
-        setSandboxFactor('vol', 'med');
-        setSandboxFactor('nature', 'rules');
-        setSandboxFactor('speed', 'urgent');
-      } else if (presetKey === 'invoices') {
-        setSandboxFactor('vol', 'med');
-        setSandboxFactor('nature', 'docs');
-        setSandboxFactor('speed', 'urgent');
-      } else if (presetKey === 'grievance') {
-        setSandboxFactor('vol', 'low');
-        setSandboxFactor('nature', 'sensitive');
-        setSandboxFactor('speed', 'urgent');
-      } else if (presetKey === 'trading') {
-        setSandboxFactor('vol', 'high');
-        setSandboxFactor('nature', 'extreme');
-        setSandboxFactor('speed', 'patient');
-      }
-    }
+      // Highlight button
+      card.querySelectorAll(".class-btn").forEach(b => b.classList.remove("chosen"));
+      event.currentTarget.classList.add("chosen");
 
-    function updateEasySandbox() {
-      const pill = document.getElementById("rec-pill");
-      const title = document.getElementById("rec-title");
-      const summary = document.getElementById("rec-summary");
-      const reasons = document.getElementById("rec-reasons");
-      const tools = document.getElementById("rec-tools");
-      const icon = document.getElementById("rec-icon");
+      const isCorrect = chosenOption === data.correct;
+      task2State[itemNum] = isCorrect;
 
-      if (sandboxState.nature === "sensitive" || sandboxState.vol === "low") {
-        pill.className = "rec-pill badge-manual";
-        pill.innerText = "Recommended Route: Manual";
-        title.innerText = "Manual Process (SOP)";
-        summary.innerText = "Keep this as a human process. When a task is infrequent or deals with sensitive, personal, or emotional situations, building software is either too costly or completely inappropriate.";
-        reasons.innerHTML = `
-          <li>• <strong>Human Empathy:</strong> Discretion and listening cannot be replaced by algorithms.</li>
-          <li>• <strong>Cost Effective:</strong> Developing an app for rare events yields negative return.</li>
-          <li>• <strong>No Software Overhead:</strong> Uses clear checklists without software updates.</li>
-        `;
-        tools.innerText = "Standard Operating Procedure (SOP) / Human Review Meeting";
-        icon.innerText = "✍️";
-      } else if (sandboxState.nature === "extreme" || (sandboxState.vol === "high" && sandboxState.speed === "patient")) {
-        pill.className = "rec-pill badge-custom";
-        pill.innerText = "Recommended Route: Custom Build";
-        title.innerText = "Custom Software (Bespoke Code)";
-        summary.innerText = "Bespoke hand-crafted code is required. High-frequency speed, massive scale, or unique mathematical intellectual property exceed what visual low-code templates can handle.";
-        reasons.innerHTML = `
-          <li>• <strong>Microsecond Speed:</strong> Demands raw memory control and hardware optimization.</li>
-          <li>• <strong>Proprietary IP:</strong> You fully own the source code, logic, and database.</li>
-          <li>• <strong>Extreme Scale:</strong> Handles millions of continuous records smoothly.</li>
-        `;
-        tools.innerText = "Python / C# / React / Custom SQL & Cloud Microservices";
-        icon.innerText = "💻";
-      } else if (sandboxState.nature === "docs") {
-        pill.className = "rec-pill badge-ai";
-        pill.innerText = "Recommended Route: AI-Assisted";
-        title.innerText = "AI-Assisted Process (Copilot / IDP)";
-        summary.innerText = "Use cognitive AI tools combined with human review. Because your information arrives in messy, unstructured formats (PDFs, scans, emails), static rules cannot read them reliably.";
-        reasons.innerHTML = `
-          <li>• <strong>Reads Unstructured Data:</strong> AI extracts text, dates, and tables from files.</li>
-          <li>• <strong>Human-in-the-Loop (K6):</strong> Staff review exceptions and maintain control.</li>
-          <li>• <strong>Huge Time Reclaimed:</strong> Cuts hours of manual typing and re-keying.</li>
-        `;
-        tools.innerText = "AI Document Intelligence / Azure Cognitive / Microsoft Copilot";
-        icon.innerText = "🤖";
+      if (isCorrect) {
+        card.className = "classifier-card correct-answer";
+        explBox.innerHTML = data.expl;
       } else {
-        pill.className = "rec-pill badge-lowcode";
-        pill.innerText = "Recommended Route: Low-Code";
-        title.innerText = "Low-Code Platform";
-        summary.innerText = "This is the classic low-code sweet spot. Standard digital forms, clear approval rules, and fast deployment. Citizen developers can launch this in weeks without central IT delay.";
-        reasons.innerHTML = `
-          <li>• <strong>Rapid Deployment:</strong> Visual drag-and-drop build finished in days or weeks.</li>
-          <li>• <strong>Connected:</strong> Native integration with Microsoft 365, SharePoint & SQL.</li>
-          <li>• <strong>Safe & Governed:</strong> Role permissions and security managed by central IT.</li>
-        `;
-        tools.innerText = "Microsoft Power Apps / Power Automate / SharePoint";
-        icon.innerText = "⚡";
+        card.className = "classifier-card incorrect-answer";
+        explBox.innerHTML = `<strong>⚠️ Not Quite:</strong> This requirement is best solved using <strong>${data.title}</strong>.<br>${data.expl}`;
       }
+
+      updateTask2Score();
     }
 
-    function closeModal() {
-      document.getElementById("completion-modal").style.display = "none";
+    function updateTask2Score() {
+      const correctCount = Object.values(task2State).filter(v => v === true).length;
+      document.getElementById("task2-score-display").innerText = `${correctCount} / 5`;
+      document.getElementById("task2-progress-badge").innerText = `${correctCount} / 5 Correct`;
+      
+      if (correctCount === 5) {
+        document.getElementById("task2-progress-badge").style.background = "#DCFCE7";
+        document.getElementById("task2-progress-badge").style.color = "#166534";
+        document.getElementById("task2-progress-badge").innerText = "✓ Task 2 Mastered!";
+      }
     }
 
     init();
