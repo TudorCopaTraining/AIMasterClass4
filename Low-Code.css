@@ -1,1448 +1,3 @@
-
-Library
-Images
-Scheduled
-Students
-
-More
-New notebook
-Condensing a Workshop to Three Hours
-Streamlining an HTML Task File
-AI Ecosystem Slide Deck Generation
-Converting HTML and CSS to SCORM
-Crafting a Copa Script
-Visualizing Process Waste Workshop
-AI Error Report Troubleshooting Analysis
-Explaining Chatbot LLM Limitations
-Hip Impingement: Surgery Likelihood Explained
-Sealing Gaps Between Tiles and Walls
-Fixing the Task Deploy Button
-The Fat Badger March
-Cat Image Speech Bubble
-Assignment Requirements Summary
-How to Push Changes in GitHub Desktop
-Aging a Childhood Photo Visually
-Projecting Appearance at Age Seventy
-Overview of Gemini's Operational Constraints
-Andy Burnham Dancing on the Moon
-Assessment Adaptations and Student Progress
-Understanding CompTIA CompCert Certificates
-Restoring Deleted Chats
-PDF Film Trailer Creation
-Visualizing Machine Learning Types
-Machine Learning for AI Apprentices
-Film Challenge Prompt Generator
-Work Experience Email Draft
-Gemini AI Breaches Three Companies
-18-Month Apprenticeship Timeline Design
-AI Masterclass Curriculum Overview
-HP Laptop Photo Editing Capability
-
-Activity
-Swinton, Manchester, UK
-Based on your places (home)
-Conversation with Gemini
-Topic 2: Governance Overview
-
-Content
-
-Introduction to:
-
-Policies
-
-Standards
-
-Accountability
-
-Human oversight
-
-Your PDF presentation slides covering Topic 2: Governance Overview are ready:
-
-PDF icon
-Topic2_Governance_Overview_2Slides
- PDF 
-Structure of the 2-Slide Topic 2 Set
-This 2-slide sequence covers Session 3A: Topic 2 (Governance Overview) using the COPA corporate styling palette (Deep Navy #0C2340, Crimson Red #E31B23, and Off-White #F8FAFC), breaking down the four core governance pillars into two balanced executive slides mapped to standards K1 and K2:   
-PDF
-+ 2
-
-Slide 1: Rules & Benchmarks (Policies & Standards)
-1. Policies (The Organizational Rulebook):
-
-Purpose & Scope: Mandatory organizational directives defining acceptable boundaries for AI use; bridges high-level corporate ethics into enforceable operational rules; prevents unsanctioned "Shadow AI" and protects intellectual property.   
-PDF
-
-Enterprise Frameworks:
-
-Acceptable Use Policy (AUP): Clear rules governing employee interaction with generative AI and automated systems.   
-PDF
-
-Data Governance & Lineage Policy: Mandatory standards on lawful data sourcing, copyright clearance, and consent verification.   
-PDF
-
-Third-Party Vendor Policy: Mandatory due diligence and security checks before adopting external AI software.   
-PDF
-+ 1
-
-Operational Controls: Signed employee compliance agreements during onboarding, approved enterprise software whitelists, and DLP enforcement.   
-PDF
-+ 1
-
-2. Standards (Measurable Technical Baselines):
-
-Purpose & Scope: Verifiable technical criteria and operational benchmarks systems must achieve before entering production; aligns internal systems with national and international quality frameworks.   
-PDF
-+ 1
-
-Enterprise Frameworks:
-
-ISO/IEC 42001: Global standard for Artificial Intelligence Management Systems (AIMS).   
-PDF
-
-NIST AI Risk Management Framework: Structuring governance across Govern, Map, Measure, and Manage functions.   
-PDF
-
-UK Sector-Led Framework: Enforcing non-statutory principles across safety, transparency, fairness, and accountability.   
-PDF
-
-Operational Controls: Automated model validation gates (accuracy, disparate impact, latency baselines), Software Bill of Materials (SBOM) audits, and red-team vulnerability testing.   
-PDF
-+ 2
-
-Slide 2: Ownership & Control (Accountability & Human Oversight)
-3. Accountability (Named Human Ownership):
-
-Purpose & Scope: Replaces diffused department-wide liability with legally defensible human ownership; ensures legal and financial liability rests with named corporate leaders rather than software.   
-PDF
-+ 2
-
-Enterprise Frameworks:
-
-The AI Governance Board: Cross-functional executive body (CRO, CISO, Legal Counsel, Head of AI) with sole corporate veto authority.   
-PDF
-
-Senior Responsible Owner (SRO): Named executive held personally answerable for specific algorithmic assets.
-
-UK GDPR Controller Obligations: Legal accountability for automated processing outcomes.   
-PDF
-+ 1
-
-Operational Controls: Centralized Model Inventory Registry logging business justification, lineage, and risk tier; enforceable third-party SLAs; immutable automated audit logging.   
-PDF
-+ 3
-
-4. Human Oversight (Operational Guardianship):
-
-Purpose & Scope: Operational mechanisms ensuring human judgment governs automated execution; scales intervention based on risk level to prevent unchecked algorithm drift; enforces statutory compliance under UK GDPR Article 22.   
-PDF
-+ 4
-
-Oversight Paradigms:
-
-Human-in-the-Loop (HITL): Active human review and manual approval required before actions reach execution or users.   
-PDF
-+ 1
-
-Human-on-the-Loop (HOTL): System runs autonomously in real time while a human supervisor monitors live telemetry with override power.   
-PDF
-
-Human-in-Command (HIC): High-level strategic oversight with the corporate authority to alter operational scope or decommission systems entirely.   
-PDF
-
-Operational Controls: Accessible human contestability channels for affected users, automatic exception freezes when confidence scores drop below thresholds, and Level 1 to Level 3 incident escalation pathways with emergency kill switches.   
-PDF
-+ 3
-
-Facilitator Speaker Notes (Embedded in PDF)
-Slide 1 Delivery Guidance (approx. 7–8 mins):
-
-Framing Governance: Emphasize to apprentices that governance is not an innovation blocker—it provides the structural guardrails that allow organizations to deploy technology with confidence without triggering legal fines or public relations disasters.   
-PDF
-+ 1
-
-Policies vs. Standards: Differentiate policies (the organizational rules of what employees may do) from standards (the measurable technical thresholds models must pass before deployment).   
-PDF
-
-Facilitation Prompt: "Does your workplace have a signed AI Acceptable Use Policy, or are teams experimenting on an ad-hoc basis with public tools?"
-
-   
-PDF
-+ 1
-
-Slide 2 Delivery Guidance (approx. 7–8 mins):
-
-The Legal Reality of Accountability: Drive home the core principle: "You cannot take an algorithm to court." When an automated system fails or causes harm, named executives bear financial and legal liability.   
-PDF
-+ 1
-
-The Three Oversight Models: Walk through HITL (mandatory checkpoint), HOTL (monitoring with override), and HIC (strategic kill-switch control). Connect this directly to GDPR Article 22, reminding learners that individuals have a legal right not to be subject to solely automated decisions that carry legal or significant effects.   
-PDF
-+ 4
-
-Apprenticeship Portfolio Link (K1, K2): In their endpoint assessments and reflective logs, apprentices must demonstrate an understanding of how organizational leadership establishes accountability structures and maintains human-in-the-loop controls.   
-PDF
-+ 2
-
-Closing Prompt: "For the candidate processes you want to automate in your workplace, which oversight model fits best: Human-in-the-Loop, Human-on-the-Loop, or Human-in-Command?"
-
-   
-PDF
-
-Topic 4: Identifying Process Waste
-
-Content
-
-Introduce common forms of waste:
-
-Waiting
-
-Over-processing
-
-Rework
-
-Duplication
-
-Excess approvals
-
-Unnecessary movement of information
-
-Discuss Lean thinking principles.
-
-the overall topic for this session is Process Improvement fundamentals
-
-Your PDF presentation slides covering Topic 4: Identifying Process Waste are ready:
-
-PDF icon
-Topic4_Identifying_Process_Waste_3Slides
- PDF 
-Structure of the 3-Slide Set
-This 3-slide sequence sits within Session 1: Process Improvement Fundamentals. It uses the COPA corporate branding palette (Deep Navy #0C2340, Crimson Red #E31B23, and Slate #F8FAFC), replacing industry-specific hospitality references with universal business, operational, and digital concepts:   
-PDF
-+ 4
-
-Slide 1: Lean Thinking Principles & Value Creation
-A 5-column progression breaking down the foundation of Lean operations before diagnosing specific wastes:
-
-1. Define Value (Customer Lens): Value is defined strictly by the end customer, not internal legacy habits. Distinguish Value-Adding (VA) activities from Non-Value-Adding (NVA) toil.   
-PDF
-+ 1
-
-Customer Test: "Would the customer willingly pay for this step if they saw you doing it?"
-
-2. Map the Value Stream (Visualising the Flow): Map the complete end-to-end journey required to deliver the output, identifying every handoff, queue, and hidden shadow workaround.   
-PDF
-+ 1
-
-Flow Test: "Does every task actively transform the deliverable, or is it idle waiting?"
-
-3. Create Flow (Eliminating Delays): Ensure work moves continuously without stops, queues, or batch-and-queue habits.   
-PDF
-
-Velocity Test: "How much time does work spend actively moving versus stalled in a queue?"
-
-   
-PDF
-+ 1
-
-4. Establish Pull (Demand-Driven Operations): Produce and process deliverables only when downstream demand requires them, avoiding work-in-progress (WIP) accumulation and over-processing.   
-PDF
-
-Capacity Test: "Are teams pushing work ahead prematurely, creating backlogs?"
-
-5. Pursue Perfection (Kaizen Mindset): Continuous incremental improvement, treating root-cause problem solving as daily work rather than a one-time initiative.   
-PDF
-+ 1
-
-Mindset Test: "Is improvement viewed as a temporary project or a continuous cultural habit?"
-
-Slide 2: Delay & Execution Deficiencies (Waiting, Over-Processing & Rework)
-1. Waiting (Idle Latency / Queue Delay):
-
-Lean Waste Definition: Work halts because upstream tasks, systems, or resources are desynchronized; pure non-value-adding pipeline delay.   
-PDF
-+ 1
-
-Operational Friction: Requests trapped in manager inboxes; staff idling while awaiting batch data syncs; customers queued at peak periods.   
-PDF
-
-Tech & Automation Interventions: Real-time event brokers streaming tasks asynchronously; predictive pacing systems; automated self-service digital intake.   
-PDF
-
-2. Over-Processing (Redundant Effort & Gold-Plating):
-
-Lean Waste Definition: Performing extra tasks, unnecessary formatting, or redundant checks beyond customer requirements.   
-PDF
-+ 1
-
-Operational Friction: Manually re-formatting spreadsheets for personal preference; filling lengthy 15-field questionnaires when only 3 data points are needed; multiple redundant audits on low-risk transactions.   
-PDF
-
-Tech & Automation Interventions: Intelligent Document Processing (IDP) auto-extracting required target fields; pre-built digital templates; exception-based auditing.   
-PDF
-
-3. Rework (Defect Remediation):
-
-Lean Waste Definition: Correcting defective deliverables, re-doing tasks, or fixing errors; consumes double the operational capacity.   
-PDF
-+ 1
-
-Operational Friction: Re-issuing incorrect invoices; re-keying orders rejected due to format errors; resolving disputes from miscommunicated specifications.   
-PDF
-
-Tech & Automation Interventions: Mandatory input schema validation blocking bad submissions; automated quality gates verifying outputs before handoffs; standardized checklists.   
-PDF
-
-Slide 3: Systemic & Structural Friction (Duplication, Excess Approvals & Info Movement)
-4. Duplication (Multi-System Re-entry):
-
-Lean Waste Definition: Performing identical actions or keying identical data into multiple places; stems from departmental silos and disconnected tools.   
-PDF
-+ 1
-
-Operational Friction: Entering identical customer data into CRM and finance platforms; maintaining shadow spreadsheets alongside official databases; customers re-explaining details across touchpoints.   
-PDF
-
-Tech & Automation Interventions: Direct API middleware synchronizing records in real time; Master Data Management (MDM) establishing single sources of truth; unified profiles.   
-PDF
-
-5. Excess Approvals (Governance Chokepoints):
-
-Lean Waste Definition: Bottlenecks caused by requiring manager sign-offs for low-risk, predictable operational decisions; leads to review fatigue.   
-PDF
-+ 1
-
-Operational Friction: Staff pausing service to hunt supervisors for minor overrides; multi-tier executive sign-offs for routine budgeted items; low-risk claims stalled in trays.   
-PDF
-
-Tech & Automation Interventions: Policy-as-code rule engines auto-approving actions within risk thresholds; dynamic anomaly scoring; tiered delegation frameworks.   
-PDF
-+ 1
-
-6. Unnecessary Movement of Information (Fragmented Routing):
-
-Lean Waste Definition: Routing critical data through slow, complicated channels before reaching execution; increases latency and error probability.   
-PDF
-+ 1
-
-Operational Friction: Walking to central terminals or printers; handwritten requests passed verbally and misplaced; vital data lost in sprawling email threads.   
-PDF
-
-Tech & Automation Interventions: Mobile/handheld input devices streaming directly to execution nodes; automated ticketing parsing requests to teams; distributed event brokers.   
-PDF
-
-Facilitator Speaker Notes (Embedded in PDF)
-Slide 1 Delivery Guidance (approx. 7–8 mins):
-
-Lean Philosophy: Clarify that Lean is not about cutting staff or forcing teams to work faster; it is about removing friction so that value flows unimpeded.
-
-Customer Value Focus: Challenge learners on the difference between value-added activity (work the customer cares about) and non-value-added toil (internal bureaucracy).   
-PDF
-
-Prompt: "Looking at your typical working day, what percentage of your time is spent on tasks that the end customer would genuinely perceive as valuable?"
-
-   
-PDF
-
-Slide 2 Delivery Guidance (approx. 7–8 mins):
-
-Waiting as Pure Waste: Remind apprentices that tasks often spend 90% of their lead time waiting in an inbox or queue, rather than being actively processed.   
-PDF
-+ 1
-
-Rework Penalties (K5 Link): Emphasize that rework is the most expensive waste because the business pays for the same operational hour twice. Eliminating rework is the fastest path to capacity expansion.   
-PDF
-+ 4
-
-Prompt: "Where in your department does work most frequently get returned or redone, and what input defect caused the original error?"
-
-   
-PDF
-
-Slide 3 Delivery Guidance (approx. 7–8 mins):
-
-Structural Waste: Explain how disconnected applications force employees to act as "human copy-paste bridges" between software tools.   
-PDF
-
-Micro-Governance: Discuss how requiring manager signatures for £5 transactions creates review fatigue where managers rubber-stamp without checking.   
-PDF
-
-Connecting to Process Maps: Remind learners that on their upcoming swimlane diagrams, handoff lines and decision diamonds are the exact spots where duplication, excess approvals, and information lag appear.   
-PDF
-+ 1
-
-Closing Prompt: "How many times is information in your team manually re-typed or handed off across colleagues before a single task reaches completion?"
-
-   
-PDF
-+ 1
-
-I want to add an interactive activity, for process mapping, it could be either creating a simple process map or have them correct a process map that ahs been done incorrectly. these activities will be hosted on github pages, it will be split into two html file snad each html will have a seperate css
-
-Both interactive activities have been engineered with standalone HTML and dedicated CSS files, styled in your COPA corporate palette (Deep Navy #0C2340, Crimson Red #E31B23, and Clean Off-White #F8FAFC):   
-PDF
-
-Activity 1: Build a Process Map (mapbuilder.html & mapbuilder.css)
-HTML: 
-HTML icon
-mapbuilder
- HTML 
- (mapbuilder.html)
-
-CSS: 
-CSS icon
-mapbuilder
- CSS 
- (mapbuilder.css)
-
-What this activity does:
-Interactive Drag-and-Drop Canvas: Apprentices drag 6 sequential process cards from a component bank into a 3-swimlane grid (Customer, Sales & Admin, Warehouse & Logistics) across chronological stages (Columns 1 to 6).   
-PDF
-+ 1
-
-Symbol & Notation Recognition: Cards are explicitly badged with standard notation symbols: Trigger Oval, Process Step Rectangle, Decision Diamond, and End Terminator Oval.   
-PDF
-
-Instant Validation Engine: Checks that tasks are correctly mapped to their responsible stakeholder lane and placed in proper chronological order, providing targeted feedback on cross-functional handoffs.   
-PDF
-
-Activity 2: Audit a Flawed Process Map (mapaudit.html & mapaudit.css)
-HTML: 
-HTML icon
-mapaudit
- HTML 
- (mapaudit.html)
-
-CSS: 
-CSS icon
-mapaudit
- CSS 
- (mapaudit.css)
-
-What this activity does:
-Side-by-Side Diagnostic Triage: Displays a draft customer onboarding flow on the left panel that contains 5 common process mapping errors, with an interactive quality audit checklist on the right:
-
-Boundary Defect (Step 1): Using a task rectangle instead of an explicit Start Trigger oval.   
-PDF
-
-Decision Logic Defect (Step 2): An evaluation diamond with only one exit branch ("Yes"), missing the exception route.   
-PDF
-
-Swimlane Accountability Defect (Step 3): Misallocating internal database setup to the external Customer swimlane.   
-PDF
-
-Dead-End Exception Defect (Step 4): A payment verification step that lacks a defined rework or rejection loop.   
-PDF
-
-Terminal Boundary Defect (Step 5): A workflow that terminates abruptly without an official End Terminator oval.   
-PDF
-
-Dynamic Visual Feedback: Diagnosing a defect highlights the flawed node in green on the visual map, while errors trigger red alerts with targeted remediation advice.
-
-GitHub Pages Setup
-Add all four files (mapbuilder.html, mapbuilder.css, mapaudit.html, mapaudit.css) to the root of your GitHub Pages repository.
-
-Direct apprentices to either URL depending on your session plan:
-
-Builder Lab: https://<username>.github.io/<repo-name>/mapbuilder.html
-
-Audit Lab: `
-
-the html must be formatted to uk english
-
-All interactive HTML and CSS files have been updated and formatted strictly to UK English (en-GB):
-
-Updated Files
-1. Process Map Builder Lab
-HTML (mapbuilder.html): 
-HTML icon
-mapbuilder
- HTML 
-   
-HTML
-
-CSS (mapbuilder.css): [file-tag: code-generated-file-8d336a86-0ca0-4888-bdc3-46ca1adfa02a]   
-CSS
-
-2. Process Map Quality Audit Lab
-HTML (mapaudit.html): 
-HTML icon
-mapaudit
- HTML 
-   
-HTML
-
-CSS (mapaudit.css): [file-tag: code-generated-file-d5e10134-0fd0-46b8-8f23-86e7d59299a4]   
-CSS
-
-3. Improvement Opportunities Prioritisation Lab
-HTML (improvementopp.html): 
-HTML icon
-improvementopp
- HTML 
-   
-HTML
-
-CSS (improvementopp.css): [file-tag: code-generated-file-d7c76c4e-f670-440c-8466-fc31d0680d96]   
-CSS
-
-UK English Localisations Applied
-Language Tags: Updated document headers to <html lang="en-GB"> across all web deliverables.   
-HTML
-+ 2
-
-Vocabulary & Spelling Adjustments:
-
-prioritise, prioritising, prioritisation (replacing -ize).   
-HTML
-
-categorise, categorised (replacing -ize/-ized).   
-HTML
-
-authorisation, authorise (replacing -ization).   
-HTML
-
-colour (replacing color).   
-HTML
-
-customise (replacing customize).   
-HTML
-
-optimise (replacing optimize).   
-HTML
-
-programme (replacing program for structured initiatives).   
-HTML
-
-behaviour (replacing behavior).   
-HTML
-
-synchronisation (replacing synchronization).   
-HTML
-
-create new files
-
-The new, standalone activity files have been created, formatted in UK English (en-GB), and separated into distinct HTML and CSS pairs using the COPA corporate styling palette (Deep Navy #0C2340, Crimson Red #E31B23, and Slate #F8FAFC):   
-PDF
-
-Activity 1: As-Is Process Map Builder
-A drag-and-drop swimlane construction exercise where apprentices position 6 workflow elements across three stakeholder lanes (Customer, Sales & Admin, Warehouse & Logistics) and 6 chronological stages:   
-PDF
-+ 1
-
-HTML Structure: 
-HTML icon
-process_map_builder
- HTML 
- (process_map_builder.html)
-
-Stylesheet: 
-CSS icon
-process_map_builder
- CSS 
- (process_map_builder.css)
-
-Activity 2: Process Map Quality & Logic Audit
-A diagnostic exercise presenting a draft client onboarding flow with 5 deliberate logic, boundary, and notation defects alongside an interactive checklist with real-time visual node feedback:   
-PDF
-+ 2
-
-HTML Structure: 
-HTML icon
-process_map_audit
- HTML 
- (process_map_audit.html)
-
-Stylesheet: 
-CSS icon
-process_map_audit
- CSS 
- (process_map_audit.css)
-
-GitHub Pages URLs
-Once committed to your repository root, these activities are immediately accessible at:
-
-https://<username>.github.io/<repo-name>/process_map_builder.html
-
-`
-
-update process map builder to include an overview of what the task is
-
-The updated HTML file for the Process Map Builder is ready:
-HTML icon
-process_map_builder
- HTML 
- (process_map_builder.html)
-
-(The accompanying stylesheet remains [file-tag: code-generated-file-82076873-8a67-4b24-8a7c-609fb2fa6197] process_map_builder.css)
-
-What Was Added to the Task Overview
-A top briefing banner now provides apprentices with the operational context, notation rules, and instructions before they interact with the canvas:
-
-Foundational Purpose of As-Is Mapping:
-
-Explains that before automating or implementing AI, practitioners must capture the baseline reality of how work operates today.
-
-Highlights that swimlanes provide transparency across sequence, role accountability, and departmental handoffs.   
-PDF
-
-Core Process Mapping Principles:
-
-1. Swimlane Ownership: Explains that horizontal lanes represent teams or stakeholders (Customer, Sales & Admin, Warehouse), clearly defining operational responsibility for each step.   
-PDF
-
-2. Standard Geometric Notation: Details standard shapes—Ovals for Start Triggers/End Terminating points, Rectangles for action tasks, and Diamonds for decision gateways.   
-PDF
-
-3. Objective of the Exercise: Guides apprentices to reconstruct the end-to-end "Customer Order & Delivery" flow across stages 1 to 6 by dragging cards from the bank into their correct lanes and sequence.   
-PDF
-+ 1
-
-Topic 2: Identifying Automation opportunities
-
-Repetitive Tasks
-
-Topic 2: Identifying Automation opportunities
-
-Repetitive Tasks
-
-Your PDF presentation slides for Topic 2: Identifying Automation Opportunities (Repetitive Tasks) are ready:
-
-PDF icon
-Topic2_Identifying_Automation_Opportunities_Repetitive_Tasks_2Slides
- PDF 
-Structure of the 2-Slide Topic 2 Set
-This 2-slide sequence sits in Session 2: Opportunity Analysis, formatted in UK English (en-GB) with the COPA corporate branding palette (Deep Navy #0C2340, Crimson Red #E31B23, and Off-White #F8FAFC):   
-PDF
-
-Slide 1: Qualifying Criteria for Repetitive Tasks (Triage Framework)
-A 4-column diagnostic framework that teaches apprentices how to evaluate whether a workplace activity is truly viable for automation before investing engineering effort:
-
-1. High Frequency (Volume Driver):
-
-Nature: Tasks executed daily, hourly, or thousands of times across operational cycles.
-
-Indicators: Substantial cumulative staff hour drain across teams; predictable, steady transaction volume curves.
-
-Diagnostic Test: "Does your team perform this exact action multiple times every shift?"
-
-2. Rule-Based Logic (Deterministic Execution):
-
-Nature: Work guided by clear, unambiguous, documented rules with zero subjective discretion required.
-
-Indicators: Follows deterministic "If-This-Then-That" logic; requires no emotional nuance or ethical negotiation.
-
-Diagnostic Test: "Could you write down the exact decision criteria without using the phrase 'it depends'?"
-
-3. Structured Inputs (Standardised Data):
-
-Nature: Data arrives in consistent, predictable formats or digital schemas.
-
-Indicators: Form submissions, database fields, CSVs, or API payloads with low formatting variance.
-
-Diagnostic Test: "Is the incoming information consistent enough for automated validation rules to parse reliably?"
-
-4. Low Exception Rate (Predictable Outcomes):
-
-Nature: The standard "happy path" covers 85%+ of processed transactions.
-
-Indicators: Edge cases are rare and easily routed to Human-in-the-Loop review gates (K6).
-
-Diagnostic Test: "Do 85% or more of these cases flow through without needing manual human intervention?"
-
-Slide 2: Core Archetypes & Target Interventions
-A 3-card operational breakdown examining the three most common repetitive task archetypes found in enterprise environments:
-
-1. Data Re-Keying & Entry ("Swivel-Chair" Toil):
-
-Task Profile: Manually copying, formatting, and pasting data between disconnected applications, acting as a human bridge between email inboxes, spreadsheets, and databases.   
-PDF
-
-Shift Symptoms: Staff spending 2–3 hours daily keying order forms or tickets; high typo defect rates; record discrepancies between tools.   
-PDF
-+ 1
-
-Target Interventions: Robotic Process Automation (RPA) scripts, direct API middleware, and front-end validation gates.   
-PDF
-
-2. Document Ingestion & Extraction (High-Volume Intake):
-
-Task Profile: Reading, cross-referencing, and indexing recurring files (supplier invoices, PDF onboarding forms, delivery dockets).   
-PDF
-
-Shift Symptoms: Documents piling up in shared inboxes; multi-day turnaround backlogs during month-end surges; staff manually checking totals against POs.   
-PDF
-+ 2
-
-Target Interventions: Intelligent Document Processing (IDP) auto-extracting fixed key-value pairs; automated 3-way reconciliation; exception-routing triggers.   
-PDF
-
-3. Triage & Routine Status Inquiries (Service Dispatch):
-
-Task Profile: Categorising inbound support tickets, routing emails, and answering identical repetitive customer questions ("Where is my order?").
-
-Shift Symptoms: Support agents overwhelmed by Tier-1 queries; queue latency delays while items sit unread in shared mailboxes; high interruption fatigue.   
-PDF
-+ 1
-
-Target Interventions: Natural Language Processing (NLP) models classifying inbound intent; conversational AI copilots answering routine lookups 24/7; automated ticket dispatch bots.
-
-Facilitator Speaker Notes (Embedded in PDF)
-Slide 1 Delivery Guidance (approx. 7–8 mins):
-
-Framing: Remind apprentices that just because a task is boring or frustrating does not automatically mean it should be automated.
-
-The 4 Filters: Walk learners through the four qualification gates (Frequency, Rule-Based, Structured Data, Low Exceptions). Emphasize that automating a 5-minute task done twice a year yields negligible ROI compared to automating a 2-minute task done 300 times a day.   
-PDF
-+ 1
-
-Prompt: "Think about your typical workweek. Which task in your routine checks all four qualifying criteria?"
-
-Slide 2 Delivery Guidance (approx. 7–8 mins):
-
-Swivel-Chair Reality: Explain how legacy systems force staff into becoming "human copy-paste bridges" between software tools, driving high error rates and employee burnout.   
-PDF
-+ 1
-
-Alignment with Standard K6 (Human Augmentation): Clarify that automating repetitive data extraction (IDP) and routine inquiry triage does not eliminate staff; it reclaims capacity so humans can handle nuanced, high-touch problem solving.   
-HTML
-
-Portfolio Link: Instruct learners to select one repetitive task archetype from this slide as the primary candidate for their upcoming Process Improvement Pitch in Session 3.
-
-Closing Prompt: "Which of these three archetypes consumes the highest number of team hours in your department right now?"
-
-   
-PDF
-
-Topic 2: Identifying Automation Opportunities
-
-Content
-
-Explore characteristics of suitable processes:
-
-Repetitive tasks
-
-High-volume activities
-
-Rule-based decisions
-
-Standardised workflows
-
-Data handling activities
-
-Unsuitable processes:
-
-Highly subjective decision making
-
-Creative tasks
-
-Complex negotiations
-
-it needs to be simple and easy to understand, this is based on a level 4 apprenticeship in AI and automation
-
-Your presentation slides for Topic 2: Identifying Automation Opportunities have been structured into a clear, accessible 2-slide framework designed for Level 4 Apprentices in AI and Automation.   
-PDF
-
-Your PDF presentation file is ready:
-
-PDF icon
-Topic2_Identifying_Automation_Opportunities_Suitable_vs_Unsuitable_2Slides
- PDF 
-Structure of the 2-Slide Set
-This 2-slide sequence splits the topic into an intuitive "Green Light vs. Red Light" decision model using the COPA corporate branding palette (Deep Navy #0C2340, Crimson Red #E31B23, and Slate #F8FAFC), phrased in simple, universal business language:   
-PDF
-
-Slide 1: Suitable Processes — What to Automate (The Green Light Filter)
-A 5-column breakdown exploring the key characteristics of processes ideal for automation:   
-HTML
-+ 1
-
-1. Repetitive Tasks (Predictable Steps):
-
-Concept: Tasks executed the exact same way every single time without variation.   
-HTML
-+ 1
-
-What it looks like: Identical mouse clicks, keystrokes, and simple screen navigation; minimal critical thinking; mechanical "copy-paste" effort.   
-HTML
-+ 1
-
-Workplace Example: Copying customer contact details from an online query form into your internal database.   
-PDF
-
-2. High-Volume Activities (Scale & Capacity):
-
-Concept: Tasks that happen dozens, hundreds, or thousands of times weekly.   
-HTML
-+ 1
-
-What it looks like: Consumes substantial team hours; creates bottlenecks during peak periods; delivers huge cumulative time savings when automated.   
-PDF
-+ 1
-
-Workplace Example: Sending payment receipts or booking confirmation emails to hundreds of customers every day.   
-PDF
-+ 1
-
-3. Rule-Based Decisions (Clear Logic):
-
-Concept: Decisions guided by clear "If-This-Then-That" logic with zero guesswork.   
-PDF
-+ 1
-
-What it looks like: Follows an explicit written policy or checklist; does not depend on mood, context, or gut feeling; can be resolved with a simple Yes or No.   
-PDF
-+ 1
-
-Workplace Example: "If an invoice is under £25 and a receipt is attached, approve the reimbursement."
-
-   
-PDF
-+ 1
-
-4. Standardised Workflows (Uniform Procedures):
-
-Concept: Processes that follow an established, consistent sequence across all team members.   
-PDF
-
-What it looks like: Everyone follows the same steps; clear starting trigger and defined end deliverable; documented Standard Operating Procedure (SOP).   
-PDF
-+ 1
-
-Workplace Example: A standard checklist for provisioning a new employee laptop and email account.
-
-5. Data Handling Activities (Structured Information):
-
-Concept: Moving, formatting, validating, or reconciling digital information.   
-PDF
-+ 1
-
-What it looks like: Information arrives in predictable layouts (web forms, spreadsheets); checking that data matches across two systems; vulnerable to human typing fatigue.   
-PDF
-+ 2
-
-Workplace Example: Matching purchase order reference numbers on a delivery note against supplier invoice line items.   
-PDF
-
-Slide 2: Unsuitable Processes — What NOT to Automate (The Red Light Filter)
-A 3-column analysis teaching apprentices where human discretion, empathy, and creativity must be protected (Standard K6: Augmenting Human Capability):
-
-1. Highly Subjective Decisions (Human Judgement & Empathy):
-
-Why Automation Fails: Decisions depend heavily on context, lived experience, and moral discretion. There is no single mathematical formula.
-
-The Risk: Automating subjective decisions risks unfairness, bias, workforce alienation, and legal breaches under the Equality Act 2010 and GDPR Article 22.
-
-Workplace Example: Conducting a disciplinary hearing, resolving a sensitive employee grievance, or grading creative portfolios.
-
-2. Creative Tasks (Original Thinking & Nuance):
-
-Why Automation Fails: Requires genuine human imagination, cultural awareness, storytelling, and brand personality.
-
-The Risk: Generative AI can assist with brainstorming or rough drafting, but blind automation leads to bland, generic, and uninspired results.
-
-Workplace Example: Designing a new brand identity, writing a major executive speech, or producing an original marketing narrative.
-
-3. Complex Negotiations (Trust & Relationships):
-
-Why Automation Fails: People do business with people. High-stakes negotiations require reading subtle body language, detecting vocal tone, building trust, and trading mutual concessions.
-
-The Risk: Bots and rigid automated logic cannot navigate compromise, understand commercial relationships, or manage interpersonal friction.
-
-Workplace Example: Closing a multi-year partnership agreement or resolving an escalated, high-profile customer dispute.
-
-Facilitator Speaker Notes (Embedded in PDF)
-Slide 1 Delivery Guidance (approx. 7–8 mins):
-
-Frame the 5 green-light characteristics as a practical qualification checklist: before spending weeks writing automation scripts, apprentices must confirm the task actually checks these boxes.   
-HTML
-+ 1
-
-Reiterate the core rule: standardise before you automate. If team members handle the same task in three different ways, automating it will only automate inconsistency.   
-PDF
-+ 1
-
-Facilitation Prompt: "Think about your current job role. Which task takes up hours of your week and checks all five of these green-light boxes?"
-
-   
-PDF
-
-Slide 2 Delivery Guidance (approx. 7–8 mins):
-
-Emphasize that knowing what not to automate is what separates an ethical Level 4 Practitioner from someone who introduces organizational risk (K2 & K6).
-
-Reinforce the philosophy of human augmentation: automation is designed to handle repetitive, high-volume mechanical toil so human employees have the bandwidth to focus on subjective judgment, empathy, creative problem-solving, and relationship building.   
-HTML
-
-Closing Prompt: "Has anyone experienced a company trying to automate a sensitive or subjective customer service issue, and what happened when a human wasn't involved?"
-
-update to 3 slides
-
-Your presentation deck for Topic 2: Identifying Automation Opportunities has been split into 3 slides designed for Level 4 Apprentices in AI and Automation.   
-PDF
-
-The PDF file is ready:
-
-PDF icon
-Topic2_Identifying_Automation_Opportunities_3Slides
- PDF 
-Structure of the 3-Slide Set
-Slide 1: Suitable Processes — What to Automate (Part 1 of 2)
-Focuses on the core mechanical criteria of candidate tasks using a 3-column layout:   
-PDF
-
-1. Repetitive Tasks (Predictable Steps):
-
-Concept: Tasks executed the exact same way every single time without variation.   
-HTML
-+ 2
-
-What It Looks Like: Identical mouse clicks, keystrokes, and predictable navigation; requires zero creative problem-solving; mechanical "copy-paste" toil.   
-PDF
-
-Workplace Example: Copying customer contact details from an online query form into your database.   
-PDF
-+ 1
-
-2. High-Volume Activities (Scale & Capacity):
-
-Concept: Tasks occurring frequently—dozens, hundreds, or thousands of times weekly.   
-HTML
-+ 2
-
-What It Looks Like: Consumes substantial cumulative staff hours each shift; creates backlogs when demand spikes; delivers measurable time savings and return on investment (ROI).   
-PDF
-+ 2
-
-Workplace Example: Sending payment receipts or booking confirmation emails to hundreds of customers daily.   
-PDF
-+ 2
-
-3. Rule-Based Decisions (Deterministic Logic):
-
-Concept: Choices guided by clear "If-This-Then-That" rules with zero guesswork.   
-PDF
-+ 2
-
-What It Looks Like: Follows an explicit written policy, flowchart, or SOP; does not depend on mood or personal feelings; resolves with a clear Yes or No.   
-PDF
-+ 2
-
-Workplace Example: "If total invoice amount is under £25 and receipt is attached, approve reimbursement."
-
-   
-PDF
-+ 2
-
-Slide 2: Suitable Processes — What to Automate (Part 2 of 2)
-Focuses on workflow consistency and digital information flow using an expanded 2-column format:
-
-4. Standardised Workflows (Uniform Procedures):
-
-Concept: Processes following an established, consistent sequence across all team members and departments.   
-PDF
-
-What It Looks Like: Everyone completes the task the same way; clear initiating trigger, defined milestones, and agreed finished output; backed by a Standard Operating Procedure (SOP).   
-PDF
-+ 1
-
-The Lean Principle: You cannot automate chaos—standardise procedures first to create a stable baseline.   
-PDF
-
-Workplace Example: A standard checklist for setting up a new employee laptop, email account, and system permissions.
-
-5. Data Handling Activities (Structured Information):
-
-Concept: Moving, reformatting, reconciling, or validating digital information between systems.   
-PDF
-+ 2
-
-What It Looks Like: Information arrives in predictable layouts (web forms, CSVs, databases, APIs); cross-checking data matches across separate software; replacing human "swivel-chair" copying.   
-PDF
-+ 1
-
-The Accuracy Benefit: Replaces error-prone manual re-entry with direct system-to-system data flow.   
-PDF
-+ 1
-
-Workplace Example: Matching purchase order reference numbers on a delivery note against supplier invoice line items.   
-PDF
-+ 1
-
-Slide 3: Unsuitable Processes — What NOT to Automate (The Red Light Filter)
-Dedicated entirely to preserving human discretion, empathy, and relationships (Meeting Criterion K6: Human Augmentation):   
-PDF
-
-1. Highly Subjective Decisions (Human Judgement & Empathy):
-
-Why Automation Fails: Decisions rely on emotional intelligence, moral discretion, and unique personal context where no single mathematical formula exists.   
-PDF
-
-The Risk: Automating subjective decisions risks unfairness, bias, workforce alienation, and legal breaches under the Equality Act 2010 and GDPR Article 22.   
-PDF
-
-Workplace Example: Conducting a disciplinary hearing, judging a sensitive grievance, or grading creative portfolios.   
-PDF
-
-2. Creative Tasks (Original Thinking & Nuance):
-
-Why Automation Fails: Requires genuine human imagination, cultural awareness, storytelling, and brand personality.   
-PDF
-
-The Risk: Generative AI can assist with drafting, but unvetted automation leads to bland, generic, and uninspired outputs.   
-PDF
-
-Workplace Example: Designing a new company brand identity, writing a keynote speech, or crafting an artistic campaign.   
-PDF
-
-3. Complex Negotiations (Trust & Relationships):
-
-Why Automation Fails: People do business with people. Negotiations require reading subtle body language, vocal tone, building trust, and trading mutual compromises.   
-PDF
-+ 1
-
-The Risk: Rigid automated scripts cannot navigate commercial friction or negotiate mutual strategic value.   
-PDF
-
-Workplace Example: Closing a major multi-year partnership contract or resolving an escalated customer commercial dispute.   
-PDF
-
-Facilitator Speaker Notes (Embedded in PDF)
-Slide 1 Delivery Guidance (approx. 5 mins): Introduce the "Green Light" filter. Walk learners through repetitive tasks, high-volume drivers, and rule-based logic. Prompt: "Which tasks in your team consume the most hours each week while requiring almost zero creative thought?"   
-PDF
-+ 2
-
-Slide 2 Delivery Guidance (approx. 5 mins): Emphasize standardisation: you must standardize procedures before automating them. Connect data handling to "swivel-chair" administration. Prompt: "Where in your department do people manually copy or format data between two disconnected software systems?"   
-PDF
-+ 1
-
-Slide 3 Delivery Guidance (approx. 5 mins): Emphasize that knowing what not to automate is what defines an ethical Level 4 Practitioner (K6). Reinforce that automation should augment workers by absorbing mechanical toil, preserving human capacity for empathy, creativity, and judgment. Prompt: "Can anyone share an example where an organisation tried to automate a sensitive or subjective customer interaction, and what went wrong?"   
-HTML
-+ 1
-
-Topic 1: What is Low-Code Development?
-
-Content
-
-Introduce:
-
-Low-code vs traditional software development
-
-Benefits of low-code platforms
-
-Citizen developers
-
-Business-led innovation
-
-Rapid solution development
-
-Typical organisational use casesExamples:
-
-Leave request systems
-
-Approval workflows
-
-Service desk requests
-
-Customer enquiries
-
-Your presentation deck covering Topic 1: What is Low-Code Development? has been structured into a 3-slide sequence tailored for Level 4 Apprentices in AI and Automation.   
-PDF
-
-Your PDF presentation file is ready:
-
-PDF icon
-Topic1_What_is_Low_Code_Development_3Slides
- PDF 
-Structure of the 3-Slide Set
-The deck uses the COPA corporate branding palette (Deep Navy #0C2340, Crimson Red #E31B23, and Slate #F8FAFC) and is written in UK English (en-GB):   
-PDF
-
-Slide 1: Paradigms — Low-Code vs. Traditional Software Engineering
-A side-by-side comparative layout contrasting traditional text-based coding with visual low-code development platforms:   
-PDF
-
-Traditional Software Development (Bespoke Hand-Crafted Syntax):
-
-Nature: Hand-writing lines of code from scratch using languages like Python, Java, or C#, accompanied by custom database scripts and complex deployment pipelines.
-
-Delivery Reality: Requires specialised programming degrees; project lifecycles span 6 to 18 months; heavy ongoing maintenance overhead; central IT backlogs delay simple business requests.   
-PDF
-
-Operational Footprint: Best suited for proprietary core engines, complex mathematical algorithms, and bespoke intellectual property.
-
-Low-Code Development Platforms (Visual Model-Driven Assemblies):
-
-Nature: Assembling business applications and automations using drag-and-drop workflow canvases, pre-built functional modules, and point-and-click connectors.   
-PDF
-
-Delivery Reality: Visual logic builders; functional prototypes delivered in days or weeks; pre-configured enterprise connectors (Microsoft 365, SharePoint, SQL, REST APIs); central IT retains security and governance oversight.   
-PDF
-
-Operational Footprint: Ideal for internal departmental tools, approval routings, service intake portals, and cross-system data synchronisation.   
-PDF
-
-Slide 2: Innovation Enablers — Platform Benefits, Citizen Developers & Rapid Delivery
-A 3-column breakdown exploring how low-code platforms change delivery velocity across organisations:   
-PDF
-+ 1
-
-1. Strategic Platform Benefits (ROI & Scalability):
-
-Cost Reduction: Slashes custom coding hours and eliminates boilerplate infrastructure setup.   
-PDF
-+ 1
-
-Unified Integrations: Instant native connections to enterprise databases, cloud storage, and identity management.   
-PDF
-
-Built-In Governance: Managed within central IT security perimeters, providing automated cloud patching, role-based access, and audit logging.
-
-Responsive Design: A single visual build deploys natively across desktop, tablet, and mobile screens.   
-PDF
-
-2. The Citizen Developer Movement (Workforce Empowerment):
-
-Domain Insight: Business professionals who build operational tools understand the practical friction of daily shifts far better than remote developers.   
-PDF
-
-Closing the IT Delivery Gap: Relieves pressure on overburdened software teams by allowing departments to resolve their own operational challenges.   
-PDF
-
-Apprentice Alignment: Directly equips Level 4 practitioners to co-create solutions and lead digital improvement within their operational areas.   
-PDF
-+ 1
-
-3. Business-Led Innovation & Rapid Delivery (Velocity):
-
-Accelerated Prototyping: Move from a problem statement to a functional Proof of Concept (PoC) in hours or days rather than months.   
-PDF
-
-Immediate Feedback Loops: Test applications directly with shift colleagues and iterate based on live user feedback.   
-PDF
-+ 1
-
-Agile Adaptation: Update forms, notification rules, or validation criteria instantly as organizational policies change.   
-PDF
-
-Slide 3: Typical Organisational Use Cases — 4 Core Operational Workflows
-A 4-column operational review detailing high-impact low-code use cases:   
-PDF
-
-1. Leave Request Systems (People & HR):
-
-Replaces informal paper forms, sticky notes, and unstructured email chains.
-
-Staff submit holiday requests via a simple digital form; automated logic checks calendar entitlement; managers receive 1-click approval prompts; approved dates synchronize directly with team rotas and payroll records.   
-PDF
-
-Value: Eliminates lost leave paperwork and provides management with real-time staffing visibility.   
-PDF
-
-2. Approval Workflows (Finance & Governance):
-
-Streamlines purchase orders, expense claims, invoice sign-offs, and equipment requisitions.   
-PDF
-+ 1
-
-Captures receipts and quotes digitally; applies automated policy-as-code rules (e.g., claims under £25 auto-approve, larger amounts escalate); issues automated reminders if approval queues stall; records tamper-evident audit logs.   
-PDF
-+ 1
-
-Value: Compresses approval lead times from days to minutes while preventing unbudgeted financial leakage.   
-PDF
-+ 1
-
-3. Service Desk Requests (Internal Operations):
-
-Manages internal employee requests (IT equipment, software access, facility repairs, HR queries).
-
-Offers a single service portal that replaces scattered chat messages; categorizes and timestamps tickets automatically; tracks SLA targets; notifies staff as requests advance.   
-PDF
-
-Value: Ends "black-box" handoffs and ensures operational tasks are transparently tracked to completion.   
-PDF
-
-4. Customer Enquiries (Front-of-House & Customer Service):
-
-Captures and routes external client enquiries across web forms and digital channels.   
-PDF
-
-Uses mandatory input validation checks to eliminate dirty data; sends automated email receipts with unique reference numbers; updates CRM databases automatically without manual re-keying.   
-PDF
-+ 1
-
-Value: Improves response speed, stops human transcription errors, and protects customer retention.   
-PDF
-+ 1
-
-Facilitator Speaker Notes (Embedded in PDF)
-Slide 1 Delivery Guidance (approx. 5–6 mins): Clarify that low-code does not mean "no-skill"; it is an abstraction layer that allows solutions to be assembled visually. Emphasize that low-code does not replace professional software developers—it frees them from building routine data-entry forms so they can focus on complex back-end architectures. Prompt: "When someone in your team needs a simple tracking form, do you wait months for central IT, or does someone create another fragile spreadsheet?"   
-PDF
-+ 4
-
-Slide 2 Delivery Guidance (approx. 5–6 mins): Introduce the Citizen Developer concept as a central identity for Level 4 Apprentices. Explain that unlike unsanctioned "Shadow IT", enterprise low-code platforms give practitioners the tools to innovate while keeping central IT in control of security, compliance, and backups. Prompt: "Why is someone who actually works the shift often better placed to design an internal workflow tool than a programmer who has never seen the job done?"   
-PDF
-+ 2
-
-Slide 3 Delivery Guidance (approx. 6–7 mins): Walk through the four enterprise use cases. Remind learners of earlier discussions on process waste: these four archetypes directly target Waiting, Duplication, and Excess Approvals. Direct apprentices to consider these four use cases as inspiration for their own workplace improvement project proposals. Closing Prompt: "Which of these four workflows is still handled manually or via messy spreadsheets in your current team?"   
-PDF
-+ 4
-
-how many slides would be ideal for those topics
-
-For the Low-Code Automation & Delivery module (covering the introduction to low-code concepts, the citizen developer movement, and practical enterprise use cases), 3 slides is the ideal structure.   
-PDF
-+ 2
-
-Here is why this 3-slide allocation works best for a Level 4 Apprenticeship delivery:
-
-Recommended 3-Slide Breakdown
-Slide	Core Focus	Content Coverage	Delivery Target
-Slide 1
-
- 
-PDF
-
-Paradigms: Low-Code vs Traditional
-
- 
-PDF
-
-Contrast hand-crafted syntax with model-driven drag-and-drop tooling. Highlight delivery speeds, skill barriers, and operational footprints. 
-PDF
-+ 1
-
-~5–6 mins
-Slide 2
-
- 
-PDF
-
-Innovation Enablers & The Citizen Developer
-
- 
-PDF
-
-Platform benefits (lower cost, built-in governance, native mobile layout), defining the citizen developer, and business-led rapid solution development. 
-PDF
-+ 2
-
-~5–6 mins
-Slide 3
-
- 
-PDF
-
-Practical Organisational Use Cases
-
- 
-PDF
-
-4 concrete operational patterns: Leave request systems, approval workflows, service desk tickets, and customer enquiry triage. 
-PDF
-+ 3
-
-~6–7 mins
-Pedagogical Rationale for 3 Slides
-Avoids Cognitive Overload: Attempting to compress the paradigm comparison, the cultural shift of citizen development, and multiple operational workflows onto 1 or 2 slides leads to dense text and poor retention.   
-PDF
-+ 2
-
-Separates Theory from Application: Slide 1 anchors technical concepts, Slide 2 establishes the workforce mindset (K6 human augmentation), and Slide 3 connects directly to everyday workplace workflows (K4/K5 problem identification).   
-PDF
-+ 2
-
-Keeps Pacing Tight: At approximately 5 to 7 minutes per slide, the entire topic can be comfortably delivered in 15 to 18 minutes, leaving ample room for hands-on labs or interactive group triage within the 3-hour masterclass limit.
-
-Would you like to generate this exact 3-slide sequence as a standalone PDF presentation deck?
-
-expand the traditional code and low code to 1 slide each, but still keep it short and informative
-
-I will now generate the presentation deck expanding Traditional Software Development and Low-Code Development into one dedicated, focused slide each while keeping the design clean, readable, and presentation-ready.
-
-Traditional vs Low-Code Development
-
-Edit directly or with Gemini
- Click anywhere to type and edit directly, or select text to prompt Gemini for changes. 
-Your slide deck on Traditional vs Low-Code Development is ready! Feel free to review the layout, typography, and content balance, and let me know if you would like any further refinements.
-
-Build or Buy?
-
-Present several business scenarios.
-
-Learners discuss whether a solution should be:
-
-Manual process
-
-Low-code solution
-
-Custom software
-
-AI-assisted process
-
-I need to create an interactive activity that will be used to cover this, it will be hosted in github pages and must have the html file which will be called Low-Code.html and the css must be called Low-Code.css, it must be interactive but must have engaging elements and be various tasks but cover all of it, if possible include images from the internet that can be used as well.
-
-An interactive, engaging web-based activity has been created for your Level 4 AI & Automation Apprenticeship on "Build or Buy? Solution Architecture Triage".   
-PDF
-
-The application is structured into two separate files ready for GitHub Pages hosting, formatted strictly in UK English (en-GB), styled in your COPA corporate branding palette (Deep Navy #0C2340, Crimson Red #E31B23, Slate #F8FAFC), and features curated high-resolution web imagery:   
-PDF
-
-HTML File: 
-HTML icon
-Low-Code
- HTML 
- (Low-Code.html)
-
-CSS File: 
-CSS icon
-Low-Code
- CSS 
- (Low-Code.css)
-
-What Has Been Built
-1. Archetype Reference Showcase (With Web Imagery)
-At the top of the interface, apprentices can review the 4 fundamental delivery archetypes, each featuring reliable, curated imagery and bulleted criteria:
-
-Manual Process: Ad-hoc, low-frequency, highly sensitive, empathetic human matters.   
-PDF
-
-Low-Code Solution: Rapid visual forms, standard approval workflows, and native enterprise SaaS connectors.   
-PDF
-+ 1
-
-Custom Software Build: Mission-critical proprietary intellectual property, sub-millisecond memory speed, and bespoke mathematical algorithms.   
-PDF
-
-AI-Assisted Process: Unstructured documents (IDP), natural language summarisation, and conversational copilots paired with Human-in-the-Loop review (Criterion K6).   
-PDF
-+ 1
-
-2. Tab 1: Scenario Triage Simulator (Active Discussion & Evaluation)
-Presents 6 distinct, realistic business scenarios across various departments, forcing learners to evaluate Volume, Budget & Timeline, and Technical Complexity:
-
-Staff Annual Leave & Bank Holiday Booking (HR & People): 1,200 requests/year, 3-week deadline 
-→ Low-Code Solution (replaces paper forms; deploys in days with zero licensing burden).   
-PDF
-
-Real-Time Microsecond Currency Arbitrage Engine (Financial Markets): 15M trades/day, sub-millisecond execution 
-→ Custom Software Build (demands low-level C++/Rust bare-metal concurrency; low-code cannot handle this volume/speed).
-
-Multi-Format Supplier Invoice Ingestion & Matching (Finance & Accounts): 4,000 invoices/month in 250 varying PDF layouts 
-→ AI-Assisted Process (IDP extracts unstructured data, routing low-confidence exceptions to staff review).   
-PDF
-
-Executive Disciplinary & Grievance Investigation (People & Legal): 1–2 cases/year, sensitive harassment claims 
-→ Manual Process (Strict SOP) (requires moral discretion, confidential interviews, and emotional empathy; automating this breaches Equality Act and GDPR principles).   
-PDF
-
-Internal IT Hardware Requisition & Asset Sign-Off (IT Operations): 350 requests/month, tiered threshold approvals 
-→ Low-Code Solution (policy-as-code auto-approves small amounts, escalating laptops to department heads).   
-PDF
-+ 1
-
-Multilingual Inbound Customer Inquiry Sentiment & Drafting (Customer Operations): 10,000 emails/day in 8 languages 
-→ AI-Assisted Process (LLM copilot parses intent and pre-drafts replies, keeping agents in control before sending).   
-HTML
-+ 1
-
-Instant Feedback & Scoring: When learners confirm their decision, the simulator provides an immediate commercial justification, explaining why their choice is optimal or why other options introduce technical debt, cost overruns, or governance risks.   
-PDF
-
-3. Tab 2: Architecture Decision Sandbox (Interactive Experimentation)
-An interactive calculator where apprentices can adjust live sliders and dropdowns to test their own hypothetical workplace scenarios:
-
-Sliders & Selectors: Annual Transaction Volume (10 to 50,000/yr), Delivery Urgency (1 to 52 weeks), Data Structure (Structured vs. Unstructured PDF vs. High-speed signal), Business Logic (Deterministic vs. Cognitive vs. Subjective), and Integration Complexity.   
-PDF
-+ 1
-
-Real-Time Recommendation Engine: Dynamically calculates and renders the recommended architectural path with key commercial drivers and justification bullet points.
-
-How to Deploy on GitHub Pages
-Save the two generated files as Low-Code.html and Low-Code.css in your repository root.   
-HTML
-
-In your repository on GitHub, navigate to Settings 
-→ Pages and ensure the source branch is set to main (or master) with folder /(root).
-
-Access the live activity directly in the browser via:
-https://<your-username>.github.io/<your-repo-name>/Low-Code.html
-
-   
-HTML
-
-the image for number 4 is not displaying mask the 2. architecture decision sandbox easier.
-
-The files have been updated with both fixes in place:
-
-HTML File: 
-HTML icon
-Low-Code
- HTML 
- (Low-Code.html)
-
-CSS File: 
-CSS icon
-Low-Code
- CSS 
- (Low-Code.css)
-
-What Has Been Fixed & Improved
-1. Image 4 Fixed & Made Resilient
-Replaced the broken URL with a verified high-resolution tech image (photo-1485827404703-89b55fcc595e) representing AI and cognitive robotics.   
-HTML
-
-Added an inline onerror fallback that automatically swaps in an alternative verified image if a user's network or firewall blocks the primary link.
-
-2. Simplified "Architecture Decision Sandbox" (Tab 2)
-Tab 2 has been overhauled to make it intuitive and easy to digest for apprentices without technical friction:
-
-1-Click Workplace Presets Bar: Added quick-fill buttons across the top so learners can immediately test how different real-world scenarios resolve:
-
-🌴 Holiday Request Form 
-→ Resolves to Low-Code Solution
-
-   
-PDF
-
-📄 Supplier Invoice Matching 
-→ Resolves to AI-Assisted Process
-
-🤝 Staff Grievance Case 
-→ Resolves to Manual Process
-
-   
-PDF
-
-⚡ High-Speed Trading Engine 
-→ Resolves to Custom Software
-
-3 Clear, Plain-English Questions: Replaced dense sliders and jargon with clean, clickable choice cards:
-
-How often does this task happen? (Rare/Ad-Hoc vs. Routine/Weekly vs. Massive Volume)
-
-What kind of work or decision is it? (Clear Standard Rules vs. Messy Documents & Text vs. Sensitive & Discretionary vs. Proprietary Speed)
-
-How fast does the business need it? (Fast in Days/Weeks vs. Long-Term 6–18 Month IT Budget)
-
-Visual Live Recommendation Card: Instantly displays:
-
-The clear architectural winner with its theme colour.   
-CSS
-
-A 2-sentence plain-English executive summary.
-
-Bulleted "Why this option wins" points.
-
-Recommended practical tech stack (e.g. Microsoft Power Apps, Python/C#, Standard Operating Procedure, or AI Document Intelligence).
-
-
-
-
-Gemini is AI and can make mistakes, including about people. Your privacy and GeminiOpens in a new window
-
-Processed and analyzed in code
-
 /* ==========================================================================
    COPA Level 4 AI & Automation Practitioner: Build vs Buy / Solution Triage
    File: Low-Code.css
@@ -1752,6 +307,17 @@ header {
   box-shadow: 0 2px 6px rgba(227, 27, 35, 0.12);
 }
 
+.scenario-item.locked {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: #F1F5F9;
+}
+
+.scenario-item.locked:hover {
+  border-color: #E2E8F0;
+  background: #F1F5F9;
+}
+
 .scenario-item-title {
   font-size: 0.85rem;
   font-weight: 600;
@@ -1865,6 +431,11 @@ header {
   background: #F1F5F9;
 }
 
+.choice-btn.revealed-correct {
+  border-color: #10B981;
+  background: #ECFDF5;
+}
+
 .choice-btn strong {
   font-size: 0.9rem;
   color: var(--copa-navy);
@@ -1898,18 +469,34 @@ header {
   border: 1px solid #FCA5A5;
 }
 
+.feedback-revealed {
+  display: block;
+  background: #EFF6FF;
+  color: #1E40AF;
+  border: 1px solid #93C5FD;
+}
+
 .canvas-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-top: 1px solid #E2E8F0;
   padding-top: 1rem;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.canvas-footer-left,
+.canvas-footer-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .btn-primary {
   background: var(--copa-red);
   color: #FFFFFF;
-  padding: 0.65rem 1.4rem;
+  padding: 0.65rem 1.3rem;
   border: none;
   border-radius: 6px;
   font-weight: 700;
@@ -1918,14 +505,20 @@ header {
   transition: background 0.2s;
 }
 
-.btn-primary:hover {
+.btn-primary:hover:not(:disabled) {
   background: var(--copa-red-hover);
+}
+
+.btn-primary:disabled {
+  background: #94A3B8;
+  cursor: not-allowed;
+  opacity: 0.7;
 }
 
 .btn-secondary {
   background: #E2E8F0;
   color: #475569;
-  padding: 0.6rem 1rem;
+  padding: 0.65rem 1rem;
   border: none;
   border-radius: 6px;
   font-weight: 600;
@@ -1933,12 +526,50 @@ header {
   cursor: pointer;
 }
 
-.btn-secondary:hover {
+.btn-secondary:hover:not(:disabled) {
   background: #CBD5E1;
 }
 
+.btn-secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-reveal {
+  background: #FFFBEB;
+  color: #B45309;
+  border: 1px solid #FDE68A;
+  padding: 0.65rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-reveal:hover {
+  background: #FEF3C7;
+  border-color: #FCD34D;
+}
+
+.btn-reset-task {
+  background: #F1F5F9;
+  color: #475569;
+  border: 1px solid #CBD5E1;
+  padding: 0.65rem 0.9rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.btn-reset-task:hover {
+  background: #E2E8F0;
+  color: var(--text-main);
+}
+
 /* ==========================================================================
-   TAB 2: Simplified, Easy-to-Understand Architecture Sandbox
+   TAB 2: Simplified Architecture Decision Sandbox
    ========================================================================== */
 
 .preset-bar {
@@ -2059,7 +690,6 @@ header {
   line-height: 1.3;
 }
 
-/* Right Card: Simplified Recommendation Card */
 .sandbox-card-result {
   background: #FFFFFF;
   border: 1px solid var(--border-color);
@@ -2148,6 +778,65 @@ header {
   color: var(--copa-navy);
 }
 
+/* ==========================================================================
+   Navigation Bar at the Bottom: Connect to Next Task
+   ========================================================================== */
+.next-task-nav-banner {
+  margin-top: 2rem;
+  background: linear-gradient(135deg, var(--copa-navy) 0%, #162E4D 100%);
+  border-radius: 10px;
+  padding: 1.25rem 1.75rem;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 6px solid var(--copa-red);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.next-task-info h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.next-task-info p {
+  font-size: 0.85rem;
+  color: #CBD5E1;
+}
+
+.btn-next-module {
+  background: var(--copa-red);
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-next-module:hover {
+  background: var(--copa-red-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(227, 27, 35, 0.3);
+}
+
+.btn-next-module.locked {
+  background: #64748B;
+  cursor: not-allowed;
+  opacity: 0.65;
+  pointer-events: none;
+}
+
 /* Modal */
 .modal-overlay {
   position: fixed;
@@ -2186,3 +875,5 @@ header {
   .archetypes-grid { grid-template-columns: repeat(2, 1fr); }
   .triage-layout { grid-template-columns: 1fr; }
   .sandbox-container { grid-template-columns: 1fr; }
+  .next-task-nav-banner { flex-direction: column; text-align: center; gap: 1rem; }
+}
