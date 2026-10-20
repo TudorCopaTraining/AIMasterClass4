@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COPA | Build or Buy? Solution Architecture Triage</title>
+  <link rel="stylesheet" href="Low-Code.css">
+</head>
+<body>
+
+  <header>
+    <div class="brand-wrapper">
+      <h1>Build or Buy? Solution Architecture Triage</h1>
+      <p>COPA Level 4 AI & Automation Practitioner | Session 4: Low-Code Automation & Delivery</p>
+    </div>
+    <div class="header-stats">
+      <div class="stat-pill">Triaged Scenarios: <strong id="score-display">0 / 6</strong></div>
+    </div>
+  </header>
+
+  <nav class="nav-tabs">
+    <button class="tab-btn active" onclick="switchTab('triage')">
+      <span>1. Scenario Triage Simulator</span>
+    </button>
+    <button class="tab-btn" onclick="switchTab('sandbox')">
+      <span>2. Architecture Decision Sandbox</span>
+    </button>
+  </nav>
+
+  <main class="container">
+    
+    <!-- Hero Context Banner -->
+    <section class="hero-banner">
+      <h2>Architectural Decision-Making: Balancing Cost, Velocity, Risk & Capability</h2>
+      <p>
+        In modern enterprise digital transformation, every business problem demands the right architectural fit. Practitioners must decide whether to retain a <strong>Manual Process</strong>, build rapidly with a <strong>Low-Code Platform</strong>, engineer <strong>Custom Software</strong>, or deploy an <strong>AI-Assisted Copilot</strong>. Select the most commercially viable and defensible option for each operational scenario.
+      </p>
+    </section>
+
+    <!-- 4 Core Archetypes Reference Cards with Curated Web Imagery -->
+    <section class="archetypes-grid">
+      
+      <!-- Archetype 1: Manual Process -->
+      <article class="archetype-card">
+        <img class="archetype-img img-manual" src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80" alt="Manual paperwork and notes" loading="lazy">
+        <div class="archetype-body">
+          <span class="archetype-badge badge-manual">Ad-Hoc & Empathetic</span>
+          <h3>1. Manual Process</h3>
+          <p>Retaining human execution with simple standard operating procedures (SOPs).</p>
+          <ul class="archetype-traits">
+            <li>• Infrequent, low-volume events</li>
+            <li>• Highly sensitive, delicate matters</li>
+            <li>• Zero software development cost</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Archetype 2: Low-Code Solution -->
+      <article class="archetype-card">
+        <img class="archetype-img img-lowcode" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Low code dashboard and visual app builder" loading="lazy">
+        <div class="archetype-body">
+          <span class="archetype-badge badge-lowcode">Rapid Velocity</span>
+          <h3>2. Low-Code Solution</h3>
+          <p>Building forms, workflows, and portals visually using enterprise platforms (e.g. Power Platform).</p>
+          <ul class="archetype-traits">
+            <li>• Standard internal business forms</li>
+            <li>• Multi-stage approval routings</li>
+            <li>• Deploys in days; built-in security</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Archetype 3: Custom Software -->
+      <article class="archetype-card">
+        <img class="archetype-img img-custom" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="Custom code syntax on screen" loading="lazy">
+        <div class="archetype-body">
+          <span class="archetype-badge badge-custom">Proprietary IP</span>
+          <h3>3. Custom Software</h3>
+          <p>Bespoke software development writing hand-crafted code (Python, C#, Java, React).</p>
+          <ul class="archetype-traits">
+            <li>• High-throughput transactions</li>
+            <li>• Core proprietary business algorithms</li>
+            <li>• Microsecond low-latency needs</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Archetype 4: AI-Assisted Process -->
+      <article class="archetype-card">
+        <img class="archetype-img img-ai" src="https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=600&q=80" alt="Artificial Intelligence generative interface" loading="lazy">
+        <div class="archetype-body">
+          <span class="archetype-badge badge-ai">Cognitive Support</span>
+          <h3>4. AI-Assisted Process</h3>
+          <p>Combining automated machine learning, IDP, or generative copilots with human oversight.</p>
+          <ul class="archetype-traits">
+            <li>• Unstructured documents & PDFs</li>
+            <li>• Conversational client drafting</li>
+            <li>• Human-in-the-Loop decision review</li>
+          </ul>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- TAB 1: SCENARIO TRIAGE SIMULATOR -->
+    <div id="tab-triage" class="tab-pane active">
+      
+      <div class="triage-layout">
+        
+        <!-- Sidebar: Scenario List -->
+        <aside class="scenario-sidebar">
+          <h3>
+            <span>Enterprise Scenarios</span>
+            <button class="btn-secondary" style="font-size:0.75rem; padding:0.25rem 0.6rem;" onclick="resetAllTriage()">Reset All</button>
+          </h3>
+          <div class="scenario-list" id="scenario-list-container">
+            <!-- Rendered by JS -->
+          </div>
+        </aside>
+
+        <!-- Canvas: Selected Scenario Details & Decision -->
+        <section class="scenario-canvas">
+          
+          <div>
+            <div class="canvas-header">
+              <div>
+                <span id="canvas-domain">Department Domain</span>
+                <h2 id="canvas-title">Select a scenario from the sidebar</h2>
+              </div>
+              <span id="canvas-status-pill" style="display:none;" class="archetype-badge">Pending</span>
+            </div>
+
+            <div class="canvas-body" id="canvas-description">
+              Please choose a scenario on the left to begin your architectural evaluation.
+            </div>
+
+            <!-- Key Constraints Overview -->
+            <div class="constraints-grid" id="canvas-constraints">
+              <div class="constraint-box">
+                <h5>Transaction Volume</h5>
+                <p id="con-volume">-</p>
+              </div>
+              <div class="constraint-box">
+                <h5>Budget & Timeline</h5>
+                <p id="con-timeline">-</p>
+              </div>
+              <div class="constraint-box">
+                <h5>Technical Complexity</h5>
+                <p id="con-complexity">-</p>
+              </div>
+            </div>
+
+            <!-- Choices -->
+            <h4 class="choices-heading">Select the Most Appropriate Solution Architecture:</h4>
+            <div class="triage-options">
+              
+              <button class="choice-btn" data-choice="manual" onclick="selectChoice('manual')">
+                <strong>1. Manual Process (SOP)</strong>
+                <span>Retain human touch, checklists, and direct personal intervention.</span>
+              </button>
+
+              <button class="choice-btn" data-choice="lowcode" onclick="selectChoice('lowcode')">
+                <strong>2. Low-Code Solution</strong>
+                <span>Rapid drag-and-drop form, automated workflow, and database hook.</span>
+              </button>
+
+              <button class="choice-btn" data-choice="custom" onclick="selectChoice('custom')">
+                <strong>3. Custom Software Build</strong>
+                <span>Bespoke full-stack engineering, custom databases, and proprietary code.</span>
+              </button>
+
+              <button class="choice-btn" data-choice="ai" onclick="selectChoice('ai')">
+                <strong>4. AI-Assisted Process</strong>
+                <span>Machine learning / LLM extraction paired with Human-in-the-Loop review.</span>
+              </button>
+
+            </div>
+
+            <!-- Feedback Message -->
+            <div id="decision-feedback-box" class="decision-feedback">
+              <!-- Dynamically injected explanation -->
+            </div>
+          </div>
+
+          <div class="canvas-footer">
+            <button class="btn-secondary" onclick="navigateScenario(-1)">← Previous</button>
+            <button class="btn-primary" id="btn-confirm" onclick="confirmTriageDecision()">Confirm Architecture Decision</button>
+            <button class="btn-secondary" onclick="navigateScenario(1)">Next →</button>
+          </div>
+
+        </section>
+
+      </div>
+
+    </div>
+
+    <!-- TAB 2: ARCHITECTURE DECISION SANDBOX -->
+    <div id="tab-sandbox" class="tab-pane">
+      
+      <div class="sandbox-grid">
+        
+        <!-- Left: Factor Controls -->
+        <div class="sandbox-form">
+          <h3 style="color:var(--copa-navy); font-size:1.15rem; margin-bottom:1rem; border-bottom:1px solid #E2E8F0; padding-bottom:0.5rem;">
+            Custom Project Parameters
+          </h3>
+
+          <div class="form-group">
+            <label>
+              Annual Transaction Volume
+              <span class="slider-val" id="disp-vol">1,500 / yr</span>
+            </label>
+            <input type="range" class="range-slider" id="param-vol" min="10" max="50000" step="50" value="1500" oninput="calculateSandbox()">
+          </div>
+
+          <div class="form-group">
+            <label>
+              Delivery Timeline Urgency
+              <span class="slider-val" id="disp-time">3 Weeks</span>
+            </label>
+            <input type="range" class="range-slider" id="param-time" min="1" max="52" step="1" value="3" oninput="calculateSandbox()">
+          </div>
+
+          <div class="form-group">
+            <label for="param-data">Data Structure & Input Type</label>
+            <select class="select-input" id="param-data" onchange="calculateSandbox()">
+              <option value="structured">Standardised Structured Fields (Forms, Spreadsheets)</option>
+              <option value="unstructured">Unstructured Content (PDF Scans, Emails, Free Text)</option>
+              <option value="high-speed">Streaming High-Frequency Hardware Signals / Sub-millisecond</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="param-logic">Business Logic & Discretion</label>
+            <select class="select-input" id="param-logic" onchange="calculateSandbox()">
+              <option value="rules">Explicit Deterministic Rules (If-This-Then-That)</option>
+              <option value="cognitive">Probabilistic Interpretation & Drafting (Needs Language AI)</option>
+              <option value="subjective">Highly Sensitive & Subjective (Requires Deep Empathy / HR)</option>
+              <option value="proprietary">Novel Proprietary Mathematics / Cryptographic Algorithms</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="param-integration">Integration Complexity</label>
+            <select class="select-input" id="param-integration" onchange="calculateSandbox()">
+              <option value="standard">Standard Enterprise SaaS (Microsoft 365, SharePoint, SQL, CRM)</option>
+              <option value="legacy">Obscure Legacy Mainframe with Zero APIs</option>
+              <option value="none">Standalone Departmental / None Needed</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Right: Live Recommendation -->
+        <div class="sandbox-result">
+          <span class="rec-badge badge-lowcode" id="sandbox-badge">Recommended Route</span>
+          <div class="rec-title" id="sandbox-title">Low-Code Solution</div>
+          <p class="rec-explanation" id="sandbox-explanation">
+            Based on your parameters, building a low-code application delivers the optimal balance of delivery velocity, cost containment, and standard enterprise integration.
+          </p>
+
+          <div class="rec-breakdown" id="sandbox-breakdown">
+            <strong>Key Architectural Fit Factors:</strong>
+            <ul style="margin-top:0.5rem; padding-left:1.2rem; line-height:1.5;">
+              <li>• Rapid delivery within weeks.</li>
+              <li>• Standard connectors fit your SaaS environment.</li>
+              <li>• Avoids multi-month IT coding backlog.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Completion Modal -->
+  <div class="modal-overlay" id="completion-modal">
+    <div class="modal-box">
+      <h3>All Scenarios Successfully Triaged!</h3>
+      <p>
+        Excellent work. You have demonstrated architectural maturity by balancing commercial cost, delivery urgency, algorithmic complexity, and human empathy across diverse business environments.
+      </p>
+      <button class="btn-primary" onclick="closeModal()">Review Triage Table</button>
+    </div>
+  </div>
+
+  <script>
+    // 6 Diverse Enterprise Business Scenarios
+    const scenarios = [
+      {
+        id: "sc-1",
+        domain: "Human Resources & People",
+        title: "Staff Annual Leave & Bank Holiday Booking",
+        desc: "The organisation currently manages staff holiday bookings through physical paper slips and forwarded emails. Requests get misplaced, and managers lack real-time visibility into team rota coverage.",
+        volume: "1,200 requests / year",
+        timeline: "Need solution in 3 weeks",
+        complexity: "Standard 'If-Approved' routing",
+        correct: "lowcode",
+        explanation: "<strong>Optimal Choice: Low-Code Solution.</strong><br>Holiday booking is a classic, high-frequency internal process following simple approval logic. Building a custom app from scratch would take months of unnecessary software engineering, while a manual paper process is error-prone. A simple Power Apps or low-code form connected to Outlook/SharePoint deploys in days with zero license overhead."
+      },
+      {
+        id: "sc-2",
+        domain: "Financial Markets & Trading",
+        title: "Real-Time Microsecond Currency Arbitrage Engine",
+        desc: "An investment firm needs an engine to execute currency trades across international exchanges within sub-millisecond execution windows, requiring memory-level optimization and zero latency jitter.",
+        volume: "15,000,000 trades / day",
+        timeline: "12-month development budget",
+        complexity: "Extreme mathematical concurrency",
+        correct: "custom",
+        explanation: "<strong>Optimal Choice: Custom Software Build.</strong><br>Low-code platforms and manual steps are completely unsuited for microsecond latency and proprietary financial algorithms. This requires bespoke C++ or Rust engineering with dedicated bare-metal server infrastructure, custom memory buffers, and proprietary intellectual property."
+      },
+      {
+        id: "sc-3",
+        domain: "Customer Accounts & Finance",
+        title: "Multi-Format Supplier Invoice Ingestion & Matching",
+        desc: "The accounts department receives 4,000 PDF and scanned paper invoices monthly from 250 suppliers in varying unstructured layouts. Staff currently spend 20 hours weekly hand-typing invoice totals into SAP.",
+        volume: "4,000 invoices / month",
+        timeline: "Need live in 6 weeks",
+        complexity: "Unstructured document variations",
+        correct: "ai",
+        explanation: "<strong>Optimal Choice: AI-Assisted Process (IDP + HITL).</strong><br>Because invoice layouts vary wildly across 250 suppliers, rigid rules-based low-code forms break easily. An Intelligent Document Processing (IDP) model extracts invoice numbers, totals, and line items, while human staff review exceptions where confidence scores are below threshold."
+      },
+      {
+        id: "sc-4",
+        domain: "People & Culture / Legal",
+        title: "Executive Disciplinary & Grievance Investigation",
+        desc: "A formal workplace grievance alleging bullying and harassment has been submitted regarding an executive. It involves interviewing staff, assessing emotional context, and determining appropriate organizational action.",
+        volume: "1 to 2 cases / year",
+        timeline: "Ongoing statutory investigation",
+        complexity: "High emotional nuance & legal context",
+        correct: "manual",
+        explanation: "<strong>Optimal Choice: Manual Process (Strict SOP).</strong><br>Attempting to automate a sensitive workplace grievance with algorithms or low-code forms is unethical, dangerous, and violates Equality Act principles. This delicate human matter requires emotional intelligence, confidential interviews, and careful legal discernment."
+      },
+      {
+        id: "sc-5",
+        domain: "IT Operations & Infrastructure",
+        title: "Internal IT Hardware Requisition & Asset Sign-Off",
+        desc: "Employees need an easy digital portal to request replacement monitors, keyboards, and cables. Requests under £50 should auto-approve, whilst high-spec laptops require head-of-department authorization.",
+        volume: "350 requests / month",
+        timeline: "Need delivered in 2 weeks",
+        complexity: "Tiered threshold approval rules",
+        correct: "lowcode",
+        explanation: "<strong>Optimal Choice: Low-Code Solution.</strong><br>This workflow matches the ideal low-code profile: structured intake, role-based access control, threshold approval logic (policy-as-code), and direct integration into enterprise IT asset logs. Developing custom software would be a waste of engineering resources."
+      },
+      {
+        id: "sc-6",
+        domain: "Customer Support & Triage",
+        title: "Multilingual Inbound Customer Inquiry Sentiment & Drafting",
+        desc: "A multinational retail company receives 10,000 diverse customer support emails daily in 8 languages with varied tones (frustrated, inquiring, urgent). Human agents are overwhelmed trying to translate and draft replies.",
+        volume: "10,000 emails / day",
+        timeline: "Need deployed in 2 months",
+        complexity: "Multilingual natural language parsing",
+        correct: "ai",
+        explanation: "<strong>Optimal Choice: AI-Assisted Process (Copilot).</strong><br>Natural language understanding across 8 languages cannot be handled by simple static forms. An AI language model parses customer intent, tags urgency, and pre-drafts contextual replies, allowing human customer agents to review and personalise before sending (Decision Support / K6)."
+      }
+    ];
+
+    let currentIdx = 0;
+    let selectedChoice = null;
+    let userTriageResults = {}; // id -> { choice, isCorrect }
+
+    function init() {
+      renderScenarioList();
+      loadScenario(0);
+      calculateSandbox();
+    }
+
+    function renderScenarioList() {
+      const container = document.getElementById("scenario-list-container");
+      container.innerHTML = "";
+      scenarios.forEach((s, idx) => {
+        const item = document.createElement("div");
+        item.className = `scenario-item ${idx === currentIdx ? 'active' : ''}`;
+        item.onclick = () => loadScenario(idx);
+
+        const status = userTriageResults[s.id];
+        let icon = "⚪";
+        if (status) {
+          icon = status.isCorrect ? "✅" : "⚠️";
+        }
+
+        item.innerHTML = `
+          <div>
+            <div style="font-size:0.7rem; color:#64748B; font-weight:600;">${s.domain}</div>
+            <div class="scenario-item-title">${s.title}</div>
+          </div>
+          <span class="scenario-status-icon">${icon}</span>
+        `;
+        container.appendChild(item);
+      });
+      updateScoreBadge();
+    }
+
+    function loadScenario(idx) {
+      currentIdx = idx;
+      selectedChoice = null;
+      const s = scenarios[idx];
+
+      document.getElementById("canvas-domain").innerText = s.domain;
+      document.getElementById("canvas-title").innerText = s.title;
+      document.getElementById("canvas-description").innerText = s.desc;
+      document.getElementById("con-volume").innerText = s.volume;
+      document.getElementById("con-timeline").innerText = s.timeline;
+      document.getElementById("con-complexity").innerText = s.complexity;
+
+      // Reset choices UI
+      document.querySelectorAll(".choice-btn").forEach(btn => {
+        btn.classList.remove("selected");
+      });
+
+      const feedbackBox = document.getElementById("decision-feedback-box");
+      const statusPill = document.getElementById("canvas-status-pill");
+
+      const existingResult = userTriageResults[s.id];
+      if (existingResult) {
+        selectedChoice = existingResult.choice;
+        document.querySelector(`.choice-btn[data-choice="${selectedChoice}"]`)?.classList.add("selected");
+        showFeedback(s, existingResult.isCorrect);
+        statusPill.style.display = "inline-block";
+        statusPill.className = `archetype-badge ${existingResult.isCorrect ? 'badge-lowcode' : 'badge-manual'}`;
+        statusPill.innerText = existingResult.isCorrect ? "Correctly Triaged" : "Needs Review";
+      } else {
+        feedbackBox.style.display = "none";
+        statusPill.style.display = "none";
+      }
+
+      renderScenarioList();
+    }
+
+    function selectChoice(choiceKey) {
+      selectedChoice = choiceKey;
+      document.querySelectorAll(".choice-btn").forEach(btn => {
+        btn.classList.toggle("selected", btn.dataset.choice === choiceKey);
+      });
+    }
+
+    function confirmTriageDecision() {
+      if (!selectedChoice) {
+        alert("Please select one of the four architectural options before confirming.");
+        return;
+      }
+
+      const s = scenarios[currentIdx];
+      const isCorrect = selectedChoice === s.correct;
+      userTriageResults[s.id] = { choice: selectedChoice, isCorrect };
+
+      showFeedback(s, isCorrect);
+      renderScenarioList();
+
+      // Check if all are correct
+      const correctCount = Object.values(userTriageResults).filter(r => r.isCorrect).length;
+      if (correctCount === scenarios.length) {
+        document.getElementById("completion-modal").style.display = "flex";
+      }
+    }
+
+    function showFeedback(scenario, isCorrect) {
+      const box = document.getElementById("decision-feedback-box");
+      box.style.display = "block";
+      box.className = `decision-feedback ${isCorrect ? 'feedback-correct' : 'feedback-incorrect'}`;
+      if (isCorrect) {
+        box.innerHTML = `<strong>✓ Correct Architectural Decision!</strong><br>${scenario.explanation}`;
+      } else {
+        box.innerHTML = `<strong>⚠️ Sub-Optimal Architecture:</strong> This choice introduces unnecessary cost, latency, or governance risk for this specific operational profile.<br><br>${scenario.explanation}`;
+      }
+    }
+
+    function navigateScenario(delta) {
+      let next = currentIdx + delta;
+      if (next < 0) next = scenarios.length - 1;
+      if (next >= scenarios.length) next = 0;
+      loadScenario(next);
+    }
+
+    function resetAllTriage() {
+      if (confirm("Reset all triaged scenario decisions?")) {
+        userTriageResults = {};
+        loadScenario(0);
+      }
+    }
+
+    function updateScoreBadge() {
+      const correctCount = Object.values(userTriageResults).filter(r => r.isCorrect).length;
+      document.getElementById("score-display").innerText = `${correctCount} / ${scenarios.length}`;
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+      document.querySelectorAll(".tab-pane").forEach(p => p.classList.remove("active"));
+      event.currentTarget.classList.add("active");
+      document.getElementById(`tab-${tabId}`).classList.add("active");
+    }
+
+    // TAB 2: Decision Sandbox Logic
+    function calculateSandbox() {
+      const vol = parseInt(document.getElementById("param-vol").value);
+      const time = parseInt(document.getElementById("param-time").value);
+      const data = document.getElementById("param-data").value;
+      const logic = document.getElementById("param-logic").value;
+      const integration = document.getElementById("param-integration").value;
+
+      document.getElementById("disp-vol").innerText = `${vol.toLocaleString()} / yr`;
+      document.getElementById("disp-time").innerText = `${time} ${time === 1 ? 'Week' : 'Weeks'}`;
+
+      const badge = document.getElementById("sandbox-badge");
+      const title = document.getElementById("sandbox-title");
+      const expl = document.getElementById("sandbox-explanation");
+      const breakdown = document.getElementById("sandbox-breakdown");
+
+      // Logic rules for recommendations
+      if (logic === "subjective" || (vol < 200 && logic !== "proprietary")) {
+        // Manual Process
+        badge.className = "rec-badge badge-manual";
+        badge.innerText = "Recommended Architecture";
+        title.innerText = "Manual Process (Standard Operating Procedure)";
+        expl.innerText = "With low transaction volumes or highly subjective decision criteria, investing in software development yields negative ROI. Keep human discretion at the core with clear procedural checklists.";
+        breakdown.innerHTML = `
+          <strong>Key Architectural Drivers:</strong>
+          <ul style="margin-top:0.4rem; padding-left:1.2rem; line-height:1.45;">
+            <li>• Subjective human empathy or discretionary judgement required.</li>
+            <li>• Transaction volume is too low to amortise development expenditure.</li>
+            <li>• Zero software maintenance or licensing overhead.</li>
+          </ul>
+        `;
+      } else if (data === "high-speed" || logic === "proprietary" || integration === "legacy" || vol > 25000) {
+        // Custom Software Build
+        badge.className = "rec-badge badge-custom";
+        badge.innerText = "Recommended Architecture";
+        title.innerText = "Custom Software Build (Pro-Code)";
+        expl.innerText = "Your requirements feature extreme volume, proprietary algorithms, or deep legacy integrations. A custom-engineered solution (Python, C#, Java, bespoke APIs) is justified to retain intellectual property and performance control.";
+        breakdown.innerHTML = `
+          <strong>Key Architectural Drivers:</strong>
+          <ul style="margin-top:0.4rem; padding-left:1.2rem; line-height:1.45;">
+            <li>• High-throughput transactions or microsecond hardware latency.</li>
+            <li>• Bespoke proprietary algorithms not supported by SaaS templates.</li>
+            <li>• Demands full ownership of code and specialized database architecture.</li>
+          </ul>
+        `;
+      } else if (data === "unstructured" || logic === "cognitive") {
+        // AI-Assisted Process
+        badge.className = "rec-badge badge-ai";
+        badge.innerText = "Recommended Architecture";
+        title.innerText = "AI-Assisted Process (Copilot / IDP + HITL)";
+        expl.innerText = "Unstructured documents or natural language communication cannot be handled by static rules. Deploy an AI model for extraction and drafting, paired with a mandatory Human-in-the-Loop review gateway (Standard K6).";
+        breakdown.innerHTML = `
+          <strong>Key Architectural Drivers:</strong>
+          <ul style="margin-top:0.4rem; padding-left:1.2rem; line-height:1.45;">
+            <li>• Ingests unstructured PDFs, scans, or multi-lingual text.</li>
+            <li>• Combines machine learning speed with human oversight.</li>
+            <li>• Rapid deployment via pre-trained cognitive cloud services.</li>
+          </ul>
+        `;
+      } else {
+        // Low-Code Solution
+        badge.className = "rec-badge badge-lowcode";
+        badge.innerText = "Recommended Architecture";
+        title.innerText = "Low-Code Platform (e.g. Microsoft Power Platform)";
+        expl.innerText = "This represents the sweet spot for low-code: structured data, standard approval rules, tight delivery timelines, and native enterprise SaaS connectors. Delivers rapid business ROI without central IT backlog delays.";
+        breakdown.innerHTML = `
+          <strong>Key Architectural Drivers:</strong>
+          <ul style="margin-top:0.4rem; padding-left:1.2rem; line-height:1.45;">
+            <li>• Deploys in days to weeks using visual drag-and-drop builders.</li>
+            <li>• Native connectors to Microsoft 365, SharePoint, SQL, and CRMs.</li>
+            <li>• Built-in security, role-based access, and enterprise governance.</li>
+          </ul>
+        `;
+      }
+    }
+
+    function closeModal() {
+      document.getElementById("completion-modal").style.display = "none";
+    }
+
+    init();
+  </script>
+</body>
+</html>
