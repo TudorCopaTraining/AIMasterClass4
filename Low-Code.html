@@ -23,7 +23,7 @@
       <span>1. Scenario Triage Simulator</span>
     </button>
     <button class="tab-btn" onclick="switchTab('sandbox')">
-      <span>2. Architecture Decision Sandbox</span>
+      <span>2. Architecture Decision Sandbox (Easy-Guide)</span>
     </button>
   </nav>
 
@@ -37,12 +37,15 @@
       </p>
     </section>
 
-    <!-- 4 Core Archetypes Reference Cards with Curated Web Imagery -->
+    <!-- 4 Core Archetypes Reference Cards with Working, Reliable Web Imagery -->
     <section class="archetypes-grid">
       
       <!-- Archetype 1: Manual Process -->
       <article class="archetype-card">
-        <img class="archetype-img img-manual" src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80" alt="Manual paperwork and notes" loading="lazy">
+        <img class="archetype-img img-manual" 
+             src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80" 
+             alt="Manual paperwork and notes" 
+             onerror="this.src='https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80'">
         <div class="archetype-body">
           <span class="archetype-badge badge-manual">Ad-Hoc & Empathetic</span>
           <h3>1. Manual Process</h3>
@@ -57,7 +60,10 @@
 
       <!-- Archetype 2: Low-Code Solution -->
       <article class="archetype-card">
-        <img class="archetype-img img-lowcode" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Low code dashboard and visual app builder" loading="lazy">
+        <img class="archetype-img img-lowcode" 
+             src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" 
+             alt="Low code dashboard and visual app builder"
+             onerror="this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80'">
         <div class="archetype-body">
           <span class="archetype-badge badge-lowcode">Rapid Velocity</span>
           <h3>2. Low-Code Solution</h3>
@@ -72,7 +78,10 @@
 
       <!-- Archetype 3: Custom Software -->
       <article class="archetype-card">
-        <img class="archetype-img img-custom" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="Custom code syntax on screen" loading="lazy">
+        <img class="archetype-img img-custom" 
+             src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" 
+             alt="Custom code syntax on screen"
+             onerror="this.src='https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=600&q=80'">
         <div class="archetype-body">
           <span class="archetype-badge badge-custom">Proprietary IP</span>
           <h3>3. Custom Software</h3>
@@ -85,9 +94,12 @@
         </div>
       </article>
 
-      <!-- Archetype 4: AI-Assisted Process -->
+      <!-- Archetype 4: AI-Assisted Process (Updated Reliable URL + Fallback) -->
       <article class="archetype-card">
-        <img class="archetype-img img-ai" src="https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=600&q=80" alt="Artificial Intelligence generative interface" loading="lazy">
+        <img class="archetype-img img-ai" 
+             src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=600&q=80" 
+             alt="Artificial Intelligence digital assistant" 
+             onerror="this.src='https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&w=600&q=80'">
         <div class="archetype-body">
           <span class="archetype-badge badge-ai">Cognitive Support</span>
           <h3>4. AI-Assisted Process</h3>
@@ -194,78 +206,114 @@
 
     </div>
 
-    <!-- TAB 2: ARCHITECTURE DECISION SANDBOX -->
+    <!-- TAB 2: SIMPLIFIED EASY-GUIDE DECISION SANDBOX -->
     <div id="tab-sandbox" class="tab-pane">
       
-      <div class="sandbox-grid">
+      <!-- Instant Example Presets Bar -->
+      <section class="preset-bar">
+        <span>Try Common Presets:</span>
+        <button class="preset-chip" onclick="loadSandboxPreset('holiday')">🌴 Holiday Request Form</button>
+        <button class="preset-chip" onclick="loadSandboxPreset('invoices')">📄 Supplier Invoice Matching</button>
+        <button class="preset-chip" onclick="loadSandboxPreset('grievance')">🤝 Staff Grievance Case</button>
+        <button class="preset-chip" onclick="loadSandboxPreset('trading')">⚡ High-Speed Trading Engine</button>
+      </section>
+
+      <div class="sandbox-container">
         
-        <!-- Left: Factor Controls -->
-        <div class="sandbox-form">
-          <h3 style="color:var(--copa-navy); font-size:1.15rem; margin-bottom:1rem; border-bottom:1px solid #E2E8F0; padding-bottom:0.5rem;">
-            Custom Project Parameters
-          </h3>
-
-          <div class="form-group">
-            <label>
-              Annual Transaction Volume
-              <span class="slider-val" id="disp-vol">1,500 / yr</span>
-            </label>
-            <input type="range" class="range-slider" id="param-vol" min="10" max="50000" step="50" value="1500" oninput="calculateSandbox()">
+        <!-- Left: 3 Simple Questions -->
+        <div class="sandbox-questions">
+          
+          <!-- Question 1 -->
+          <div class="question-block">
+            <h4>1. How often does this task happen?</h4>
+            <p>Select the typical frequency and volume across the team:</p>
+            <div class="option-cards">
+              <div class="option-chip active" id="opt-vol-low" onclick="setSandboxFactor('vol', 'low')">
+                <strong>Rare or Ad-Hoc</strong>
+                <span>A few times a month / year</span>
+              </div>
+              <div class="option-chip" id="opt-vol-med" onclick="setSandboxFactor('vol', 'med')">
+                <strong>Routine & Weekly</strong>
+                <span>Dozens to hundreds weekly</span>
+              </div>
+              <div class="option-chip" id="opt-vol-high" onclick="setSandboxFactor('vol', 'high')">
+                <strong>Massive High-Volume</strong>
+                <span>Thousands to millions daily</span>
+              </div>
+            </div>
           </div>
 
-          <div class="form-group">
-            <label>
-              Delivery Timeline Urgency
-              <span class="slider-val" id="disp-time">3 Weeks</span>
-            </label>
-            <input type="range" class="range-slider" id="param-time" min="1" max="52" step="1" value="3" oninput="calculateSandbox()">
+          <!-- Question 2 -->
+          <div class="question-block">
+            <h4>2. What kind of work or decision is it?</h4>
+            <p>Select the nature of the information and logic required:</p>
+            <div class="option-cards">
+              <div class="option-chip active" id="opt-nature-rules" onclick="setSandboxFactor('nature', 'rules')">
+                <strong>Clear Standard Rules</strong>
+                <span>Standard forms, checkboxes & clear policies</span>
+              </div>
+              <div class="option-chip" id="opt-nature-docs" onclick="setSandboxFactor('nature', 'docs')">
+                <strong>Messy Documents & Text</strong>
+                <span>PDFs, scans, emails & customer writing</span>
+              </div>
+              <div class="option-chip" id="opt-nature-sensitive" onclick="setSandboxFactor('nature', 'sensitive')">
+                <strong>Sensitive & Discretionary</strong>
+                <span>Requires human empathy, trust or moral context</span>
+              </div>
+              <div class="option-chip" id="opt-nature-extreme" onclick="setSandboxFactor('nature', 'extreme')">
+                <strong>Proprietary Math / Speed</strong>
+                <span>Microsecond speed or custom algorithms</span>
+              </div>
+            </div>
           </div>
 
-          <div class="form-group">
-            <label for="param-data">Data Structure & Input Type</label>
-            <select class="select-input" id="param-data" onchange="calculateSandbox()">
-              <option value="structured">Standardised Structured Fields (Forms, Spreadsheets)</option>
-              <option value="unstructured">Unstructured Content (PDF Scans, Emails, Free Text)</option>
-              <option value="high-speed">Streaming High-Frequency Hardware Signals / Sub-millisecond</option>
-            </select>
+          <!-- Question 3 -->
+          <div class="question-block">
+            <h4>3. How fast does the business need it?</h4>
+            <p>Select the delivery timeframe and available IT resource:</p>
+            <div class="option-cards">
+              <div class="option-chip active" id="opt-speed-urgent" onclick="setSandboxFactor('speed', 'urgent')">
+                <strong>Fast (Days to Weeks)</strong>
+                <span>Need it live quickly by citizen developers</span>
+              </div>
+              <div class="option-chip" id="opt-speed-patient" onclick="setSandboxFactor('speed', 'patient')">
+                <strong>Long-Term (6 to 18 Months)</strong>
+                <span>Dedicated software engineering team budget</span>
+              </div>
+            </div>
           </div>
 
-          <div class="form-group">
-            <label for="param-logic">Business Logic & Discretion</label>
-            <select class="select-input" id="param-logic" onchange="calculateSandbox()">
-              <option value="rules">Explicit Deterministic Rules (If-This-Then-That)</option>
-              <option value="cognitive">Probabilistic Interpretation & Drafting (Needs Language AI)</option>
-              <option value="subjective">Highly Sensitive & Subjective (Requires Deep Empathy / HR)</option>
-              <option value="proprietary">Novel Proprietary Mathematics / Cryptographic Algorithms</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="param-integration">Integration Complexity</label>
-            <select class="select-input" id="param-integration" onchange="calculateSandbox()">
-              <option value="standard">Standard Enterprise SaaS (Microsoft 365, SharePoint, SQL, CRM)</option>
-              <option value="legacy">Obscure Legacy Mainframe with Zero APIs</option>
-              <option value="none">Standalone Departmental / None Needed</option>
-            </select>
-          </div>
         </div>
 
-        <!-- Right: Live Recommendation -->
-        <div class="sandbox-result">
-          <span class="rec-badge badge-lowcode" id="sandbox-badge">Recommended Route</span>
-          <div class="rec-title" id="sandbox-title">Low-Code Solution</div>
-          <p class="rec-explanation" id="sandbox-explanation">
-            Based on your parameters, building a low-code application delivers the optimal balance of delivery velocity, cost containment, and standard enterprise integration.
-          </p>
+        <!-- Right: Clear Live Recommendation Card -->
+        <div class="sandbox-card-result">
+          
+          <div class="result-header">
+            <span class="rec-pill badge-lowcode" id="rec-pill">Best Architectural Route</span>
+            <div class="rec-heading" id="rec-title">Low-Code Solution</div>
+          </div>
 
-          <div class="rec-breakdown" id="sandbox-breakdown">
-            <strong>Key Architectural Fit Factors:</strong>
-            <ul style="margin-top:0.5rem; padding-left:1.2rem; line-height:1.5;">
-              <li>• Rapid delivery within weeks.</li>
-              <li>• Standard connectors fit your SaaS environment.</li>
-              <li>• Avoids multi-month IT coding backlog.</li>
+          <div class="result-summary" id="rec-summary">
+            A visual low-code platform is the best fit. It allows citizen developers to quickly build standard forms and multi-step approvals without waiting months for central IT.
+          </div>
+
+          <div class="fit-reasons">
+            <h5>Why this option wins:</h5>
+            <ul id="rec-reasons">
+              <li>• Simple rules can be built visually in days.</li>
+              <li>• Avoids expensive custom programming.</li>
+              <li>• Connects natively with company software like Microsoft 365.</li>
             </ul>
           </div>
+
+          <div class="recommended-tools">
+            <div>
+              <h6>Recommended Tech Stack:</h6>
+              <p id="rec-tools">Microsoft Power Apps / Power Automate</p>
+            </div>
+            <span style="font-size:1.5rem;" id="rec-icon">⚡</span>
+          </div>
+
         </div>
 
       </div>
@@ -363,7 +411,7 @@
     function init() {
       renderScenarioList();
       loadScenario(0);
-      calculateSandbox();
+      updateEasySandbox();
     }
 
     function renderScenarioList() {
@@ -448,7 +496,6 @@
       showFeedback(s, isCorrect);
       renderScenarioList();
 
-      // Check if all are correct
       const correctCount = Object.values(userTriageResults).filter(r => r.isCorrect).length;
       if (correctCount === scenarios.length) {
         document.getElementById("completion-modal").style.display = "flex";
@@ -492,79 +539,111 @@
       document.getElementById(`tab-${tabId}`).classList.add("active");
     }
 
-    // TAB 2: Decision Sandbox Logic
-    function calculateSandbox() {
-      const vol = parseInt(document.getElementById("param-vol").value);
-      const time = parseInt(document.getElementById("param-time").value);
-      const data = document.getElementById("param-data").value;
-      const logic = document.getElementById("param-logic").value;
-      const integration = document.getElementById("param-integration").value;
+    // ==========================================
+    // SIMPLIFIED DECISION SANDBOX CONTROLLER
+    // ==========================================
+    let sandboxState = {
+      vol: "med",
+      nature: "rules",
+      speed: "urgent"
+    };
 
-      document.getElementById("disp-vol").innerText = `${vol.toLocaleString()} / yr`;
-      document.getElementById("disp-time").innerText = `${time} ${time === 1 ? 'Week' : 'Weeks'}`;
+    function setSandboxFactor(factor, value) {
+      sandboxState[factor] = value;
+      
+      // Update UI active states
+      if (factor === 'vol') {
+        ['low', 'med', 'high'].forEach(v => document.getElementById(`opt-vol-${v}`).classList.toggle('active', v === value));
+      } else if (factor === 'nature') {
+        ['rules', 'docs', 'sensitive', 'extreme'].forEach(v => document.getElementById(`opt-nature-${v}`).classList.toggle('active', v === value));
+      } else if (factor === 'speed') {
+        ['urgent', 'patient'].forEach(v => document.getElementById(`opt-speed-${v}`).classList.toggle('active', v === value));
+      }
 
-      const badge = document.getElementById("sandbox-badge");
-      const title = document.getElementById("sandbox-title");
-      const expl = document.getElementById("sandbox-explanation");
-      const breakdown = document.getElementById("sandbox-breakdown");
+      updateEasySandbox();
+    }
 
-      // Logic rules for recommendations
-      if (logic === "subjective" || (vol < 200 && logic !== "proprietary")) {
+    function loadSandboxPreset(presetKey) {
+      if (presetKey === 'holiday') {
+        setSandboxFactor('vol', 'med');
+        setSandboxFactor('nature', 'rules');
+        setSandboxFactor('speed', 'urgent');
+      } else if (presetKey === 'invoices') {
+        setSandboxFactor('vol', 'med');
+        setSandboxFactor('nature', 'docs');
+        setSandboxFactor('speed', 'urgent');
+      } else if (presetKey === 'grievance') {
+        setSandboxFactor('vol', 'low');
+        setSandboxFactor('nature', 'sensitive');
+        setSandboxFactor('speed', 'urgent');
+      } else if (presetKey === 'trading') {
+        setSandboxFactor('vol', 'high');
+        setSandboxFactor('nature', 'extreme');
+        setSandboxFactor('speed', 'patient');
+      }
+    }
+
+    function updateEasySandbox() {
+      const pill = document.getElementById("rec-pill");
+      const title = document.getElementById("rec-title");
+      const summary = document.getElementById("rec-summary");
+      const reasons = document.getElementById("rec-reasons");
+      const tools = document.getElementById("rec-tools");
+      const icon = document.getElementById("rec-icon");
+
+      // Easy Decision Logic
+      if (sandboxState.nature === "sensitive" || sandboxState.vol === "low") {
         // Manual Process
-        badge.className = "rec-badge badge-manual";
-        badge.innerText = "Recommended Architecture";
-        title.innerText = "Manual Process (Standard Operating Procedure)";
-        expl.innerText = "With low transaction volumes or highly subjective decision criteria, investing in software development yields negative ROI. Keep human discretion at the core with clear procedural checklists.";
-        breakdown.innerHTML = `
-          <strong>Key Architectural Drivers:</strong>
-          <ul style="margin-top:0.4rem; padding-left:1.2rem; line-height:1.45;">
-            <li>• Subjective human empathy or discretionary judgement required.</li>
-            <li>• Transaction volume is too low to amortise development expenditure.</li>
-            <li>• Zero software maintenance or licensing overhead.</li>
-          </ul>
+        pill.className = "rec-pill badge-manual";
+        pill.innerText = "Recommended Route: Manual";
+        title.innerText = "Manual Process (SOP)";
+        summary.innerText = "Keep this as a human process. When a task is infrequent or deals with sensitive, personal, or emotional situations, building software is either too costly or completely inappropriate.";
+        reasons.innerHTML = `
+          <li>• <strong>Human Empathy:</strong> Discretion and listening cannot be replaced by algorithms.</li>
+          <li>• <strong>Cost Effective:</strong> Developing an app for rare events yields negative return.</li>
+          <li>• <strong>No Software Overhead:</strong> Uses clear checklists without software updates.</li>
         `;
-      } else if (data === "high-speed" || logic === "proprietary" || integration === "legacy" || vol > 25000) {
-        // Custom Software Build
-        badge.className = "rec-badge badge-custom";
-        badge.innerText = "Recommended Architecture";
-        title.innerText = "Custom Software Build (Pro-Code)";
-        expl.innerText = "Your requirements feature extreme volume, proprietary algorithms, or deep legacy integrations. A custom-engineered solution (Python, C#, Java, bespoke APIs) is justified to retain intellectual property and performance control.";
-        breakdown.innerHTML = `
-          <strong>Key Architectural Drivers:</strong>
-          <ul style="margin-top:0.4rem; padding-left:1.2rem; line-height:1.45;">
-            <li>• High-throughput transactions or microsecond hardware latency.</li>
-            <li>• Bespoke proprietary algorithms not supported by SaaS templates.</li>
-            <li>• Demands full ownership of code and specialized database architecture.</li>
-          </ul>
+        tools.innerText = "Standard Operating Procedure (SOP) / Human Review Meeting";
+        icon.innerText = "✍️";
+      } else if (sandboxState.nature === "extreme" || (sandboxState.vol === "high" && sandboxState.speed === "patient")) {
+        // Custom Software
+        pill.className = "rec-pill badge-custom";
+        pill.innerText = "Recommended Route: Custom Build";
+        title.innerText = "Custom Software (Bespoke Code)";
+        summary.innerText = "Bespoke hand-crafted code is required. High-frequency speed, massive scale, or unique mathematical intellectual property exceed what visual low-code templates can handle.";
+        reasons.innerHTML = `
+          <li>• <strong>Microsecond Speed:</strong> Demands raw memory control and hardware optimization.</li>
+          <li>• <strong>Proprietary IP:</strong> You fully own the source code, logic, and database.</li>
+          <li>• <strong>Extreme Scale:</strong> Handles millions of continuous records smoothly.</li>
         `;
-      } else if (data === "unstructured" || logic === "cognitive") {
-        // AI-Assisted Process
-        badge.className = "rec-badge badge-ai";
-        badge.innerText = "Recommended Architecture";
-        title.innerText = "AI-Assisted Process (Copilot / IDP + HITL)";
-        expl.innerText = "Unstructured documents or natural language communication cannot be handled by static rules. Deploy an AI model for extraction and drafting, paired with a mandatory Human-in-the-Loop review gateway (Standard K6).";
-        breakdown.innerHTML = `
-          <strong>Key Architectural Drivers:</strong>
-          <ul style="margin-top:0.4rem; padding-left:1.2rem; line-height:1.45;">
-            <li>• Ingests unstructured PDFs, scans, or multi-lingual text.</li>
-            <li>• Combines machine learning speed with human oversight.</li>
-            <li>• Rapid deployment via pre-trained cognitive cloud services.</li>
-          </ul>
+        tools.innerText = "Python / C# / React / Custom SQL & Cloud Microservices";
+        icon.innerText = "💻";
+      } else if (sandboxState.nature === "docs") {
+        // AI-Assisted
+        pill.className = "rec-pill badge-ai";
+        pill.innerText = "Recommended Route: AI-Assisted";
+        title.innerText = "AI-Assisted Process (Copilot / IDP)";
+        summary.innerText = "Use cognitive AI tools combined with human review. Because your information arrives in messy, unstructured formats (PDFs, scans, emails), static rules cannot read them reliably.";
+        reasons.innerHTML = `
+          <li>• <strong>Reads Unstructured Data:</strong> AI extracts text, dates, and tables from files.</li>
+          <li>• <strong>Human-in-the-Loop (K6):</strong> Staff review exceptions and maintain control.</li>
+          <li>• <strong>Huge Time Reclaimed:</strong> Cuts hours of manual typing and re-keying.</li>
         `;
+        tools.innerText = "AI Document Intelligence / Azure Cognitive / Microsoft Copilot";
+        icon.innerText = "🤖";
       } else {
         // Low-Code Solution
-        badge.className = "rec-badge badge-lowcode";
-        badge.innerText = "Recommended Architecture";
-        title.innerText = "Low-Code Platform (e.g. Microsoft Power Platform)";
-        expl.innerText = "This represents the sweet spot for low-code: structured data, standard approval rules, tight delivery timelines, and native enterprise SaaS connectors. Delivers rapid business ROI without central IT backlog delays.";
-        breakdown.innerHTML = `
-          <strong>Key Architectural Drivers:</strong>
-          <ul style="margin-top:0.4rem; padding-left:1.2rem; line-height:1.45;">
-            <li>• Deploys in days to weeks using visual drag-and-drop builders.</li>
-            <li>• Native connectors to Microsoft 365, SharePoint, SQL, and CRMs.</li>
-            <li>• Built-in security, role-based access, and enterprise governance.</li>
-          </ul>
+        pill.className = "rec-pill badge-lowcode";
+        pill.innerText = "Recommended Route: Low-Code";
+        title.innerText = "Low-Code Platform";
+        summary.innerText = "This is the classic low-code sweet spot. Standard digital forms, clear approval rules, and fast deployment. Citizen developers can launch this in weeks without central IT delay.";
+        reasons.innerHTML = `
+          <li>• <strong>Rapid Deployment:</strong> Visual drag-and-drop build finished in days or weeks.</li>
+          <li>• <strong>Connected:</strong> Native integration with Microsoft 365, SharePoint & SQL.</li>
+          <li>• <strong>Safe & Governed:</strong> Role permissions and security managed by central IT.</li>
         `;
+        tools.innerText = "Microsoft Power Apps / Power Automate / SharePoint";
+        icon.innerText = "⚡";
       }
     }
 
