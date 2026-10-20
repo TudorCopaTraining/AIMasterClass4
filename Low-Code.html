@@ -33,7 +33,7 @@
     <section class="hero-banner">
       <h2>Architectural Decision-Making: Balancing Cost, Velocity, Risk & Capability</h2>
       <p>
-        In modern enterprise digital transformation, every business problem demands the right architectural fit. Practitioners must decide whether to retain a <strong>Manual Process</strong>, build rapidly with a <strong>Low-Code Platform</strong>, engineer <strong>Custom Software</strong>, or deploy an <strong>AI-Assisted Copilot</strong>. Select the most commercially viable and defensible option for each operational scenario.
+        In modern enterprise digital transformation, every business problem demands the right architectural fit. Practitioners must decide whether to retain a <strong>Manual Process</strong>, build rapidly with a <strong>Low-Code Platform</strong>, engineer <strong>Custom Software</strong>, or deploy an <strong>AI-Assisted Copilot</strong>. Progression is locked until each scenario is solved correctly.
       </p>
     </section>
 
@@ -94,7 +94,7 @@
         </div>
       </article>
 
-      <!-- Archetype 4: AI-Assisted Process (Updated Reliable URL + Fallback) -->
+      <!-- Archetype 4: AI-Assisted Process -->
       <article class="archetype-card">
         <img class="archetype-img img-ai" 
              src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=600&q=80" 
@@ -166,22 +166,22 @@
             <h4 class="choices-heading">Select the Most Appropriate Solution Architecture:</h4>
             <div class="triage-options">
               
-              <button class="choice-btn" data-choice="manual" onclick="selectChoice('manual')">
+              <button class="choice-btn" id="btn-choice-manual" data-choice="manual" onclick="selectChoice('manual')">
                 <strong>1. Manual Process (SOP)</strong>
                 <span>Retain human touch, checklists, and direct personal intervention.</span>
               </button>
 
-              <button class="choice-btn" data-choice="lowcode" onclick="selectChoice('lowcode')">
+              <button class="choice-btn" id="btn-choice-lowcode" data-choice="lowcode" onclick="selectChoice('lowcode')">
                 <strong>2. Low-Code Solution</strong>
                 <span>Rapid drag-and-drop form, automated workflow, and database hook.</span>
               </button>
 
-              <button class="choice-btn" data-choice="custom" onclick="selectChoice('custom')">
+              <button class="choice-btn" id="btn-choice-custom" data-choice="custom" onclick="selectChoice('custom')">
                 <strong>3. Custom Software Build</strong>
                 <span>Bespoke full-stack engineering, custom databases, and proprietary code.</span>
               </button>
 
-              <button class="choice-btn" data-choice="ai" onclick="selectChoice('ai')">
+              <button class="choice-btn" id="btn-choice-ai" data-choice="ai" onclick="selectChoice('ai')">
                 <strong>4. AI-Assisted Process</strong>
                 <span>Machine learning / LLM extraction paired with Human-in-the-Loop review.</span>
               </button>
@@ -194,10 +194,17 @@
             </div>
           </div>
 
+          <!-- Canvas Action Footer -->
           <div class="canvas-footer">
-            <button class="btn-secondary" onclick="navigateScenario(-1)">← Previous</button>
-            <button class="btn-primary" id="btn-confirm" onclick="confirmTriageDecision()">Confirm Architecture Decision</button>
-            <button class="btn-secondary" onclick="navigateScenario(1)">Next →</button>
+            <div class="canvas-footer-left">
+              <button class="btn-secondary" id="btn-prev" onclick="navigateScenario(-1)">← Previous</button>
+              <button class="btn-reset-task" onclick="resetCurrentScenario()">↺ Reset Task</button>
+              <button class="btn-reveal" onclick="showCorrectAnswer()">💡 Show Answer</button>
+            </div>
+            <div class="canvas-footer-right">
+              <button class="btn-primary" id="btn-confirm" onclick="confirmTriageDecision()">Confirm Architecture Decision</button>
+              <button class="btn-secondary" id="btn-next" onclick="navigateScenario(1)" title="Progression locked until current scenario is correct">Next →</button>
+            </div>
           </div>
 
         </section>
@@ -320,6 +327,21 @@
 
     </div>
 
+    <!-- Bottom Link to Next Task / Module Activity -->
+    <section class="next-task-nav-banner">
+      <div class="next-task-info">
+        <h4>
+          <span>Next Apprenticeship Task:</span> 
+          <span style="color:#38BDF8;">Process Map Quality Audit & Improvement Proposal</span>
+        </h4>
+        <p id="next-task-status-text">Complete all 6 scenarios in the triage simulator above to unlock this next activity.</p>
+      </div>
+      <!-- Configurable link: point this to your next GitHub Pages file (e.g. process_map_audit.html or improvementopp.html) -->
+      <a href="process_map_audit.html" id="btn-next-module" class="btn-next-module locked">
+        <span>Proceed to Next Task</span> →
+      </a>
+    </section>
+
   </main>
 
   <!-- Completion Modal -->
@@ -327,9 +349,12 @@
     <div class="modal-box">
       <h3>All Scenarios Successfully Triaged!</h3>
       <p>
-        Excellent work. You have demonstrated architectural maturity by balancing commercial cost, delivery urgency, algorithmic complexity, and human empathy across diverse business environments.
+        Outstanding work! You have solved all 6 scenarios correctly and unlocked the next practical module. You are now ready to progress to the next task.
       </p>
-      <button class="btn-primary" onclick="closeModal()">Review Triage Table</button>
+      <div style="display:flex; justify-content:center; gap:0.75rem;">
+        <button class="btn-secondary" onclick="closeModal()">Review Triage</button>
+        <a href="process_map_audit.html" class="btn-primary" style="text-decoration:none;">Go to Next Task →</a>
+      </div>
     </div>
   </div>
 
@@ -407,11 +432,13 @@
     let currentIdx = 0;
     let selectedChoice = null;
     let userTriageResults = {}; // id -> { choice, isCorrect }
+    let maxUnlockedIdx = 0; // Tracks highest unlocked scenario index
 
     function init() {
       renderScenarioList();
       loadScenario(0);
       updateEasySandbox();
+      updateNextActivityStatus();
     }
 
     function renderScenarioList() {
@@ -419,11 +446,17 @@
       container.innerHTML = "";
       scenarios.forEach((s, idx) => {
         const item = document.createElement("div");
-        item.className = `scenario-item ${idx === currentIdx ? 'active' : ''}`;
-        item.onclick = () => loadScenario(idx);
+        const isLocked = idx > maxUnlockedIdx;
+        item.className = `scenario-item ${idx === currentIdx ? 'active' : ''} ${isLocked ? 'locked' : ''}`;
+        
+        if (!isLocked) {
+          item.onclick = () => loadScenario(idx);
+        } else {
+          item.title = "Complete the previous scenario correctly to unlock.";
+        }
 
         const status = userTriageResults[s.id];
-        let icon = "⚪";
+        let icon = isLocked ? "🔒" : "⚪";
         if (status) {
           icon = status.isCorrect ? "✅" : "⚠️";
         }
@@ -454,7 +487,7 @@
 
       // Reset choices UI
       document.querySelectorAll(".choice-btn").forEach(btn => {
-        btn.classList.remove("selected");
+        btn.classList.remove("selected", "revealed-correct");
       });
 
       const feedbackBox = document.getElementById("decision-feedback-box");
@@ -473,6 +506,7 @@
         statusPill.style.display = "none";
       }
 
+      updateNavButtons();
       renderScenarioList();
     }
 
@@ -494,8 +528,19 @@
       userTriageResults[s.id] = { choice: selectedChoice, isCorrect };
 
       showFeedback(s, isCorrect);
-      renderScenarioList();
 
+      if (isCorrect) {
+        // Unlock next scenario
+        if (currentIdx + 1 > maxUnlockedIdx) {
+          maxUnlockedIdx = Math.min(scenarios.length - 1, currentIdx + 1);
+        }
+      }
+
+      updateNavButtons();
+      renderScenarioList();
+      updateNextActivityStatus();
+
+      // Check if all are correct
       const correctCount = Object.values(userTriageResults).filter(r => r.isCorrect).length;
       if (correctCount === scenarios.length) {
         document.getElementById("completion-modal").style.display = "flex";
@@ -509,27 +554,123 @@
       if (isCorrect) {
         box.innerHTML = `<strong>✓ Correct Architectural Decision!</strong><br>${scenario.explanation}`;
       } else {
-        box.innerHTML = `<strong>⚠️ Sub-Optimal Architecture:</strong> This choice introduces unnecessary cost, latency, or governance risk for this specific operational profile.<br><br>${scenario.explanation}`;
+        box.innerHTML = `<strong>⚠️ Sub-Optimal Architecture:</strong> This choice introduces unnecessary cost, latency, or governance risk for this specific operational profile.<br><br>${scenario.explanation}<br><br><em>Note: Progression is locked until this scenario is correctly solved.</em>`;
+      }
+    }
+
+    function resetCurrentScenario() {
+      const s = scenarios[currentIdx];
+      delete userTriageResults[s.id];
+      selectedChoice = null;
+      document.querySelectorAll(".choice-btn").forEach(btn => {
+        btn.classList.remove("selected", "revealed-correct");
+      });
+      document.getElementById("decision-feedback-box").style.display = "none";
+      document.getElementById("canvas-status-pill").style.display = "none";
+      updateNavButtons();
+      renderScenarioList();
+      updateNextActivityStatus();
+    }
+
+    function showCorrectAnswer() {
+      const s = scenarios[currentIdx];
+      selectedChoice = s.correct;
+      
+      // Highlight the correct button
+      document.querySelectorAll(".choice-btn").forEach(btn => {
+        btn.classList.toggle("selected", btn.dataset.choice === s.correct);
+        btn.classList.toggle("revealed-correct", btn.dataset.choice === s.correct);
+      });
+
+      // Mark as correct
+      userTriageResults[s.id] = { choice: s.correct, isCorrect: true };
+      
+      const box = document.getElementById("decision-feedback-box");
+      box.style.display = "block";
+      box.className = "decision-feedback feedback-revealed";
+      box.innerHTML = `<strong>💡 Correct Answer Revealed:</strong><br>${s.explanation}`;
+
+      const statusPill = document.getElementById("canvas-status-pill");
+      statusPill.style.display = "inline-block";
+      statusPill.className = "archetype-badge badge-lowcode";
+      statusPill.innerText = "Answer Revealed";
+
+      // Unlock next
+      if (currentIdx + 1 > maxUnlockedIdx) {
+        maxUnlockedIdx = Math.min(scenarios.length - 1, currentIdx + 1);
+      }
+
+      updateNavButtons();
+      renderScenarioList();
+      updateNextActivityStatus();
+
+      const correctCount = Object.values(userTriageResults).filter(r => r.isCorrect).length;
+      if (correctCount === scenarios.length) {
+        document.getElementById("completion-modal").style.display = "flex";
+      }
+    }
+
+    function updateNavButtons() {
+      const btnPrev = document.getElementById("btn-prev");
+      const btnNext = document.getElementById("btn-next");
+
+      // Previous button
+      btnPrev.disabled = currentIdx === 0;
+
+      // Next button locked unless current scenario is correctly triaged
+      const currentResult = userTriageResults[scenarios[currentIdx].id];
+      const isCurrentCorrect = currentResult && currentResult.isCorrect;
+
+      if (currentIdx === scenarios.length - 1) {
+        btnNext.disabled = true;
+        btnNext.innerText = "Final Scenario";
+      } else {
+        btnNext.innerText = "Next →";
+        btnNext.disabled = !isCurrentCorrect;
+        if (!isCurrentCorrect) {
+          btnNext.title = "Progression locked until current scenario is correct";
+        } else {
+          btnNext.title = "Proceed to the next scenario";
+        }
       }
     }
 
     function navigateScenario(delta) {
-      let next = currentIdx + delta;
-      if (next < 0) next = scenarios.length - 1;
-      if (next >= scenarios.length) next = 0;
-      loadScenario(next);
+      let target = currentIdx + delta;
+      if (target < 0 || target >= scenarios.length) return;
+      if (target > maxUnlockedIdx) {
+        alert("🔒 Progression is locked! You must answer the current scenario correctly before moving forward.");
+        return;
+      }
+      loadScenario(target);
     }
 
     function resetAllTriage() {
-      if (confirm("Reset all triaged scenario decisions?")) {
+      if (confirm("Reset all triaged scenario decisions and lock progression?")) {
         userTriageResults = {};
+        maxUnlockedIdx = 0;
         loadScenario(0);
+        updateNextActivityStatus();
       }
     }
 
     function updateScoreBadge() {
       const correctCount = Object.values(userTriageResults).filter(r => r.isCorrect).length;
       document.getElementById("score-display").innerText = `${correctCount} / ${scenarios.length}`;
+    }
+
+    function updateNextActivityStatus() {
+      const correctCount = Object.values(userTriageResults).filter(r => r.isCorrect).length;
+      const nextBtn = document.getElementById("btn-next-module");
+      const statusText = document.getElementById("next-task-status-text");
+
+      if (correctCount === scenarios.length) {
+        nextBtn.classList.remove("locked");
+        statusText.innerHTML = `<span style="color:#86EFAC; font-weight:600;">✓ Module complete! All 6 scenarios resolved. Click the button to proceed.</span>`;
+      } else {
+        nextBtn.classList.add("locked");
+        statusText.innerText = `Complete all 6 scenarios in the triage simulator above to unlock this next activity (${correctCount}/6 solved).`;
+      }
     }
 
     function switchTab(tabId) {
@@ -591,9 +732,7 @@
       const tools = document.getElementById("rec-tools");
       const icon = document.getElementById("rec-icon");
 
-      // Easy Decision Logic
       if (sandboxState.nature === "sensitive" || sandboxState.vol === "low") {
-        // Manual Process
         pill.className = "rec-pill badge-manual";
         pill.innerText = "Recommended Route: Manual";
         title.innerText = "Manual Process (SOP)";
@@ -606,7 +745,6 @@
         tools.innerText = "Standard Operating Procedure (SOP) / Human Review Meeting";
         icon.innerText = "✍️";
       } else if (sandboxState.nature === "extreme" || (sandboxState.vol === "high" && sandboxState.speed === "patient")) {
-        // Custom Software
         pill.className = "rec-pill badge-custom";
         pill.innerText = "Recommended Route: Custom Build";
         title.innerText = "Custom Software (Bespoke Code)";
@@ -619,7 +757,6 @@
         tools.innerText = "Python / C# / React / Custom SQL & Cloud Microservices";
         icon.innerText = "💻";
       } else if (sandboxState.nature === "docs") {
-        // AI-Assisted
         pill.className = "rec-pill badge-ai";
         pill.innerText = "Recommended Route: AI-Assisted";
         title.innerText = "AI-Assisted Process (Copilot / IDP)";
@@ -632,7 +769,6 @@
         tools.innerText = "AI Document Intelligence / Azure Cognitive / Microsoft Copilot";
         icon.innerText = "🤖";
       } else {
-        // Low-Code Solution
         pill.className = "rec-pill badge-lowcode";
         pill.innerText = "Recommended Route: Low-Code";
         title.innerText = "Low-Code Platform";
