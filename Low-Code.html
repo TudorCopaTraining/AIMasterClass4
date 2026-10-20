@@ -118,6 +118,44 @@
     <!-- TAB 1: SCENARIO TRIAGE SIMULATOR -->
     <div id="tab-triage" class="tab-pane active">
       
+      <!-- Integrated Dual-Task Overview Banner -->
+      <section class="hero-banner" style="background:#F8FAFC; border-left:6px solid var(--copa-red); margin-bottom:1.5rem;">
+        <h3 style="font-size:1.15rem; color:var(--copa-navy); margin-bottom:0.4rem;">Activity Structure: Overview of Tasks 1 & 2</h3>
+        <p style="margin-bottom:0.85rem; font-size:0.875rem; color:#475569; line-height:1.45;">
+          This interactive assessment is structured into two sequential practical exercises designed to test your architectural judgment and constraint management under standards <strong>K4, K5, and K6</strong>:
+        </p>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:1rem;">
+          
+          <div style="background:#FFFFFF; border:1px solid #CBD5E1; border-radius:8px; padding:1rem; border-top:3px solid var(--copa-navy);">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+              <strong style="color:var(--copa-navy); font-size:0.95rem;">Task 1: Scenario Triage Simulator</strong>
+              <span style="font-size:0.7rem; font-weight:700; background:#EFF6FF; color:#1D4ED8; padding:0.2rem 0.5rem; border-radius:4px;">Active Task (6 Scenarios)</span>
+            </div>
+            <p style="font-size:0.8rem; color:#475569; line-height:1.4; margin-bottom:0.5rem;">
+              Investigate 6 enterprise business scenarios across HR, Trading, Finance, Customer Ops, and IT. Evaluate <em>Volume</em>, <em>Budget & Timeline</em>, and <em>Technical Complexity</em> to select the optimal architectural path.
+            </p>
+            <div style="font-size:0.75rem; color:#0F766E; font-weight:600; background:#F0FDFA; padding:0.4rem 0.6rem; border-radius:4px; border:1px solid #CCFBF1;">
+              🔒 <strong>Gated Progression:</strong> You must solve each scenario correctly to unlock the next one. On scenario 6, the button will automatically route you to Task 2.
+            </div>
+          </div>
+
+          <div style="background:#FFFFFF; border:1px solid #CBD5E1; border-radius:8px; padding:1rem; border-top:3px solid var(--copa-red);">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+              <strong style="color:var(--copa-navy); font-size:0.95rem;">Task 2: Quick-Win Classifier Challenge</strong>
+              <span style="font-size:0.7rem; font-weight:700; background:#FEF2F2; color:#991B1B; padding:0.2rem 0.5rem; border-radius:4px;">Next Task (5 Items)</span>
+            </div>
+            <p style="font-size:0.8rem; color:#475569; line-height:1.4; margin-bottom:0.5rem;">
+              Rapidly classify 5 operational workplace requirements to identify high-value "Quick Wins" suitable for citizen development (Power Apps) versus pro-code engineering or confidential human reviews.
+            </p>
+            <div style="font-size:0.75rem; color:#B45309; font-weight:600; background:#FFFBEB; padding:0.4rem 0.6rem; border-radius:4px; border:1px solid #FDE68A;">
+              🏆 <strong>Module Completion:</strong> Both Task 1 (6/6) and Task 2 (5/5) must be completed correctly to activate the <em>'Proceed to Next Module'</em> banner at the bottom.
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       <div class="triage-layout">
         
         <!-- Sidebar: Scenario List -->
@@ -643,7 +681,6 @@
       document.getElementById("score-display").innerText = `${correctCount} / ${scenarios.length}`;
     }
 
-    // UPDATED: Only unlocks when BOTH Task 1 (6/6) and Task 2 (5/5) are completed!
     function updateNextActivityStatus() {
       const t1Correct = Object.values(userTriageResults).filter(r => r.isCorrect).length;
       const t2Correct = Object.values(task2State).filter(v => v === true).length;
@@ -673,7 +710,7 @@
         document.getElementById("tab-nav-classifier").classList.add("active");
         document.getElementById("tab-classifier").classList.add("active");
       }
-      window.scrollTo({ top: 380, behavior: 'smooth' });
+      window.scrollTo({ top: 400, behavior: 'smooth' });
     }
 
     function proceedToTask2FromModal() {
