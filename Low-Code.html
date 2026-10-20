@@ -34,7 +34,7 @@
     <section class="hero-banner">
       <h2>Architectural Decision-Making: Balancing Cost, Velocity, Risk & Capability</h2>
       <p>
-        In modern enterprise digital transformation, every business problem demands the right architectural fit. Practitioners must decide whether to retain a <strong>Manual Process</strong>, build rapidly with a <strong>Low-Code Platform</strong>, engineer <strong>Custom Software</strong>, or deploy an <strong>AI-Assisted Copilot</strong>. Progression through Task 1 is locked until each scenario is solved correctly.
+        In modern enterprise digital transformation, every business problem demands the right architectural fit. Practitioners must decide whether to retain a <strong>Manual Process</strong>, build rapidly with a <strong>Low-Code Platform</strong>, engineer <strong>Custom Software</strong>, or deploy an <strong>AI-Assisted Copilot</strong>. Complete both interactive tasks below to unlock the next module.
       </p>
     </section>
 
@@ -224,7 +224,11 @@
             <h3>Task 2: Quick-Win Delivery Classifier</h3>
             <p>Classify each operational workplace requirement into its optimal delivery method (Low-Code, Custom Code, or Manual SOP).</p>
           </div>
-          <div class="task2-progress-badge" id="task2-progress-badge">0 / 5 Correct</div>
+          <div style="display:flex; align-items:center; gap:0.6rem;">
+            <button class="btn-secondary" style="font-size:0.8rem; padding:0.4rem 0.8rem;" onclick="resetTask2()">↺ Reset Task 2</button>
+            <button class="btn-reveal" style="font-size:0.8rem; padding:0.4rem 0.8rem;" onclick="showAllTask2Answers()">💡 Show Answers</button>
+            <div class="task2-progress-badge" id="task2-progress-badge">0 / 5 Correct</div>
+          </div>
         </div>
 
         <div class="classifier-list">
@@ -236,9 +240,9 @@
               <p>Staff need a simple mobile form to upload photo receipts for expenses under £100. It must check spending limits, email the team manager for approval, and update payroll records.</p>
             </div>
             <div class="classifier-buttons">
-              <button class="class-btn" onclick="submitClassifier(1, 'lowcode')">⚡ Low-Code App (e.g. Power Apps)</button>
-              <button class="class-btn" onclick="submitClassifier(1, 'custom')">💻 Custom Software Build</button>
-              <button class="class-btn" onclick="submitClassifier(1, 'manual')">✍️ Keep Manual Paper/Email</button>
+              <button class="class-btn" data-opt="lowcode" onclick="submitClassifier(1, 'lowcode', this)">⚡ Low-Code App (e.g. Power Apps)</button>
+              <button class="class-btn" data-opt="custom" onclick="submitClassifier(1, 'custom', this)">💻 Custom Software Build</button>
+              <button class="class-btn" data-opt="manual" onclick="submitClassifier(1, 'manual', this)">✍️ Keep Manual Paper/Email</button>
             </div>
             <div class="class-explanation" id="expl-t2-1"></div>
           </div>
@@ -250,9 +254,9 @@
               <p>An automated logistics warehouse coordinates 80 autonomous mobile robots navigating narrow aisles simultaneously with sub-millisecond collision avoidance and custom spatial algorithms.</p>
             </div>
             <div class="classifier-buttons">
-              <button class="class-btn" onclick="submitClassifier(2, 'lowcode')">⚡ Low-Code App (e.g. Power Apps)</button>
-              <button class="class-btn" onclick="submitClassifier(2, 'custom')">💻 Custom Software Build</button>
-              <button class="class-btn" onclick="submitClassifier(2, 'manual')">✍️ Keep Manual Paper/Email</button>
+              <button class="class-btn" data-opt="lowcode" onclick="submitClassifier(2, 'lowcode', this)">⚡ Low-Code App (e.g. Power Apps)</button>
+              <button class="class-btn" data-opt="custom" onclick="submitClassifier(2, 'custom', this)">💻 Custom Software Build</button>
+              <button class="class-btn" data-opt="manual" onclick="submitClassifier(2, 'manual', this)">✍️ Keep Manual Paper/Email</button>
             </div>
             <div class="class-explanation" id="expl-t2-2"></div>
           </div>
@@ -264,9 +268,9 @@
               <p>A highly confidential whistleblowing disclosure regarding executive misconduct. It requires personal discretion, legal discernment, and protective empathy for the reporting individual.</p>
             </div>
             <div class="classifier-buttons">
-              <button class="class-btn" onclick="submitClassifier(3, 'lowcode')">⚡ Low-Code App (e.g. Power Apps)</button>
-              <button class="class-btn" onclick="submitClassifier(3, 'custom')">💻 Custom Software Build</button>
-              <button class="class-btn" onclick="submitClassifier(3, 'manual')">✍️ Keep Manual Paper/Email</button>
+              <button class="class-btn" data-opt="lowcode" onclick="submitClassifier(3, 'lowcode', this)">⚡ Low-Code App (e.g. Power Apps)</button>
+              <button class="class-btn" data-opt="custom" onclick="submitClassifier(3, 'custom', this)">💻 Custom Software Build</button>
+              <button class="class-btn" data-opt="manual" onclick="submitClassifier(3, 'manual', this)">✍️ Keep Manual Paper/Email</button>
             </div>
             <div class="class-explanation" id="expl-t2-3"></div>
           </div>
@@ -278,9 +282,9 @@
               <p>Employees returning to the office need to reserve hot-desks and monitor equipment 48 hours in advance. Managers want live occupancy visibility without spreadsheet collisions.</p>
             </div>
             <div class="classifier-buttons">
-              <button class="class-btn" onclick="submitClassifier(4, 'lowcode')">⚡ Low-Code App (e.g. Power Apps)</button>
-              <button class="class-btn" onclick="submitClassifier(4, 'custom')">💻 Custom Software Build</button>
-              <button class="class-btn" onclick="submitClassifier(4, 'manual')">✍️ Keep Manual Paper/Email</button>
+              <button class="class-btn" data-opt="lowcode" onclick="submitClassifier(4, 'lowcode', this)">⚡ Low-Code App (e.g. Power Apps)</button>
+              <button class="class-btn" data-opt="custom" onclick="submitClassifier(4, 'custom', this)">💻 Custom Software Build</button>
+              <button class="class-btn" data-opt="manual" onclick="submitClassifier(4, 'manual', this)">✍️ Keep Manual Paper/Email</button>
             </div>
             <div class="class-explanation" id="expl-t2-4"></div>
           </div>
@@ -292,9 +296,9 @@
               <p>Frontline staff log internal IT issues (printers, logins, screens). Requests route to Tier 1 technicians with automatic alerts if a ticket sits unresolved for more than 4 hours.</p>
             </div>
             <div class="classifier-buttons">
-              <button class="class-btn" onclick="submitClassifier(5, 'lowcode')">⚡ Low-Code App (e.g. Power Apps)</button>
-              <button class="class-btn" onclick="submitClassifier(5, 'custom')">💻 Custom Software Build</button>
-              <button class="class-btn" onclick="submitClassifier(5, 'manual')">✍️ Keep Manual Paper/Email</button>
+              <button class="class-btn" data-opt="lowcode" onclick="submitClassifier(5, 'lowcode', this)">⚡ Low-Code App (e.g. Power Apps)</button>
+              <button class="class-btn" data-opt="custom" onclick="submitClassifier(5, 'custom', this)">💻 Custom Software Build</button>
+              <button class="class-btn" data-opt="manual" onclick="submitClassifier(5, 'manual', this)">✍️ Keep Manual Paper/Email</button>
             </div>
             <div class="class-explanation" id="expl-t2-5"></div>
           </div>
@@ -312,7 +316,7 @@
           <span>Next Apprenticeship Task:</span> 
           <span style="color:#38BDF8;">Process Map Quality Audit & Improvement Proposal</span>
         </h4>
-        <p id="next-task-status-text">Complete all 6 scenarios in Task 1 to unlock this next activity.</p>
+        <p id="next-task-status-text">Complete all 6 scenarios in Task 1 and all 5 items in Task 2 to unlock this next activity.</p>
       </div>
       <!-- Configurable link: point this to your next GitHub Pages file -->
       <a href="process_map_audit.html" id="btn-next-module" class="btn-next-module locked">
@@ -415,6 +419,7 @@
     function init() {
       renderScenarioList();
       loadScenario(0);
+      updateTask2Score();
       updateNextActivityStatus();
     }
 
@@ -507,7 +512,6 @@
       showFeedback(s, isCorrect);
 
       if (isCorrect) {
-        // Unlock next scenario
         if (currentIdx + 1 > maxUnlockedIdx) {
           maxUnlockedIdx = Math.min(scenarios.length - 1, currentIdx + 1);
         }
@@ -517,7 +521,6 @@
       renderScenarioList();
       updateNextActivityStatus();
 
-      // Check if all are correct
       const correctCount = Object.values(userTriageResults).filter(r => r.isCorrect).length;
       if (correctCount === scenarios.length && isCorrect) {
         document.getElementById("t1-complete-modal").style.display = "flex";
@@ -584,7 +587,6 @@
       }
     }
 
-    // FIX FOR FINAL SCENARIO BUTTON LINKING TO TASK 2
     function updateNavButtons() {
       const btnPrev = document.getElementById("btn-prev");
       const btnNext = document.getElementById("btn-next");
@@ -595,7 +597,6 @@
       const isCurrentCorrect = currentResult && currentResult.isCorrect;
 
       if (currentIdx === scenarios.length - 1) {
-        // On the final scenario, button links to Task 2!
         btnNext.innerText = "Proceed to Task 2 →";
         btnNext.style.background = isCurrentCorrect ? "var(--copa-navy)" : "#94A3B8";
         btnNext.style.color = "#FFFFFF";
@@ -612,7 +613,6 @@
 
     function handleNextClick() {
       if (currentIdx === scenarios.length - 1) {
-        // Jump directly to Task 2!
         switchTab('classifier');
       } else {
         navigateScenario(1);
@@ -643,17 +643,22 @@
       document.getElementById("score-display").innerText = `${correctCount} / ${scenarios.length}`;
     }
 
+    // UPDATED: Only unlocks when BOTH Task 1 (6/6) and Task 2 (5/5) are completed!
     function updateNextActivityStatus() {
-      const correctCount = Object.values(userTriageResults).filter(r => r.isCorrect).length;
+      const t1Correct = Object.values(userTriageResults).filter(r => r.isCorrect).length;
+      const t2Correct = Object.values(task2State).filter(v => v === true).length;
+      
       const nextBtn = document.getElementById("btn-next-module");
       const statusText = document.getElementById("next-task-status-text");
 
-      if (correctCount === scenarios.length) {
+      const isAllComplete = (t1Correct === scenarios.length) && (t2Correct === 5);
+
+      if (isAllComplete) {
         nextBtn.classList.remove("locked");
-        statusText.innerHTML = `<span style="color:#86EFAC; font-weight:600;">✓ Module complete! All 6 scenarios resolved. Click to progress to the Process Map Audit module.</span>`;
+        statusText.innerHTML = `<span style="color:#86EFAC; font-weight:600;">✓ Both tasks complete! (Task 1: 6/6, Task 2: 5/5). Click to progress to the next module.</span>`;
       } else {
         nextBtn.classList.add("locked");
-        statusText.innerText = `Complete all 6 scenarios in Task 1 to unlock this next activity (${correctCount}/6 solved).`;
+        statusText.innerText = `Complete all 6 scenarios in Task 1 and all 5 items in Task 2 to unlock this next activity (Current progress: Task 1: ${t1Correct}/6, Task 2: ${t2Correct}/5).`;
       }
     }
 
@@ -668,7 +673,7 @@
         document.getElementById("tab-nav-classifier").classList.add("active");
         document.getElementById("tab-classifier").classList.add("active");
       }
-      window.scrollTo({ top: 400, behavior: 'smooth' });
+      window.scrollTo({ top: 380, behavior: 'smooth' });
     }
 
     function proceedToTask2FromModal() {
@@ -713,14 +718,13 @@
 
     let task2State = {};
 
-    function submitClassifier(itemNum, chosenOption) {
+    function submitClassifier(itemNum, chosenOption, btnElement) {
       const data = task2Answers[itemNum];
       const card = document.getElementById(`card-t2-${itemNum}`);
       const explBox = document.getElementById(`expl-t2-${itemNum}`);
 
-      // Highlight button
       card.querySelectorAll(".class-btn").forEach(b => b.classList.remove("chosen"));
-      event.currentTarget.classList.add("chosen");
+      btnElement.classList.add("chosen");
 
       const isCorrect = chosenOption === data.correct;
       task2State[itemNum] = isCorrect;
@@ -734,17 +738,55 @@
       }
 
       updateTask2Score();
+      updateNextActivityStatus();
+    }
+
+    function resetTask2() {
+      task2State = {};
+      for (let i = 1; i <= 5; i++) {
+        const card = document.getElementById(`card-t2-${i}`);
+        card.className = "classifier-card";
+        card.querySelectorAll(".class-btn").forEach(b => b.classList.remove("chosen"));
+        const expl = document.getElementById(`expl-t2-${i}`);
+        expl.style.display = "none";
+        expl.innerHTML = "";
+      }
+      updateTask2Score();
+      updateNextActivityStatus();
+    }
+
+    function showAllTask2Answers() {
+      for (let i = 1; i <= 5; i++) {
+        const data = task2Answers[i];
+        const card = document.getElementById(`card-t2-${i}`);
+        const expl = document.getElementById(`expl-t2-${i}`);
+        
+        card.querySelectorAll(".class-btn").forEach(b => {
+          b.classList.toggle("chosen", b.dataset.opt === data.correct);
+        });
+
+        card.className = "classifier-card correct-answer";
+        expl.style.display = "block";
+        expl.innerHTML = data.expl;
+        task2State[i] = true;
+      }
+      updateTask2Score();
+      updateNextActivityStatus();
     }
 
     function updateTask2Score() {
       const correctCount = Object.values(task2State).filter(v => v === true).length;
       document.getElementById("task2-score-display").innerText = `${correctCount} / 5`;
-      document.getElementById("task2-progress-badge").innerText = `${correctCount} / 5 Correct`;
+      const badge = document.getElementById("task2-progress-badge");
       
       if (correctCount === 5) {
-        document.getElementById("task2-progress-badge").style.background = "#DCFCE7";
-        document.getElementById("task2-progress-badge").style.color = "#166534";
-        document.getElementById("task2-progress-badge").innerText = "✓ Task 2 Mastered!";
+        badge.style.background = "#DCFCE7";
+        badge.style.color = "#166534";
+        badge.innerText = "✓ Task 2 Mastered! (5/5)";
+      } else {
+        badge.style.background = "#EFF6FF";
+        badge.style.color = "#1E40AF";
+        badge.innerText = `${correctCount} / 5 Correct`;
       }
     }
 
