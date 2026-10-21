@@ -1,0 +1,430 @@
+/* ==========================================================================
+   COPA Level 4 AI & Automation Practitioner: Platform Matching Exercise
+   File: platform_matcher.css
+   Language: en-GB
+   ========================================================================== */
+
+:root {
+  --copa-navy: #0C2340;
+  --copa-navy-dark: #071526;
+  --copa-red: #E31B23;
+  --copa-red-hover: #C1121F;
+  --copa-slate: #F8FAFC;
+  --border-color: #CBD5E1;
+  --text-main: #0F172A;
+  --text-muted: #64748B;
+  
+  --success-green: #166534;
+  --success-bg: #DCFCE7;
+  --danger-red: #991B1B;
+  --danger-bg: #FEE2E2;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: var(--copa-slate);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: linear-gradient(135deg, var(--copa-navy) 0%, #162E4D 100%);
+  color: #FFFFFF;
+  padding: 1.25rem 2rem;
+  border-bottom: 4px solid var(--copa-red);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.brand-wrapper h1 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.brand-wrapper p {
+  font-size: 0.85rem;
+  color: #94A3B8;
+  margin-top: 0.2rem;
+}
+
+.header-stats {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.stat-pill {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-align: right;
+  font-size: 0.85rem;
+}
+
+.stat-pill strong {
+  color: #38BDF8;
+  font-size: 1.15rem;
+  margin-left: 0.35rem;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 1.5rem auto;
+  padding: 0 1.5rem;
+  flex: 1;
+  width: 100%;
+}
+
+/* Instructions Banner */
+.info-banner {
+  background: #FFFFFF;
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  border-left: 6px solid var(--copa-navy);
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+}
+
+.info-banner h2 {
+  font-size: 1.2rem;
+  color: var(--copa-navy);
+  margin-bottom: 0.4rem;
+}
+
+.info-banner p {
+  font-size: 0.875rem;
+  color: #475569;
+  line-height: 1.5;
+}
+
+/* Tool Badges Grid */
+.tool-legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.legend-chip {
+  background: #F8FAFC;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.legend-chip strong {
+  color: var(--copa-navy);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.legend-chip span {
+  color: var(--text-muted);
+  font-size: 0.73rem;
+}
+
+/* Exercise Controls Bar */
+.exercise-toolbar {
+  background: #FFFFFF;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.toolbar-title h3 {
+  font-size: 1.05rem;
+  color: var(--copa-navy);
+  margin-bottom: 0.2rem;
+}
+
+.toolbar-title p {
+  font-size: 0.8rem;
+  color: #64748B;
+}
+
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* Matching Cards Grid */
+.requirements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.req-card {
+  background: #FFFFFF;
+  border: 1.5px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+}
+
+.req-card.correct {
+  border-color: #10B981;
+  background: #F0FDF4;
+}
+
+.req-card.incorrect {
+  border-color: #EF4444;
+  background: #FEF2F2;
+}
+
+.req-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.req-number {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--copa-red);
+  background: #FEE2E2;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.status-indicator {
+  font-size: 1.1rem;
+}
+
+.req-card h4 {
+  font-size: 1rem;
+  color: var(--copa-navy);
+  margin-bottom: 0.35rem;
+  line-height: 1.35;
+}
+
+.req-card p {
+  font-size: 0.85rem;
+  color: #475569;
+  line-height: 1.45;
+  margin-bottom: 1rem;
+}
+
+.select-wrapper {
+  margin-top: auto;
+}
+
+.select-wrapper label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--copa-navy);
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+}
+
+.tool-select {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  border-radius: 6px;
+  border: 1.5px solid var(--border-color);
+  font-size: 0.85rem;
+  color: #1E293B;
+  background-color: #FFFFFF;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.tool-select:focus {
+  border-color: var(--copa-navy);
+}
+
+.feedback-text {
+  display: none;
+  margin-top: 0.85rem;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.req-card.correct .feedback-text {
+  display: block;
+  background: #DCFCE7;
+  color: #166534;
+  border: 1px solid #86EFAC;
+}
+
+.req-card.incorrect .feedback-text {
+  display: block;
+  background: #FEE2E2;
+  color: #991B1B;
+  border: 1px solid #FCA5A5;
+}
+
+/* Buttons */
+.btn-primary {
+  background: var(--copa-red);
+  color: #FFFFFF;
+  padding: 0.65rem 1.3rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--copa-red-hover);
+}
+
+.btn-secondary {
+  background: #E2E8F0;
+  color: #475569;
+  padding: 0.55rem 0.95rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: #CBD5E1;
+  color: var(--text-main);
+}
+
+.btn-reveal {
+  background: #FFFBEB;
+  color: #B45309;
+  border: 1px solid #FDE68A;
+  padding: 0.55rem 0.95rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-reveal:hover {
+  background: #FEF3C7;
+  border-color: #FCD34D;
+}
+
+/* Next Module Banner */
+.next-task-nav-banner {
+  margin-top: 1rem;
+  background: linear-gradient(135deg, var(--copa-navy) 0%, #162E4D 100%);
+  border-radius: 10px;
+  padding: 1.25rem 1.75rem;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 6px solid var(--copa-red);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.next-task-info h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.next-task-info p {
+  font-size: 0.85rem;
+  color: #CBD5E1;
+}
+
+.btn-next-module {
+  background: var(--copa-red);
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+}
+
+.btn-next-module:hover:not(.locked) {
+  background: var(--copa-red-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(227, 27, 35, 0.3);
+}
+
+.btn-next-module.locked {
+  background: #64748B;
+  cursor: not-allowed;
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-box {
+  background: #FFFFFF;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 540px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.modal-box h3 {
+  font-size: 1.45rem;
+  color: var(--copa-navy);
+  margin-bottom: 0.5rem;
+}
+
+.modal-box p {
+  color: #475569;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+@media (max-width: 900px) {
+  .next-task-nav-banner { flex-direction: column; text-align: center; gap: 1rem; }
+  .exercise-toolbar { flex-direction: column; gap: 1rem; text-align: center; }
+}

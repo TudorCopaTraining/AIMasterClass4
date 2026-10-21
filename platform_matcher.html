@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COPA | Power Platform Matching Exercise</title>
+  <link rel="stylesheet" href="platform_matcher.css">
+</head>
+<body>
+
+  <header>
+    <div class="brand-wrapper">
+      <h1>Power Platform Component Matching Challenge</h1>
+      <p>COPA Level 4 AI & Automation Practitioner | Session 4: Topic 2 Ecosystem Architectures</p>
+    </div>
+    <div class="header-stats">
+      <div class="stat-pill">Correct Matches: <strong id="score-display">0 / 7</strong></div>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    <!-- Instructions & Overview Banner -->
+    <section class="info-banner">
+      <h2>Task Instructions: Match Operational Requirements to the Right Microsoft Tool</h2>
+      <p>
+        In modern enterprise automation, choosing the correct component within the Microsoft ecosystem determines project velocity, scalability, licensing cost, and security. Review each of the 7 business requirements below and assign the optimal tool.
+      </p>
+
+      <div class="tool-legend">
+        <div class="legend-chip">
+          <strong>📝 Microsoft Forms</strong>
+          <span>Surveys & public intake</span>
+        </div>
+        <div class="legend-chip">
+          <strong>📱 Power Apps</strong>
+          <span>Mobile/tablet UI & hardware</span>
+        </div>
+        <div class="legend-chip">
+          <strong>⚡ Power Automate</strong>
+          <span>Workflows, RPA & approvals</span>
+        </div>
+        <div class="legend-chip">
+          <strong>📋 SharePoint Lists</strong>
+          <span>Included team data & lists</span>
+        </div>
+        <div class="legend-chip">
+          <strong>🗄️ Microsoft Dataverse</strong>
+          <span>Relational DB & role security</span>
+        </div>
+        <div class="legend-chip">
+          <strong>🤖 AI Builder</strong>
+          <span>Document parsing & OCR</span>
+        </div>
+        <div class="legend-chip">
+          <strong>💬 Copilot Studio</strong>
+          <span>Conversational data Q&A</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Toolbar with Actions -->
+    <section class="exercise-toolbar">
+      <div class="toolbar-title">
+        <h3>Operational Workplace Requirements</h3>
+        <p>Assign all 7 requirements to unlock the final completion review and next module.</p>
+      </div>
+      <div class="toolbar-actions">
+        <button class="btn-secondary" onclick="resetExercise()">↺ Reset Exercise</button>
+        <button class="btn-reveal" onclick="revealAllAnswers()">💡 Show Correct Matches</button>
+        <button class="btn-primary" onclick="validateMatches()">Check Answers</button>
+      </div>
+    </section>
+
+    <!-- Requirements Cards Grid -->
+    <section class="requirements-grid" id="requirements-container">
+      
+      <!-- Card 1 -->
+      <article class="req-card" id="card-1">
+        <div>
+          <div class="req-header">
+            <span class="req-number">Requirement 1</span>
+            <span class="status-indicator" id="status-1">⚪</span>
+          </div>
+          <h4>Collecting External Anonymous Customer Feedback</h4>
+          <p>
+            The marketing team needs a lightweight, publicly accessible feedback survey to collect satisfaction scores and comments from external customers without requiring Microsoft login credentials.
+          </p>
+        </div>
+        <div class="select-wrapper">
+          <label for="sel-1">Target Component:</label>
+          <select class="tool-select" id="sel-1" onchange="markCardNeutral(1)">
+            <option value="">-- Choose Microsoft Tool --</option>
+            <option value="forms">Microsoft Forms</option>
+            <option value="powerapps">Power Apps</option>
+            <option value="powerautomate">Power Automate</option>
+            <option value="sharepoint">SharePoint Lists</option>
+            <option value="dataverse">Microsoft Dataverse</option>
+            <option value="aibuilder">AI Builder</option>
+            <option value="copilot">Copilot Studio / Copilot</option>
+          </select>
+          <div class="feedback-text" id="fb-1"></div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="req-card" id="card-2">
+        <div>
+          <div class="req-header">
+            <span class="req-number">Requirement 2</span>
+            <span class="status-indicator" id="status-2">⚪</span>
+          </div>
+          <h4>Automating Tiered Multi-Stage Manager Approvals</h4>
+          <p>
+            Purchase orders over £500 must automatically route to line managers via interactive Microsoft Teams cards and email, escalating to the Finance Director if not approved within 24 hours.
+          </p>
+        </div>
+        <div class="select-wrapper">
+          <label for="sel-2">Target Component:</label>
+          <select class="tool-select" id="sel-2" onchange="markCardNeutral(2)">
+            <option value="">-- Choose Microsoft Tool --</option>
+            <option value="forms">Microsoft Forms</option>
+            <option value="powerapps">Power Apps</option>
+            <option value="powerautomate">Power Automate</option>
+            <option value="sharepoint">SharePoint Lists</option>
+            <option value="dataverse">Microsoft Dataverse</option>
+            <option value="aibuilder">AI Builder</option>
+            <option value="copilot">Copilot Studio / Copilot</option>
+          </select>
+          <div class="feedback-text" id="fb-2"></div>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="req-card" id="card-3">
+        <div>
+          <div class="req-header">
+            <span class="req-number">Requirement 3</span>
+            <span class="status-indicator" id="status-3">⚪</span>
+          </div>
+          <h4>Storing Relational Enterprise Data with Strict Row Security</h4>
+          <p>
+            An organisation needs a central customer database storing millions of records with complex parent-child relationships (Accounts linked to Contacts and Contracts) and row-level role security.
+          </p>
+        </div>
+        <div class="select-wrapper">
+          <label for="sel-3">Target Component:</label>
+          <select class="tool-select" id="sel-3" onchange="markCardNeutral(3)">
+            <option value="">-- Choose Microsoft Tool --</option>
+            <option value="forms">Microsoft Forms</option>
+            <option value="powerapps">Power Apps</option>
+            <option value="powerautomate">Power Automate</option>
+            <option value="sharepoint">SharePoint Lists</option>
+            <option value="dataverse">Microsoft Dataverse</option>
+            <option value="aibuilder">AI Builder</option>
+            <option value="copilot">Copilot Studio / Copilot</option>
+          </select>
+          <div class="feedback-text" id="fb-3"></div>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="req-card" id="card-4">
+        <div>
+          <div class="req-header">
+            <span class="req-number">Requirement 4</span>
+            <span class="status-indicator" id="status-4">⚪</span>
+          </div>
+          <h4>Building an On-Site Mobile Warehouse Inspection Tool</h4>
+          <p>
+            Depot staff require an interactive tablet application to conduct forklift vehicle safety checks, utilising the device camera to photograph defects and scanning barcodes on spare parts.
+          </p>
+        </div>
+        <div class="select-wrapper">
+          <label for="sel-4">Target Component:</label>
+          <select class="tool-select" id="sel-4" onchange="markCardNeutral(4)">
+            <option value="">-- Choose Microsoft Tool --</option>
+            <option value="forms">Microsoft Forms</option>
+            <option value="powerapps">Power Apps</option>
+            <option value="powerautomate">Power Automate</option>
+            <option value="sharepoint">SharePoint Lists</option>
+            <option value="dataverse">Microsoft Dataverse</option>
+            <option value="aibuilder">AI Builder</option>
+            <option value="copilot">Copilot Studio / Copilot</option>
+          </select>
+          <div class="feedback-text" id="fb-4"></div>
+        </div>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="req-card" id="card-5">
+        <div>
+          <div class="req-header">
+            <span class="req-number">Requirement 5</span>
+            <span class="status-indicator" id="status-5">⚪</span>
+          </div>
+          <h4>Extracting Data from Scanned PDF Supplier Invoices</h4>
+          <p>
+            Accounts receives hundreds of scanned PDF invoices weekly in unstructured layouts. The team needs to automatically extract invoice dates, total amounts, and supplier VAT numbers into tabular data.
+          </p>
+        </div>
+        <div class="select-wrapper">
+          <label for="sel-5">Target Component:</label>
+          <select class="tool-select" id="sel-5" onchange="markCardNeutral(5)">
+            <option value="">-- Choose Microsoft Tool --</option>
+            <option value="forms">Microsoft Forms</option>
+            <option value="powerapps">Power Apps</option>
+            <option value="powerautomate">Power Automate</option>
+            <option value="sharepoint">SharePoint Lists</option>
+            <option value="dataverse">Microsoft Dataverse</option>
+            <option value="aibuilder">AI Builder</option>
+            <option value="copilot">Copilot Studio / Copilot</option>
+          </select>
+          <div class="feedback-text" id="fb-5"></div>
+        </div>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="req-card" id="card-6">
+        <div>
+          <div class="req-header">
+            <span class="req-number">Requirement 6</span>
+            <span class="status-indicator" id="status-6">⚪</span>
+          </div>
+          <h4>Zero-Licence-Cost Team Asset Registry</h4>
+          <p>
+            A local IT support team of 15 colleagues needs an accessible tabular tracker to record who has borrowed spare monitors, with zero additional premium licence costs beyond standard Microsoft 365.
+          </p>
+        </div>
+        <div class="select-wrapper">
+          <label for="sel-6">Target Component:</label>
+          <select class="tool-select" id="sel-6" onchange="markCardNeutral(6)">
+            <option value="">-- Choose Microsoft Tool --</option>
+            <option value="forms">Microsoft Forms</option>
+            <option value="powerapps">Power Apps</option>
+            <option value="powerautomate">Power Automate</option>
+            <option value="sharepoint">SharePoint Lists</option>
+            <option value="dataverse">Microsoft Dataverse</option>
+            <option value="aibuilder">AI Builder</option>
+            <option value="copilot">Copilot Studio / Copilot</option>
+          </select>
+          <div class="feedback-text" id="fb-6"></div>
+        </div>
+      </article>
+
+      <!-- Card 7 -->
+      <article class="req-card" id="card-7">
+        <div>
+          <div class="req-header">
+            <span class="req-number">Requirement 7</span>
+            <span class="status-indicator" id="status-7">⚪</span>
+          </div>
+          <h4>Conversational Internal Policy Assistant</h4>
+          <p>
+            Staff spend hours searching through intranet documents for maternity, travel, and health policies. The HR team wants an internal conversational chatbot grounded strictly in company documentation.
+          </p>
+        </div>
+        <div class="select-wrapper">
+          <label for="sel-7">Target Component:</label>
+          <select class="tool-select" id="sel-7" onchange="markCardNeutral(7)">
+            <option value="">-- Choose Microsoft Tool --</option>
+            <option value="forms">Microsoft Forms</option>
+            <option value="powerapps">Power Apps</option>
+            <option value="powerautomate">Power Automate</option>
+            <option value="sharepoint">SharePoint Lists</option>
+            <option value="dataverse">Microsoft Dataverse</option>
+            <option value="aibuilder">AI Builder</option>
+            <option value="copilot">Copilot Studio / Copilot</option>
+          </select>
+          <div class="feedback-text" id="fb-7"></div>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- Bottom Navigation Link -->
+    <section class="next-task-nav-banner">
+      <div class="next-task-info">
+        <h4>Next Apprenticeship Module: Process Map Quality Audit & Improvement Proposal</h4>
+        <p id="next-task-status-text">Match all 7 components correctly to unlock the link to the next module.</p>
+      </div>
+      <a href="process_map_audit.html" id="btn-next-module" class="btn-next-module locked">
+        <span>Proceed to Next Module</span> →
+      </a>
+    </section>
+
+  </main>
+
+  <!-- Success Modal -->
+  <div class="modal-overlay" id="completion-modal">
+    <div class="modal-box">
+      <h3>All Components Accurately Matched! 🎉</h3>
+      <p>
+        Outstanding architectural evaluation! You have demonstrated clear mastery across front-end intake, orchestration, data storage, and cognitive AI services within the Power Platform ecosystem.
+      </p>
+      <div style="display:flex; justify-content:center; gap:0.75rem;">
+        <button class="btn-secondary" onclick="closeModal()">Review Answers</button>
+        <a href="process_map_audit.html" class="btn-primary" style="text-decoration:none;">Go to Next Module →</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const answerKey = {
+      1: {
+        correct: "forms",
+        title: "Microsoft Forms",
+        expl: "<strong>✓ Microsoft Forms:</strong> Ideal for simple, external-facing surveys and anonymous feedback without authentication hurdles or app build overhead."
+      },
+      2: {
+        correct: "powerautomate",
+        title: "Power Automate",
+        expl: "<strong>✓ Power Automate:</strong> The native orchestration engine built specifically for event-driven workflows, multi-stage approval cards in Teams, and SLA escalation timers."
+      },
+      3: {
+        correct: "dataverse",
+        title: "Microsoft Dataverse",
+        expl: "<strong>✓ Microsoft Dataverse:</strong> Provides true enterprise relational storage (Common Data Model), row/field-level security (RBAC), and high transaction scalability."
+      },
+      4: {
+        correct: "powerapps",
+        title: "Power Apps",
+        expl: "<strong>✓ Power Apps:</strong> Delivers custom mobile/tablet canvas applications with native device access to cameras, GPS, and barcode scanners for operational field staff."
+      },
+      5: {
+        correct: "aibuilder",
+        title: "AI Builder",
+        expl: "<strong>✓ AI Builder:</strong> Integrates turnkey cognitive document processing (IDP) and OCR models into flows to automatically extract structured values from unstructured PDFs."
+      },
+      6: {
+        correct: "sharepoint",
+        title: "SharePoint Lists",
+        expl: "<strong>✓ SharePoint Lists:</strong> Included with standard Microsoft 365 licensing, making it the perfect zero-extra-cost tabular data store for internal team registries and quick prototypes."
+      },
+      7: {
+        correct: "copilot",
+        title: "Copilot Studio / Copilot",
+        expl: "<strong>✓ Copilot Studio:</strong> Allows organizations to build and deploy conversational generative chatbots grounded strictly in internal SharePoint and enterprise documentation (Standard K6)."
+      }
+    };
+
+    let userSelections = {};
+
+    function markCardNeutral(id) {
+      const val = document.getElementById(`sel-${id}`).value;
+      userSelections[id] = val;
+      const card = document.getElementById(`card-${id}`);
+      card.className = "req-card";
+      document.getElementById(`status-${id}`).innerText = val ? "⏳" : "⚪";
+      document.getElementById(`fb-${id}`).style.display = "none";
+      updateLiveScore();
+    }
+
+    function validateMatches() {
+      let correctCount = 0;
+      let allAnswered = true;
+
+      for (let i = 1; i <= 7; i++) {
+        const val = document.getElementById(`sel-${i}`).value;
+        const card = document.getElementById(`card-${i}`);
+        const status = document.getElementById(`status-${i}`);
+        const fb = document.getElementById(`fb-${i}`);
+        const ans = answerKey[i];
+
+        if (!val) {
+          allAnswered = false;
+          continue;
+        }
+
+        if (val === ans.correct) {
+          correctCount++;
+          card.className = "req-card correct";
+          status.innerText = "✅";
+          fb.style.display = "block";
+          fb.innerHTML = ans.expl;
+        } else {
+          card.className = "req-card incorrect";
+          status.innerText = "❌";
+          fb.style.display = "block";
+          fb.innerHTML = `<strong>⚠️ Incorrect Match:</strong> This requirement is best fulfilled by <strong>${ans.title}</strong>.<br>${ans.expl}`;
+        }
+      }
+
+      if (!allAnswered) {
+        alert("Please select a component for all 7 requirements before checking.");
+        return;
+      }
+
+      updateLiveScore();
+
+      if (correctCount === 7) {
+        document.getElementById("completion-modal").style.display = "flex";
+      }
+    }
+
+    function updateLiveScore() {
+      let correctCount = 0;
+      for (let i = 1; i <= 7; i++) {
+        const val = document.getElementById(`sel-${i}`).value;
+        if (val === answerKey[i].correct && document.getElementById(`card-${i}`).classList.contains("correct")) {
+          correctCount++;
+        }
+      }
+
+      document.getElementById("score-display").innerText = `${correctCount} / 7`;
+
+      const nextBtn = document.getElementById("btn-next-module");
+      const statusText = document.getElementById("next-task-status-text");
+
+      if (correctCount === 7) {
+        nextBtn.classList.remove("locked");
+        statusText.innerHTML = `<span style="color:#86EFAC; font-weight:600;">✓ Challenge mastered (7/7)! Link to the next module unlocked.</span>`;
+      } else {
+        nextBtn.classList.add("locked");
+        statusText.innerText = `Match all 7 components correctly to unlock the link to the next module (${correctCount}/7 correct).`;
+      }
+    }
+
+    function revealAllAnswers() {
+      for (let i = 1; i <= 7; i++) {
+        const ans = answerKey[i];
+        document.getElementById(`sel-${i}`).value = ans.correct;
+        const card = document.getElementById(`card-${i}`);
+        card.className = "req-card correct";
+        document.getElementById(`status-${i}`).innerText = "✅";
+        const fb = document.getElementById(`fb-${i}`);
+        fb.style.display = "block";
+        fb.innerHTML = `<strong>💡 Correct Match:</strong><br>${ans.expl}`;
+      }
+      updateLiveScore();
+    }
+
+    function resetExercise() {
+      for (let i = 1; i <= 7; i++) {
+        document.getElementById(`sel-${i}`).value = "";
+        const card = document.getElementById(`card-${i}`);
+        card.className = "req-card";
+        document.getElementById(`status-${i}`).innerText = "⚪";
+        const fb = document.getElementById(`fb-${i}`);
+        fb.style.display = "none";
+        fb.innerHTML = "";
+      }
+      userSelections = {};
+      updateLiveScore();
+    }
+
+    function closeModal() {
+      document.getElementById("completion-modal").style.display = "none";
+    }
+
+    resetExercise();
+  </script>
+</body>
+</html>
