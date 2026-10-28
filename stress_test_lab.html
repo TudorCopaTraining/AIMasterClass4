@@ -5,6 +5,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>COPA | The 4-Corner Systematic Stress Test (Interactive Lab)</title>
   <link rel="stylesheet" href="stress_test_lab.css">
+  <style>
+    /* Additional inline styles for header action & certificate button */
+    .header-btn-reset {
+      background: rgba(255, 255, 255, 0.12);
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 0.45rem 0.9rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+    }
+    .header-btn-reset:hover {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: #FFFFFF;
+    }
+    .banner-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .btn-cert-link {
+      background: var(--copa-red);
+      color: #FFFFFF;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(227, 27, 35, 0.3);
+    }
+    .btn-cert-link:hover {
+      background: var(--copa-red-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(227, 27, 35, 0.4);
+    }
+    .btn-redo-activity {
+      background: rgba(255, 255, 255, 0.15);
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      padding: 0.75rem 1.25rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+    }
+    .btn-redo-activity:hover {
+      background: rgba(255, 255, 255, 0.3);
+      border-color: #FFFFFF;
+    }
+  </style>
 </head>
 <body>
 
@@ -15,6 +81,9 @@
     </div>
     <div class="header-controls">
       <div class="stat-pill">Gateway Portfolio Status: <strong id="overall-status-pill">0 / 4 Tested</strong></div>
+      <button class="header-btn-reset" onclick="confirmResetLab()" title="Reset entire testing activity">
+        ↺ Reset Activity
+      </button>
     </div>
   </header>
 
@@ -123,7 +192,7 @@
             <span class="sim-badge" id="sim-scenario-badge">Scenario: Expense Requisition</span>
           </div>
           <div class="sim-actions">
-            <button class="btn-secondary" style="font-size:0.75rem; padding:0.25rem 0.5rem;" onclick="resetSimulator()">↺ Reset</button>
+            <button class="btn-secondary" style="font-size:0.75rem; padding:0.25rem 0.5rem;" onclick="resetSimulator()">↺ Clear Form</button>
           </div>
         </div>
 
@@ -178,7 +247,7 @@
                 <span class="mock-error-hint" id="hint-email">Valid email format required.</span>
               </div>
 
-              <button class="mock-submit-btn" id="sim-btn-submit" onclick="executeMockSubmission()">
+              <button class="mock-submit-btn" id="sim-btn-submit" onclick="executeMockSubmission()" disabled>
                 Submit Requisition
               </button>
             </div>
@@ -235,9 +304,10 @@
           <h3>Empirical Test Execution Log (Gateway Portfolio Artifact)</h3>
           <p style="font-size:0.8rem; color:#64748B;">Records test inputs, system reactions, pass/fail evaluations, and remediation notes for Standards K4 & K5.</p>
         </div>
-        <div style="display:flex; gap:0.5rem;">
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
           <button class="btn-secondary" onclick="copyLogToClipboard()">📋 Copy to Clipboard</button>
           <button class="btn-secondary" onclick="exportLogMarkdown()">📥 Export Markdown</button>
+          <button class="btn-secondary" onclick="confirmResetLab()" style="color:#991B1B;">↺ Reset Log</button>
         </div>
       </div>
 
@@ -258,13 +328,19 @@
       </table>
     </section>
 
-    <!-- Export & Completion Banner -->
+    <!-- Export & Completion Banner linking to certificate.html -->
     <section class="export-banner">
       <div class="export-info">
-        <h4>Ready for Gateway Professional Discussion?</h4>
-        <p id="export-summary-text">Complete all 4 testing corners to compile your empirical verification record.</p>
+        <h4>Completed the Testing & Refinement Masterclass?</h4>
+        <p id="export-summary-text">Once all 4 stress corners are logged, claim your official certificate of masterclass completion or reset the lab to practise again.</p>
       </div>
-      <button class="btn-primary" onclick="markAllComplete()">Verify All & Compile Log ✓</button>
+      <div class="banner-actions">
+        <button class="btn-redo-activity" onclick="confirmResetLab()">↺ Redo Activity</button>
+        <a href="certificate.html" class="btn-cert-link" id="btn-claim-cert">
+          <span>View Masterclass Certificate</span>
+          <span style="font-size:1.1rem;">🎓</span>
+        </a>
+      </div>
     </section>
 
   </main>
@@ -360,40 +436,42 @@
     let currentCorner = 1;
     let nextId = 102;
 
-    let testExecutionLogs = [
+    const initialLogs = [
       {
         id: "TC-01",
         category: "Happy Path",
         payload: "Title: Ergonomic Keyboard | Cost: £129.50 | Valid Email",
-        observed: "SharePoint item #102 logged; flow ran in 4.2s; email receipt dispatched.",
-        outcome: "Pass",
-        notes: "Meets standard SLA. Happy path baseline verified."
+        observed: "Awaiting execution in simulator...",
+        outcome: "Pending",
+        notes: "Baseline functional verification."
       },
       {
         id: "TC-02",
         category: "Negative Boundary",
         payload: "Cost: £850.00 (Threshold) & Tested -£50.00",
-        observed: "£850 triggered high-value approval card in Teams; -£50 blocked by input mask.",
-        outcome: "Pass",
-        notes: "Financial policy-as-code verified (Standard K5)."
+        observed: "Awaiting boundary test...",
+        outcome: "Pending",
+        notes: "Financial policy-as-code verification (Standard K5)."
       },
       {
         id: "TC-03",
         category: "Dirty Data Trap",
         payload: "Blank Title | Cost: 'fifty' | Broken Email",
-        observed: "Client-side errors fired; submit button disabled; zero records sent to DB.",
-        outcome: "Pass",
+        observed: "Awaiting defensive validation test...",
+        outcome: "Pending",
         notes: "Defensive validation prevents database corruption."
       },
       {
         id: "TC-04",
         category: "Peer UAT",
         payload: "Peer tested without coaching on mobile view",
-        observed: "Completed task in 38s. Hesitated slightly on category dropdown.",
-        outcome: "Pass",
-        notes: "Add default placeholder hint to Category dropdown."
+        observed: "Awaiting peer review trial...",
+        outcome: "Pending",
+        notes: "Peer usability score and friction notes."
       }
     ];
+
+    let testExecutionLogs = JSON.parse(JSON.stringify(initialLogs));
 
     function initLab() {
       renderLogTable();
@@ -541,7 +619,7 @@
       document.querySelectorAll(".mock-error-hint").forEach(h => h.style.display = "none");
       document.getElementById("sim-btn-submit").disabled = true;
       document.getElementById("telemetry-status").innerText = "IDLE";
-      logTelemetry("[Simulator] Form reset to initial state.", "info");
+      logTelemetry("[Simulator] Form inputs reset to blank.", "info");
     }
 
     function recordTestOutcome() {
@@ -554,12 +632,59 @@
       const tab = document.getElementById(`tab-corner-${currentCorner}`);
       tab.classList.add("passed");
 
-      alert(`✓ ${c.code} logged successfully! Criteria marked as Passed.`);
+      updateStatusHeader();
 
       if (currentCorner < 4) {
         switchCorner(currentCorner + 1);
+      } else {
+        alert(`✓ All 4 corners logged! You can now view and download your Masterclass Certificate.`);
       }
+    }
+
+    function confirmResetLab() {
+      if (confirm("Reset the entire 4-Corner Stress Test Lab?\n\nThis will reset all test logs, unmark all corners, clear the simulator, and allow you to re-do the activity from scratch.")) {
+        resetEntireLab();
+      }
+    }
+
+    function resetEntireLab() {
+      // 1. Reset logs
+      testExecutionLogs = JSON.parse(JSON.stringify(initialLogs));
+      renderLogTable();
+
+      // 2. Reset Corner tabs
+      for (let i = 1; i <= 4; i++) {
+        const tab = document.getElementById(`tab-corner-${i}`);
+        tab.classList.remove("passed", "failed", "active");
+      }
+
+      // 3. Reset Simulator
+      resetSimulator();
+
+      // 4. Reset Telemetry feed
+      document.getElementById("telemetry-feed").innerHTML = `
+        <div class="feed-line info">[System] Ready. Awaiting trigger event...</div>
+        <div class="feed-line info">[System] Entire testing lab reset to initial state.</div>
+      `;
+
+      // 5. Reset SharePoint mock table
+      document.getElementById("db-tbody").innerHTML = `
+        <tr>
+          <td>#101</td>
+          <td>Dual Monitor Arms</td>
+          <td>IT Hardware</td>
+          <td>£65.00</td>
+          <td>tudor.britton@copa.co.uk</td>
+          <td><span style="color:#166534; font-weight:700;">Approved</span></td>
+        </tr>
+      `;
+      nextId = 102;
+
+      // 6. Switch back to corner 1
+      switchCorner(1);
       updateStatusHeader();
+
+      logTelemetry("[Reset] Activity restarted from Corner 1.", "info");
     }
 
     function renderLogTable() {
@@ -588,21 +713,19 @@
 
     function updateLogField(idx, field, value) {
       testExecutionLogs[idx][field] = value;
+      updateStatusHeader();
     }
 
     function updateStatusHeader() {
       const passedCount = testExecutionLogs.filter(l => l.outcome === "Pass").length;
       document.getElementById("overall-status-pill").innerText = `${passedCount} / 4 Passed`;
-    }
-
-    function markAllComplete() {
-      testExecutionLogs.forEach(l => l.outcome = "Pass");
-      for (let i = 1; i <= 4; i++) {
-        document.getElementById(`tab-corner-${i}`).classList.add("passed");
+      
+      const certBtn = document.getElementById("btn-claim-cert");
+      if (passedCount === 4) {
+        certBtn.style.animation = "pulse 1.5s infinite";
+      } else {
+        certBtn.style.animation = "none";
       }
-      renderLogTable();
-      updateStatusHeader();
-      alert("🎉 All 4 Testing Corners verified and compiled! You can now copy or export your Markdown log for your portfolio.");
     }
 
     function copyLogToClipboard() {
