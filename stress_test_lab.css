@@ -1,0 +1,707 @@
+/* ==========================================================================
+   COPA Level 4 AI & Automation Practitioner: The 4-Corner Systematic Stress Test
+   File: stress_test_lab.css
+   Language: en-GB
+   ========================================================================== */
+
+:root {
+  --copa-navy: #0C2340;
+  --copa-navy-dark: #071526;
+  --copa-navy-light: #162E4D;
+  --copa-red: #E31B23;
+  --copa-red-hover: #C1121F;
+  --copa-slate: #F8FAFC;
+  --border-color: #CBD5E1;
+  --text-main: #0F172A;
+  --text-muted: #64748B;
+  
+  --ms-blue: #0078D4;
+  --ms-teal: #008272;
+  --success-green: #166534;
+  --success-bg: #DCFCE7;
+  --warning-amber: #B45309;
+  --warning-bg: #FEF3C7;
+  --danger-red: #991B1B;
+  --danger-bg: #FEE2E2;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: var(--copa-slate);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: linear-gradient(135deg, var(--copa-navy) 0%, var(--copa-navy-light) 100%);
+  color: #FFFFFF;
+  padding: 1.25rem 2rem;
+  border-bottom: 4px solid var(--copa-red);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.brand-wrapper h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.brand-wrapper p {
+  font-size: 0.85rem;
+  color: #94A3B8;
+  margin-top: 0.2rem;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stat-pill {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.45rem 1rem;
+  border-radius: 8px;
+  text-align: right;
+  font-size: 0.85rem;
+}
+
+.stat-pill strong {
+  color: #38BDF8;
+  font-size: 1.1rem;
+  margin-left: 0.35rem;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 1.5rem auto;
+  padding: 0 1.5rem;
+  flex: 1;
+  width: 100%;
+}
+
+/* Hero Briefing Callout */
+.hero-banner {
+  background: #FFFFFF;
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  border-left: 6px solid var(--copa-navy);
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.hero-text h2 {
+  font-size: 1.15rem;
+  color: var(--copa-navy);
+  margin-bottom: 0.3rem;
+}
+
+.hero-text p {
+  font-size: 0.875rem;
+  color: #475569;
+  line-height: 1.45;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.hero-stat-card {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  padding: 0.6rem 0.9rem;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.hero-stat-card span {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.hero-stat-card strong {
+  font-size: 1.15rem;
+  color: var(--copa-navy);
+}
+
+/* Stepper Navigation (4 Corners) */
+.stepper-nav {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.corner-tab {
+  background: #FFFFFF;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.corner-tab:hover {
+  border-color: var(--copa-navy);
+  transform: translateY(-2px);
+}
+
+.corner-tab.active {
+  border-color: var(--copa-red);
+  box-shadow: 0 4px 10px rgba(227, 27, 35, 0.15);
+  background: #FFFFFF;
+}
+
+.corner-tab.passed {
+  border-color: #10B981;
+  background: #F0FDF4;
+}
+
+.corner-tab.failed {
+  border-color: #EF4444;
+  background: #FEF2F2;
+}
+
+.corner-badge {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  background: #E2E8F0;
+  color: #475569;
+  flex-shrink: 0;
+}
+
+.corner-tab.active .corner-badge {
+  background: var(--copa-red);
+  color: #FFFFFF;
+}
+
+.corner-tab.passed .corner-badge {
+  background: #10B981;
+  color: #FFFFFF;
+}
+
+.corner-tab.failed .corner-badge {
+  background: #EF4444;
+  color: #FFFFFF;
+}
+
+.corner-meta h4 {
+  font-size: 0.88rem;
+  color: var(--copa-navy);
+  margin-bottom: 0.15rem;
+}
+
+.corner-meta span {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* Workspace Layout (2 Columns) */
+.test-workspace {
+  display: grid;
+  grid-template-columns: 480px 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Left Panel: Protocol, Scenario Prompt & Evidence Controls */
+.test-protocol-panel {
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #E2E8F0;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.panel-header h3 {
+  font-size: 1.15rem;
+  color: var(--copa-navy);
+}
+
+.test-tag {
+  background: #EFF6FF;
+  color: #1E40AF;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.protocol-body h4 {
+  font-size: 0.95rem;
+  color: var(--copa-navy);
+  margin-bottom: 0.4rem;
+}
+
+.protocol-body p {
+  font-size: 0.85rem;
+  color: #475569;
+  line-height: 1.45;
+  margin-bottom: 1rem;
+}
+
+.test-criteria-box {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.test-criteria-box h5 {
+  font-size: 0.8rem;
+  color: var(--copa-navy);
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.criteria-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.82rem;
+  color: #334155;
+  line-height: 1.35;
+}
+
+.criteria-item:last-child {
+  margin-bottom: 0;
+}
+
+.criteria-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #CBD5E1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.criteria-item.met .criteria-dot {
+  background: #10B981;
+}
+
+.trainer-cue-box {
+  background: #FFFBEB;
+  border-left: 4px solid #D97706;
+  padding: 0.85rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: #92400E;
+  line-height: 1.4;
+  margin-bottom: 1.25rem;
+}
+
+.trainer-cue-box strong {
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.panel-actions {
+  display: flex;
+  gap: 0.6rem;
+  border-top: 1px solid #E2E8F0;
+  padding-top: 1rem;
+}
+
+/* Right Panel: Interactive System Simulator & Flow Telemetry */
+.simulator-panel {
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.simulator-toolbar {
+  background: var(--copa-navy);
+  color: #FFFFFF;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sim-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.sim-badge {
+  background: #1E3A8A;
+  color: #93C5FD;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.sim-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Interactive Split Preview (Phone Frame vs Cloud Telemetry) */
+.simulator-body {
+  padding: 1.25rem;
+  background: #F1F5F9;
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 1.25rem;
+}
+
+/* Phone Device Frame Simulator */
+.phone-mockup {
+  background: #FFFFFF;
+  border-radius: 14px;
+  border: 3px solid #1E293B;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.mockup-header {
+  background: var(--copa-navy);
+  color: #FFFFFF;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+}
+
+.mockup-form {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.form-group label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #334155;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-group label span.req {
+  color: var(--copa-red);
+}
+
+.mock-input {
+  width: 100%;
+  padding: 0.5rem 0.65rem;
+  border-radius: 6px;
+  border: 1.5px solid var(--border-color);
+  font-size: 0.8rem;
+  color: #0F172A;
+  outline: none;
+  background: #FFFFFF;
+  transition: all 0.2s;
+}
+
+.mock-input:focus {
+  border-color: var(--copa-navy);
+}
+
+.mock-input.error {
+  border-color: #EF4444;
+  background: #FEF2F2;
+}
+
+.mock-error-hint {
+  font-size: 0.7rem;
+  color: #EF4444;
+  display: none;
+  font-weight: 600;
+}
+
+.mock-submit-btn {
+  background: var(--copa-red);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  padding: 0.65rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-height: 44px;
+}
+
+.mock-submit-btn:hover:not(:disabled) {
+  background: var(--copa-red-hover);
+}
+
+.mock-submit-btn:disabled {
+  background: #94A3B8;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Live Cloud Telemetry Console */
+.telemetry-console {
+  background: #FFFFFF;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.telemetry-header {
+  background: #F8FAFC;
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid #E2E8F0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--copa-navy);
+  display: flex;
+  justify-content: space-between;
+}
+
+.telemetry-feed {
+  padding: 0.75rem 1rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.76rem;
+  line-height: 1.5;
+  background: #0F172A;
+  color: #E2E8F0;
+  flex: 1;
+  overflow-y: auto;
+  max-height: 280px;
+}
+
+.feed-line {
+  margin-bottom: 0.25rem;
+}
+
+.feed-line.success { color: #86EFAC; }
+.feed-line.warn { color: #FDE047; }
+.feed-line.error { color: #FCA5A5; }
+.feed-line.info { color: #38BDF8; }
+
+/* Live Database Sync Table */
+.db-preview {
+  background: #FFFFFF;
+  border-top: 1px solid var(--border-color);
+  padding: 0.85rem 1.25rem;
+}
+
+.db-title {
+  font-size: 0.78rem;
+  color: var(--copa-navy);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.db-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+}
+
+.db-table th {
+  background: #F8FAFC;
+  text-align: left;
+  padding: 0.4rem 0.5rem;
+  color: #475569;
+  border: 1px solid #E2E8F0;
+}
+
+.db-table td {
+  padding: 0.4rem 0.5rem;
+  border: 1px solid #E2E8F0;
+  color: #1E293B;
+}
+
+/* Comprehensive Test Execution Log (EPA Portfolio Artifact) */
+.log-section {
+  background: #FFFFFF;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+}
+
+.log-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #E2E8F0;
+  padding-bottom: 0.5rem;
+}
+
+.log-header-bar h3 {
+  font-size: 1.05rem;
+  color: var(--copa-navy);
+}
+
+.log-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.log-table th {
+  background: #F1F5F9;
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  color: var(--copa-navy);
+  border: 1px solid #CBD5E1;
+  font-weight: 700;
+}
+
+.log-table td {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #CBD5E1;
+  vertical-align: top;
+}
+
+.log-input-edit {
+  width: 100%;
+  border: 1px solid #CBD5E1;
+  border-radius: 4px;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.78rem;
+  outline: none;
+}
+
+.log-input-edit:focus {
+  border-color: var(--copa-navy);
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.72rem;
+}
+
+.status-badge.pending { background: #E2E8F0; color: #475569; }
+.status-badge.pass { background: #DCFCE7; color: #166534; }
+.status-badge.fail { background: #FEE2E2; color: #991B1B; }
+
+/* Action Buttons */
+.btn-primary {
+  background: var(--copa-red);
+  color: #FFFFFF;
+  padding: 0.65rem 1.25rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover {
+  background: var(--copa-red-hover);
+}
+
+.btn-secondary {
+  background: #E2E8F0;
+  color: #475569;
+  padding: 0.55rem 0.9rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: #CBD5E1;
+  color: var(--text-main);
+}
+
+/* Portfolio Export Drawer */
+.export-banner {
+  background: linear-gradient(135deg, var(--copa-navy) 0%, var(--copa-navy-light) 100%);
+  color: #FFFFFF;
+  padding: 1.25rem 1.75rem;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 6px solid var(--copa-red);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.export-info h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.export-info p {
+  font-size: 0.85rem;
+  color: #CBD5E1;
+}
+
+@media (max-width: 1024px) {
+  .test-workspace { grid-template-columns: 1fr; }
+  .stepper-nav { grid-template-columns: repeat(2, 1fr); }
+  .simulator-body { grid-template-columns: 1fr; }
+  .export-banner { flex-direction: column; text-align: center; gap: 1rem; }
+}
