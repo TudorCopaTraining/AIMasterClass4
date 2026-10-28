@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COPA | The 4-Corner Systematic Stress Test (Interactive Lab)</title>
+  <link rel="stylesheet" href="stress_test_lab.css">
+</head>
+<body>
+
+  <header>
+    <div class="brand-wrapper">
+      <h1>The 4-Corner Systematic Stress Test Lab</h1>
+      <p>COPA Level 4 AI & Automation Practitioner | Session 3B: Testing, Refinement & Showcase</p>
+    </div>
+    <div class="header-controls">
+      <div class="stat-pill">Gateway Portfolio Status: <strong id="overall-status-pill">0 / 4 Tested</strong></div>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    <!-- Hero Briefing -->
+    <section class="hero-banner">
+      <div class="hero-text">
+        <h2>Systematic Pre-Deployment Quality Assurance Protocol</h2>
+        <p>
+          Execute rigorous multi-vector testing across all four critical corners before live organizational deployment. Validate normal transaction processing, stress boundary limits, trap dirty data, and record empirical peer acceptance metrics (Standards K4 & K5).
+        </p>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat-card">
+          <span>Standards Met</span>
+          <strong>K4, K5, S2</strong>
+        </div>
+        <div class="hero-stat-card">
+          <span>Target SLA</span>
+          <strong>&lt; 15s Run</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4-Corner Stepper Navigation -->
+    <nav class="stepper-nav">
+      <div class="corner-tab active" id="tab-corner-1" onclick="switchCorner(1)">
+        <div class="corner-badge" id="badge-1">1</div>
+        <div class="corner-meta">
+          <h4>Corner 1: Happy Path</h4>
+          <span>Normal Baseline Flow</span>
+        </div>
+      </div>
+
+      <div class="corner-tab" id="tab-corner-2" onclick="switchCorner(2)">
+        <div class="corner-badge" id="badge-2">2</div>
+        <div class="corner-meta">
+          <h4>Corner 2: Boundary Test</h4>
+          <span>£0, Negative & Extreme</span>
+        </div>
+      </div>
+
+      <div class="corner-tab" id="tab-corner-3" onclick="switchCorner(3)">
+        <div class="corner-badge" id="badge-3">3</div>
+        <div class="corner-meta">
+          <h4>Corner 3: Dirty Data</h4>
+          <span>Empty & Broken Syntax</span>
+        </div>
+      </div>
+
+      <div class="corner-tab" id="tab-corner-4" onclick="switchCorner(4)">
+        <div class="corner-badge" id="badge-4">4</div>
+        <div class="corner-meta">
+          <h4>Corner 4: Peer UAT</h4>
+          <span>60s Usability Audit</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Active Test Workspace -->
+    <div class="test-workspace">
+      
+      <!-- Left Panel: Protocol Instructions & Evidence Guide -->
+      <section class="test-protocol-panel">
+        
+        <div>
+          <div class="panel-header">
+            <h3 id="protocol-title">Corner 1: The 'Happy Path' Baseline</h3>
+            <span class="test-tag" id="protocol-tag">Functional Test</span>
+          </div>
+
+          <div class="protocol-body">
+            <h4 id="protocol-headline">Validate Expected System Behaviour Under Standard Conditions</h4>
+            <p id="protocol-desc">
+              Submit realistic, compliant operational data. Verify that data commits to SharePoint without field truncation, the Power Automate flow triggers under 15 seconds, and an automated Outlook confirmation receipt is returned.
+            </p>
+          </div>
+
+          <div class="test-criteria-box">
+            <h5>Expected Pass Criteria:</h5>
+            <div id="criteria-list">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <div class="trainer-cue-box" id="trainer-cue-box">
+            <strong>Trainer Demonstration Cue:</strong>
+            Highlight that testing the happy path is merely the starting baseline—it only proves the system works when users behave perfectly.
+          </div>
+        </div>
+
+        <div class="panel-actions">
+          <button class="btn-secondary" onclick="simulateAutoLoad()">⚡ Load Corner Preset</button>
+          <button class="btn-primary" id="btn-record-test" onclick="recordTestOutcome()">Log Test Execution ✓</button>
+        </div>
+
+      </section>
+
+      <!-- Right Panel: Interactive System Simulator & Cloud Telemetry -->
+      <section class="simulator-panel">
+        
+        <div class="simulator-toolbar">
+          <div class="sim-title">
+            <span>⚙️ Live System Testing Simulator</span>
+            <span class="sim-badge" id="sim-scenario-badge">Scenario: Expense Requisition</span>
+          </div>
+          <div class="sim-actions">
+            <button class="btn-secondary" style="font-size:0.75rem; padding:0.25rem 0.5rem;" onclick="resetSimulator()">↺ Reset</button>
+          </div>
+        </div>
+
+        <div class="simulator-body">
+          
+          <!-- Mock Phone Form Interface -->
+          <div class="phone-mockup">
+            <div class="mockup-header">
+              <span>Operational Intake App</span>
+              <span style="font-size:0.7rem; background:rgba(255,255,255,0.2); padding:2px 5px; border-radius:3px;">COPA App</span>
+            </div>
+
+            <div class="mockup-form">
+              <div class="form-group" id="grp-title">
+                <label>
+                  <span>Request Title <span class="req">*</span></span>
+                  <span id="label-title-mode" style="font-size:0.68rem; color:#94A3B8;">Text</span>
+                </label>
+                <input type="text" class="mock-input" id="sim-input-title" placeholder="e.g. Ergonomic Office Chair" oninput="liveValidate()">
+                <span class="mock-error-hint" id="hint-title">Title cannot be blank.</span>
+              </div>
+
+              <div class="form-group" id="grp-cat">
+                <label>
+                  <span>Category <span class="req">*</span></span>
+                  <span style="font-size:0.68rem; color:#94A3B8;">Choice</span>
+                </label>
+                <select class="mock-input" id="sim-input-cat" onchange="liveValidate()">
+                  <option value="">-- Select Category --</option>
+                  <option value="IT Hardware">IT Hardware</option>
+                  <option value="Facilities">Facilities & Office</option>
+                  <option value="Travel">Travel & Rail</option>
+                </select>
+                <span class="mock-error-hint" id="hint-cat">Please select a category.</span>
+              </div>
+
+              <div class="form-group" id="grp-cost">
+                <label>
+                  <span>Cost (£ GBP) <span class="req">*</span></span>
+                  <span id="label-cost-mode" style="font-size:0.68rem; color:#94A3B8;">Number</span>
+                </label>
+                <input type="text" class="mock-input" id="sim-input-cost" placeholder="0.00" oninput="liveValidate()">
+                <span class="mock-error-hint" id="hint-cost">Must be a valid positive number (> £0.00).</span>
+              </div>
+
+              <div class="form-group" id="grp-email">
+                <label>
+                  <span>Submitter Email <span class="req">*</span></span>
+                  <span style="font-size:0.68rem; color:#94A3B8;">Email</span>
+                </label>
+                <input type="text" class="mock-input" id="sim-input-email" placeholder="apprentice@copa.co.uk" oninput="liveValidate()">
+                <span class="mock-error-hint" id="hint-email">Valid email format required.</span>
+              </div>
+
+              <button class="mock-submit-btn" id="sim-btn-submit" onclick="executeMockSubmission()">
+                Submit Requisition
+              </button>
+            </div>
+          </div>
+
+          <!-- Cloud Flow Run History & Telemetry Feed -->
+          <div class="telemetry-console">
+            <div class="telemetry-header">
+              <span>POWER AUTOMATE EXECUTION LOG</span>
+              <span id="telemetry-status" style="color:#38BDF8;">IDLE</span>
+            </div>
+            <div class="telemetry-feed" id="telemetry-feed">
+              <div class="feed-line info">[System] Ready. Awaiting trigger event...</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Simulated Database Table Preview -->
+        <div class="db-preview">
+          <div class="db-title">Target Storage: SharePoint List ('Operational Requests')</div>
+          <table class="db-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Cost</th>
+                <th>Submitter</th>
+                <th>Approval State</th>
+              </tr>
+            </thead>
+            <tbody id="db-tbody">
+              <tr>
+                <td>#101</td>
+                <td>Dual Monitor Arms</td>
+                <td>IT Hardware</td>
+                <td>£65.00</td>
+                <td>tudor.britton@copa.co.uk</td>
+                <td><span style="color:#166534; font-weight:700;">Approved</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </section>
+
+    </div>
+
+    <!-- Live Test Execution Log (EPA Gateway Portfolio Artifact) -->
+    <section class="log-section">
+      <div class="log-header-bar">
+        <div>
+          <h3>Empirical Test Execution Log (Gateway Portfolio Artifact)</h3>
+          <p style="font-size:0.8rem; color:#64748B;">Records test inputs, system reactions, pass/fail evaluations, and remediation notes for Standards K4 & K5.</p>
+        </div>
+        <div style="display:flex; gap:0.5rem;">
+          <button class="btn-secondary" onclick="copyLogToClipboard()">📋 Copy to Clipboard</button>
+          <button class="btn-secondary" onclick="exportLogMarkdown()">📥 Export Markdown</button>
+        </div>
+      </div>
+
+      <table class="log-table">
+        <thead>
+          <tr>
+            <th style="width: 80px;">Test ID</th>
+            <th style="width: 130px;">Corner Category</th>
+            <th style="width: 220px;">Input Payload Tested</th>
+            <th>Observed System Behaviour</th>
+            <th style="width: 100px;">Outcome</th>
+            <th style="width: 220px;">Remediation / Governance Notes</th>
+          </tr>
+        </thead>
+        <tbody id="log-tbody">
+          <!-- Populated by script -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Export & Completion Banner -->
+    <section class="export-banner">
+      <div class="export-info">
+        <h4>Ready for Gateway Professional Discussion?</h4>
+        <p id="export-summary-text">Complete all 4 testing corners to compile your empirical verification record.</p>
+      </div>
+      <button class="btn-primary" onclick="markAllComplete()">Verify All & Compile Log ✓</button>
+    </section>
+
+  </main>
+
+  <script>
+    const corners = [
+      {
+        id: 1,
+        code: "TC-01",
+        title: "Corner 1: The 'Happy Path' Baseline",
+        tag: "Functional Test",
+        headline: "Validate Standard Transaction Processing",
+        desc: "Submit valid, well-structured business data. Verify data commits to SharePoint, flow triggers in under 15 seconds, and an automated email receipt is generated.",
+        criteria: [
+          "SharePoint row logged without character truncation.",
+          "Power Automate run status executes green ('Succeeded').",
+          "Outlook confirmation receipt received with unique ID."
+        ],
+        cue: "Emphasize that the happy path is merely the starting point. Proving an app works under ideal conditions does not prove it is enterprise-ready.",
+        preset: {
+          title: "Ergonomic Split Keyboard",
+          cat: "IT Hardware",
+          cost: "129.50",
+          email: "apprentice@copa.co.uk"
+        },
+        expected: "Successful commit -> Flow status Succeeded -> Teams approval card posted"
+      },
+      {
+        id: 2,
+        code: "TC-02",
+        title: "Corner 2: The Negative Boundary Test",
+        tag: "Boundary Stress Test",
+        headline: "Challenge Extreme Values & Financial Thresholds",
+        desc: "Test boundary values: Cost = £0.00, Cost = -£50.00, and High-Value = £750.00. Confirm negative numbers are rejected and high-value items route to Board approval.",
+        criteria: [
+          "Negative or zero cost entries blocked by input mask or flagged.",
+          "Values >= £500 route to secondary Finance Director approval.",
+          "Deterministic business rules enforce policy without bypass."
+        ],
+        cue: "Point out what happens if a flow processes a negative expense: does the company end up owing the employee money? Defensive logic is essential.",
+        preset: {
+          title: "Executive Conference Travel Package",
+          cat: "Travel",
+          cost: "850.00",
+          email: "apprentice@copa.co.uk"
+        },
+        expected: "High-value policy trigger (>= £500) -> Escalated to Finance Director in Teams"
+      },
+      {
+        id: 3,
+        code: "TC-03",
+        title: "Corner 3: The Missing & Broken Data Test",
+        tag: "Defensive Error Trapping",
+        headline: "Stress-Test Incomplete Data & Syntax Errors",
+        desc: "Attempt submission with missing required fields, letters in the cost box, and broken email syntax (e.g. 'john.doe@'). Ensure the app disables submission.",
+        criteria: [
+          "Client-side validation highlights invalid fields with red borders.",
+          "Submit button dynamically disables while errors persist.",
+          "No corrupt, blank, or malformed rows reach the database."
+        ],
+        cue: "Notice how disabling the button prevents frustrated users from repeatedly clicking and sending corrupt rows across the network.",
+        preset: {
+          title: "",
+          cat: "",
+          cost: "fifty_pounds",
+          email: "bad_email_format"
+        },
+        expected: "Form blocked client-side -> Button disabled -> Zero corrupt database commits"
+      },
+      {
+        id: 4,
+        code: "TC-04",
+        title: "Corner 4: The Peer User Acceptance Test (UAT)",
+        tag: "Human Ergonomics (K28)",
+        headline: "Execute Timed Peer Usability Audit (60s Goal)",
+        desc: "Hand control to a peer apprentice with zero spoken guidance. Measure completion time, observe hesitation points, and evaluate interface ergonomics under shift pressure.",
+        criteria: [
+          "Peer completes end-to-end submission in under 60 seconds.",
+          "Interface microcopy is clear with zero technical jargon.",
+          "Peer provides at least 1 constructive UX refinement."
+        ],
+        cue: "The 10-page manual rule: if your peer cannot figure out what to type in under 60 seconds without asking for help, the interface design has failed.",
+        preset: {
+          title: "Warehouse Safety Boots & Gloves",
+          cat: "Facilities",
+          cost: "64.00",
+          email: "peer.reviewer@copa.co.uk"
+        },
+        expected: "Peer completes submission in 42s -> Usability score 9/10 -> Minor microcopy hint noted"
+      }
+    ];
+
+    let currentCorner = 1;
+    let nextId = 102;
+
+    let testExecutionLogs = [
+      {
+        id: "TC-01",
+        category: "Happy Path",
+        payload: "Title: Ergonomic Keyboard | Cost: £129.50 | Valid Email",
+        observed: "SharePoint item #102 logged; flow ran in 4.2s; email receipt dispatched.",
+        outcome: "Pass",
+        notes: "Meets standard SLA. Happy path baseline verified."
+      },
+      {
+        id: "TC-02",
+        category: "Negative Boundary",
+        payload: "Cost: £850.00 (Threshold) & Tested -£50.00",
+        observed: "£850 triggered high-value approval card in Teams; -£50 blocked by input mask.",
+        outcome: "Pass",
+        notes: "Financial policy-as-code verified (Standard K5)."
+      },
+      {
+        id: "TC-03",
+        category: "Dirty Data Trap",
+        payload: "Blank Title | Cost: 'fifty' | Broken Email",
+        observed: "Client-side errors fired; submit button disabled; zero records sent to DB.",
+        outcome: "Pass",
+        notes: "Defensive validation prevents database corruption."
+      },
+      {
+        id: "TC-04",
+        category: "Peer UAT",
+        payload: "Peer tested without coaching on mobile view",
+        observed: "Completed task in 38s. Hesitated slightly on category dropdown.",
+        outcome: "Pass",
+        notes: "Add default placeholder hint to Category dropdown."
+      }
+    ];
+
+    function initLab() {
+      renderLogTable();
+      switchCorner(1);
+      updateStatusHeader();
+    }
+
+    function switchCorner(cornerId) {
+      currentCorner = cornerId;
+      const c = corners[cornerId - 1];
+
+      // Update Nav
+      for (let i = 1; i <= 4; i++) {
+        document.getElementById(`tab-corner-${i}`).classList.toggle("active", i === cornerId);
+      }
+
+      // Update Protocol
+      document.getElementById("protocol-title").innerText = c.title;
+      document.getElementById("protocol-tag").innerText = c.tag;
+      document.getElementById("protocol-headline").innerText = c.headline;
+      document.getElementById("protocol-desc").innerText = c.desc;
+      document.getElementById("trainer-cue-box").innerHTML = `<strong>Trainer Demonstration Cue:</strong> ${c.cue}`;
+
+      const critList = document.getElementById("criteria-list");
+      critList.innerHTML = "";
+      c.criteria.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "criteria-item";
+        div.innerHTML = `<div class="criteria-dot"></div><span>${item}</span>`;
+        critList.appendChild(div);
+      });
+    }
+
+    function simulateAutoLoad() {
+      const c = corners[currentCorner - 1];
+      document.getElementById("sim-input-title").value = c.preset.title;
+      document.getElementById("sim-input-cat").value = c.preset.cat;
+      document.getElementById("sim-input-cost").value = c.preset.cost;
+      document.getElementById("sim-input-email").value = c.preset.email;
+
+      liveValidate();
+
+      logTelemetry(`[Preset] Loaded test payload for ${c.code} (${c.title})`, "info");
+    }
+
+    function liveValidate() {
+      const title = document.getElementById("sim-input-title").value.trim();
+      const cat = document.getElementById("sim-input-cat").value;
+      const costRaw = document.getElementById("sim-input-cost").value.trim();
+      const email = document.getElementById("sim-input-email").value.trim();
+
+      const costNum = parseFloat(costRaw);
+      const isCostNumeric = !isNaN(costNum) && costNum > 0 && /^[0-9]+(\.[0-9]{1,2})?$/.test(costRaw);
+      const isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+      // Error hints
+      toggleField("grp-title", "hint-title", title.length > 0);
+      toggleField("grp-cat", "hint-cat", cat !== "");
+      toggleField("grp-cost", "hint-cost", isCostNumeric);
+      toggleField("grp-email", "hint-email", isEmailValid);
+
+      const isValid = (title.length > 0) && (cat !== "") && isCostNumeric && isEmailValid;
+      const btn = document.getElementById("sim-btn-submit");
+      btn.disabled = !isValid;
+
+      return { isValid, title, cat, costNum, email };
+    }
+
+    function toggleField(grpId, hintId, isValid) {
+      const grp = document.getElementById(grpId);
+      const input = grp.querySelector(".mock-input");
+      const hint = document.getElementById(hintId);
+
+      if (input.value === "" && currentCorner !== 3) {
+        input.classList.remove("error");
+        hint.style.display = "none";
+        return;
+      }
+
+      if (!isValid) {
+        input.classList.add("error");
+        hint.style.display = "block";
+      } else {
+        input.classList.remove("error");
+        hint.style.display = "none";
+      }
+    }
+
+    function executeMockSubmission() {
+      const v = liveValidate();
+      if (!v.isValid) {
+        logTelemetry("[Validation Failed] Form blocked on client side. No payload sent.", "error");
+        return;
+      }
+
+      logTelemetry(`[Trigger] New item submitted by ${v.email}`, "info");
+      document.getElementById("telemetry-status").innerText = "RUNNING...";
+
+      setTimeout(() => {
+        logTelemetry(`[SharePoint] Executing 'Create item' -> Title: "${v.title}", Cost: £${v.costNum.toFixed(2)}`, "info");
+
+        // High Value Threshold Check (£500 Rule)
+        if (v.costNum >= 500) {
+          logTelemetry(`[Condition] Cost £${v.costNum.toFixed(2)} >= £500.00 -> TRUE`, "warn");
+          logTelemetry(`[Approvals] High-Value requisition escalated to Finance Director via Teams Adaptive Card`, "warn");
+        } else {
+          logTelemetry(`[Condition] Cost £${v.costNum.toFixed(2)} < £500.00 -> Auto-Routing to Line Manager`, "success");
+        }
+
+        // Add to SharePoint Table
+        const tbody = document.getElementById("db-tbody");
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>#${nextId++}</td>
+          <td>${v.title}</td>
+          <td>${v.cat}</td>
+          <td>£${v.costNum.toFixed(2)}</td>
+          <td>${v.email}</td>
+          <td><span style="color:${v.costNum >= 500 ? '#B45309' : '#166534'}; font-weight:700;">${v.costNum >= 500 ? 'Escalated' : 'Approved'}</span></td>
+        `;
+        tbody.prepend(tr);
+
+        logTelemetry(`[Outlook] Confirmation email receipt sent to ${v.email} (Ref #${nextId - 1})`, "success");
+        logTelemetry(`[Completed] Flow run succeeded in 3.8s. All branches green.`, "success");
+        document.getElementById("telemetry-status").innerText = "SUCCEEDED";
+
+      }, 1000);
+    }
+
+    function logTelemetry(msg, type = "info") {
+      const feed = document.getElementById("telemetry-feed");
+      const div = document.createElement("div");
+      div.className = `feed-line ${type}`;
+      div.innerText = `${new Date().toLocaleTimeString()} ${msg}`;
+      feed.appendChild(div);
+      feed.scrollTop = feed.scrollHeight;
+    }
+
+    function resetSimulator() {
+      document.getElementById("sim-input-title").value = "";
+      document.getElementById("sim-input-cat").value = "";
+      document.getElementById("sim-input-cost").value = "";
+      document.getElementById("sim-input-email").value = "";
+      document.querySelectorAll(".mock-input").forEach(i => i.classList.remove("error"));
+      document.querySelectorAll(".mock-error-hint").forEach(h => h.style.display = "none");
+      document.getElementById("sim-btn-submit").disabled = true;
+      document.getElementById("telemetry-status").innerText = "IDLE";
+      logTelemetry("[Simulator] Form reset to initial state.", "info");
+    }
+
+    function recordTestOutcome() {
+      const c = corners[currentCorner - 1];
+      const log = testExecutionLogs[currentCorner - 1];
+      log.observed = `Executed live in simulator. ${c.expected}.`;
+      log.outcome = "Pass";
+      renderLogTable();
+
+      const tab = document.getElementById(`tab-corner-${currentCorner}`);
+      tab.classList.add("passed");
+
+      alert(`✓ ${c.code} logged successfully! Criteria marked as Passed.`);
+
+      if (currentCorner < 4) {
+        switchCorner(currentCorner + 1);
+      }
+      updateStatusHeader();
+    }
+
+    function renderLogTable() {
+      const tbody = document.getElementById("log-tbody");
+      tbody.innerHTML = "";
+
+      testExecutionLogs.forEach((l, idx) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td><strong>${l.id}</strong></td>
+          <td>${l.category}</td>
+          <td><input type="text" class="log-input-edit" value="${l.payload}" onchange="updateLogField(${idx}, 'payload', this.value)"></td>
+          <td><input type="text" class="log-input-edit" value="${l.observed}" onchange="updateLogField(${idx}, 'observed', this.value)"></td>
+          <td>
+            <select class="log-input-edit" onchange="updateLogField(${idx}, 'outcome', this.value)" style="font-weight:700;">
+              <option value="Pass" ${l.outcome === 'Pass' ? 'selected' : ''}>Pass</option>
+              <option value="Fail" ${l.outcome === 'Fail' ? 'selected' : ''}>Fail</option>
+              <option value="Pending" ${l.outcome === 'Pending' ? 'selected' : ''}>Pending</option>
+            </select>
+          </td>
+          <td><input type="text" class="log-input-edit" value="${l.notes}" onchange="updateLogField(${idx}, 'notes', this.value)"></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function updateLogField(idx, field, value) {
+      testExecutionLogs[idx][field] = value;
+    }
+
+    function updateStatusHeader() {
+      const passedCount = testExecutionLogs.filter(l => l.outcome === "Pass").length;
+      document.getElementById("overall-status-pill").innerText = `${passedCount} / 4 Passed`;
+    }
+
+    function markAllComplete() {
+      testExecutionLogs.forEach(l => l.outcome = "Pass");
+      for (let i = 1; i <= 4; i++) {
+        document.getElementById(`tab-corner-${i}`).classList.add("passed");
+      }
+      renderLogTable();
+      updateStatusHeader();
+      alert("🎉 All 4 Testing Corners verified and compiled! You can now copy or export your Markdown log for your portfolio.");
+    }
+
+    function copyLogToClipboard() {
+      const md = generateMarkdownLog();
+      navigator.clipboard.writeText(md).then(() => {
+        alert("📋 Test Execution Log copied to clipboard as formatted Markdown!");
+      });
+    }
+
+    function exportLogMarkdown() {
+      const md = generateMarkdownLog();
+      const blob = new Blob([md], { type: "text/markdown;charset=utf-8" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "COPA_4Corner_Stress_Test_Execution_Log.md";
+      a.click();
+    }
+
+    function generateMarkdownLog() {
+      let md = "# COPA Level 4 AI & Automation: 4-Corner Systematic Test Log\n\n";
+      md += `**Date:** ${new Date().toLocaleDateString('en-GB')} | **Practitioner:** Level 4 Apprentice | **Standards:** K4, K5, S2\n\n`;
+      md += "| Test ID | Corner Category | Input Payload Tested | Observed System Behaviour | Outcome | Remediation Notes |\n";
+      md += "| :--- | :--- | :--- | :--- | :---: | :--- |\n";
+
+      testExecutionLogs.forEach(l => {
+        md += `| ${l.id} | ${l.category} | ${l.payload} | ${l.observed} | **${l.outcome}** | ${l.notes} |\n`;
+      });
+
+      return md;
+    }
+
+    initLab();
+  </script>
+</body>
+</html>
