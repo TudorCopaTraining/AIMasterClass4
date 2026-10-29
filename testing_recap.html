@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COPA | Testing the Solution — Interactive Knowledge Recap</title>
+  <link rel="stylesheet" href="testing_recap.css">
+</head>
+<body>
+
+  <header>
+    <div class="brand-title">
+      <h1>Topic 1: Testing the Solution — Interactive Recap</h1>
+      <p>COPA Level 4 AI & Automation Practitioner | Systematic Pre-Deployment Quality Assurance</p>
+    </div>
+    <div class="header-actions">
+      <div class="score-badge">Mastery Progress: <strong id="progress-text">0 / 3 Modules</strong></div>
+      <button class="btn-header-reset" onclick="resetFullRecap()">↺ Reset Activity</button>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+      <div>
+        <h2>Systematic Testing Concepts & Engineering Rigour (Recap)</h2>
+        <p>
+          Reinforce your understanding of <strong>Functional Testing, User Testing (UAT), Negative Testing, and Error Handling</strong> before undertaking the live practical build.
+        </p>
+      </div>
+      <div style="text-align: right; font-size: 0.8rem; color: #64748B;">
+        <span>EPA Standards:</span><br>
+        <strong style="color: var(--copa-navy); font-size: 1rem;">K4 &amp; K5 Evidence</strong>
+      </div>
+    </section>
+
+    <!-- Navigation Tabs -->
+    <nav class="module-nav">
+      <div class="nav-card active" id="tab-mod-1" onclick="switchModule(1)">
+        <div class="nav-num" id="badge-mod-1">1</div>
+        <div class="nav-text">
+          <h4>Module 1: Test Vector Matching</h4>
+          <span>Scenario Classification</span>
+        </div>
+      </div>
+
+      <div class="nav-card" id="tab-mod-2" onclick="switchModule(2)">
+        <div class="nav-num" id="badge-mod-2">2</div>
+        <div class="nav-text">
+          <h4>Module 2: Economics & Error Traps</h4>
+          <span>1-10-100 Rule & Flow Resilience</span>
+        </div>
+      </div>
+
+      <div class="nav-card" id="tab-mod-3" onclick="switchModule(3)">
+        <div class="nav-num" id="badge-mod-3">3</div>
+        <div class="nav-text">
+          <h4>Module 3: Pre-Deployment Knowledge</h4>
+          <span>EPA Gateway Scenarios</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MODULE 1: Scenario-to-Test Matching Matrix -->
+    <section class="activity-section" id="mod-view-1">
+      <div class="activity-header">
+        <h3>Module 1: Match the Operational Scenario to the Correct Test Type</h3>
+        <span class="activity-badge">Interactive Matrix</span>
+      </div>
+      <p style="font-size: 0.85rem; color: #475569; margin-bottom: 1.25rem;">
+        Click the corresponding test category chip for each workplace engineering test case below.
+      </p>
+
+      <div class="matrix-grid" id="matrix-container">
+        <!-- Injected via JavaScript -->
+      </div>
+    </section>
+
+    <!-- MODULE 2: The 1-10-100 Economics & Flow Error Trapping -->
+    <section class="activity-section" id="mod-view-2" style="display: none;">
+      <div class="activity-header">
+        <h3>Module 2: Pre-Deployment Defect Economics & Error Handling</h3>
+        <span class="activity-badge">Architecture & Resilience</span>
+      </div>
+
+      <h4 style="font-size: 0.95rem; color: var(--copa-navy); margin-bottom: 0.5rem;">
+        Part A: The 1-10-100 Cost of Quality Rule
+      </h4>
+      <p style="font-size: 0.82rem; color: #475569; margin-bottom: 1rem;">
+        Map the correct project phase to its associated defect cost when a flaw is caught.
+      </p>
+
+      <div class="econ-card-grid">
+        <div class="econ-box" id="econ-box-1">
+          <div class="econ-cost">£1</div>
+          <div class="econ-title">Prevention Phase</div>
+          <select class="econ-select" id="econ-sel-1" onchange="checkEconomics()">
+            <option value="">-- Select Phase --</option>
+            <option value="planning">Initial Architecture & Scope Planning</option>
+            <option value="build">Development & Formula Build Phase</option>
+            <option value="live">Post-Deployment in Front of Live Users</option>
+          </select>
+        </div>
+
+        <div class="econ-box" id="econ-box-2">
+          <div class="econ-cost">£10</div>
+          <div class="econ-title">Remediation Phase</div>
+          <select class="econ-select" id="econ-sel-2" onchange="checkEconomics()">
+            <option value="">-- Select Phase --</option>
+            <option value="planning">Initial Architecture & Scope Planning</option>
+            <option value="build">Development & Formula Build Phase</option>
+            <option value="live">Post-Deployment in Front of Live Users</option>
+          </select>
+        </div>
+
+        <div class="econ-box" id="econ-box-3">
+          <div class="econ-cost">£100</div>
+          <div class="econ-title">Failure Phase</div>
+          <select class="econ-select" id="econ-sel-3" onchange="checkEconomics()">
+            <option value="">-- Select Phase --</option>
+            <option value="planning">Initial Architecture & Scope Planning</option>
+            <option value="build">Development & Formula Build Phase</option>
+            <option value="live">Post-Deployment in Front of Live Users</option>
+          </select>
+        </div>
+      </div>
+
+      <h4 style="font-size: 0.95rem; color: var(--copa-navy); margin-bottom: 0.5rem;">
+        Part B: Enterprise Error Trapping ("Configure Run After")
+      </h4>
+      <p style="font-size: 0.82rem; color: #475569; margin-bottom: 0.75rem;">
+        Configure the Power Automate execution settings so that administrative alert branches trigger gracefully on failure instead of crashing silently.
+      </p>
+
+      <div class="flow-builder-box">
+        <div class="flow-step-row">
+          <span style="color: #38BDF8; font-weight: bold;">[Step 1]</span>
+          <span class="flow-step-name">Create item (SharePoint / Excel Online)</span>
+          <span style="font-size: 0.75rem; color: #94A3B8;">Primary Operation</span>
+        </div>
+
+        <div class="flow-step-row">
+          <span style="color: #38BDF8; font-weight: bold;">[Step 2]</span>
+          <span class="flow-step-name">Start and wait for an approval</span>
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span style="font-size: 0.72rem; color: #94A3B8;">Run After Step 1:</span>
+            <select class="run-after-select" id="run-after-step2" onchange="checkFlowTraps()">
+              <option value="success">is successful</option>
+              <option value="failed">has failed</option>
+              <option value="timed_out">has timed out</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="flow-step-row error-branch">
+          <span style="color: #EF4444; font-weight: bold;">[Exception]</span>
+          <span class="flow-step-name">Send alert email to IT Support &amp; Quarantine Row</span>
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span style="font-size: 0.72rem; color: #FCA5A5;">Run After Step 2:</span>
+            <select class="run-after-select" id="run-after-exception" onchange="checkFlowTraps()">
+              <option value="success">is successful</option>
+              <option value="failed">has failed or timed out</option>
+              <option value="skipped">is skipped</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div id="flow-feedback" style="margin-top: 0.75rem; font-size: 0.8rem; font-weight: bold;"></div>
+    </section>
+
+    <!-- MODULE 3: Gateway Concept Review Quiz -->
+    <section class="activity-section" id="mod-view-3" style="display: none;">
+      <div class="activity-header">
+        <h3>Module 3: Pre-Deployment Verification Knowledge Checks</h3>
+        <span class="activity-badge">EPA Gateway Assessment</span>
+      </div>
+
+      <div class="quiz-question">
+        <h4>1. Why is testing considered critical before enterprise deployment?</h4>
+        <div class="quiz-choice" onclick="selectQuiz(1, 0, this)">
+          A) It is solely an optional step to see if buttons have attractive colours.
+        </div>
+        <div class="quiz-choice" onclick="selectQuiz(1, 1, this)">
+          B) Untested flows can silently corrupt databases, flood inboxes, and breach compliance at 10x to 100x the remediation cost.
+        </div>
+        <div class="quiz-choice" onclick="selectQuiz(1, 2, this)">
+          C) Because Power Automate blocks all flow runs until at least 50 tests are submitted.
+        </div>
+      </div>
+
+      <div class="quiz-question">
+        <h4>2. An apprentice enters "-£150" into an expense claim box and types letters into a date field. What testing category is this?</h4>
+        <div class="quiz-choice" onclick="selectQuiz(2, 0, this)">
+          A) Functional Happy Path Testing
+        </div>
+        <div class="quiz-choice" onclick="selectQuiz(2, 1, this)">
+          B) User Acceptance Testing (UAT)
+        </div>
+        <div class="quiz-choice" onclick="selectQuiz(2, 2, this)">
+          C) Negative Boundary &amp; Malformed Data Testing
+        </div>
+      </div>
+
+      <div class="quiz-question">
+        <h4>3. What is the fundamental difference between Functional Testing and User Testing?</h4>
+        <div class="quiz-choice" onclick="selectQuiz(3, 0, this)">
+          A) Functional proves the software executes technical requirements; User testing proves real humans can use it without friction.
+        </div>
+        <div class="quiz-choice" onclick="selectQuiz(3, 1, this)">
+          B) Functional testing is done in Outlook; User testing is only done in Excel.
+        </div>
+        <div class="quiz-choice" onclick="selectQuiz(3, 2, this)">
+          C) Functional testing is completed after go-live; User testing is done during planning.
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Action & Navigation Banner -->
+    <section class="recap-footer">
+      <div class="recap-footer-text">
+        <h4>Ready to Begin the 4-Corner Systematic Stress Test Lab?</h4>
+        <p id="footer-summary-status">Complete the interactive recap modules above to unlock full practical confidence.</p>
+      </div>
+      <div class="footer-btn-group">
+        <button class="btn-recap" onclick="resetFullRecap()">↺ Redo Recap</button>
+        <a href="stress_test_lab.html" class="btn-action-primary" id="btn-to-lab">
+          <span>Launch 4-Corner Lab</span>
+          <span style="font-size: 1.1rem;">➔</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const scenarios = [
+      {
+        id: "s1",
+        title: "Submitting standard, compliant leave dates (£0 to £150 standard claims)",
+        desc: "Checking that data commits to Excel and Outlook approval emails fire within 15 seconds.",
+        correct: "functional"
+      },
+      {
+        id: "s2",
+        title: "Observing a warehouse manager complete the form on a mobile screen during a busy shift",
+        desc: "Measuring if question phrasing is intuitive with zero technical jargon and completion takes < 60 seconds.",
+        correct: "user"
+      },
+      {
+        id: "s3",
+        title: "Submitting -£50, £0.00, text in numeric fields, and broken emails like 'john.doe@'",
+        desc: "Verifying that client-side validation disables the submit button and prevents corrupt rows reaching cloud storage.",
+        correct: "negative"
+      },
+      {
+        id: "s4",
+        title: "Configuring a secondary fallback notification branch when an approver goes on sick leave",
+        desc: "Setting ISO 8601 timeout limits (PT48H) and 'Configure Run After: has timed out' to prevent infinite workflow freezes.",
+        correct: "error"
+      }
+    ];
+
+    const testTypes = [
+      { key: "functional", label: "Functional Testing" },
+      { key: "user", label: "User Testing (UAT)" },
+      { key: "negative", label: "Negative Testing" },
+      { key: "error", label: "Error Handling" }
+    ];
+
+    let userSelections = {};
+    let moduleCompleted = { 1: false, 2: false, 3: false };
+
+    function initRecap() {
+      renderMatrix();
+      updateOverallProgress();
+    }
+
+    function renderMatrix() {
+      const container = document.getElementById("matrix-container");
+      container.innerHTML = "";
+
+      scenarios.forEach((sc, idx) => {
+        const item = document.createElement("div");
+        item.className = "scenario-item";
+        item.id = `item-${sc.id}`;
+
+        let chipsHtml = testTypes.map(t => `
+          <button class="opt-chip" id="btn-${sc.id}-${t.key}" onclick="chooseTestType('${sc.id}', '${t.key}')">
+            ${t.label}
+          </button>
+        `).join("");
+
+        item.innerHTML = `
+          <div class="scenario-text">
+            <strong>Case ${idx + 1}: ${sc.title}</strong>
+            <p>${sc.desc}</p>
+          </div>
+          <div class="btn-options-group">
+            ${chipsHtml}
+          </div>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    function chooseTestType(scenarioId, chosenKey) {
+      userSelections[scenarioId] = chosenKey;
+      const targetSc = scenarios.find(s => s.id === scenarioId);
+      const row = document.getElementById(`item-${scenarioId}`);
+
+      testTypes.forEach(t => {
+        const btn = document.getElementById(`btn-${scenarioId}-${t.key}`);
+        btn.classList.remove("selected");
+      });
+
+      const activeBtn = document.getElementById(`btn-${scenarioId}-${chosenKey}`);
+      activeBtn.classList.add("selected");
+
+      if (chosenKey === targetSc.correct) {
+        row.classList.remove("matched-wrong");
+        row.classList.add("matched-correct");
+      } else {
+        row.classList.remove("matched-correct");
+        row.classList.add("matched-wrong");
+      }
+
+      checkModule1Completion();
+    }
+
+    function checkModule1Completion() {
+      const allCorrect = scenarios.every(s => userSelections[s.id] === s.correct);
+      if (allCorrect) {
+        moduleCompleted[1] = true;
+        document.getElementById("badge-mod-1").innerText = "✓";
+        document.getElementById("tab-mod-1").classList.add("done");
+      } else {
+        moduleCompleted[1] = false;
+        document.getElementById("badge-mod-1").innerText = "1";
+        document.getElementById("tab-mod-1").classList.remove("done");
+      }
+      updateOverallProgress();
+    }
+
+    function checkEconomics() {
+      const s1 = document.getElementById("econ-sel-1").value;
+      const s2 = document.getElementById("econ-sel-2").value;
+      const s3 = document.getElementById("econ-sel-3").value;
+
+      const box1 = document.getElementById("econ-box-1");
+      const box2 = document.getElementById("econ-box-2");
+      const box3 = document.getElementById("econ-box-3");
+
+      box1.classList.toggle("correct", s1 === "planning");
+      box2.classList.toggle("correct", s2 === "build");
+      box3.classList.toggle("correct", s3 === "live");
+
+      checkModule2Completion();
+    }
+
+    function checkFlowTraps() {
+      const s2 = document.getElementById("run-after-step2").value;
+      const sEx = document.getElementById("run-after-exception").value;
+      const feedback = document.getElementById("flow-feedback");
+
+      if (s2 === "success" && sEx === "failed") {
+        feedback.style.color = "#10B981";
+        feedback.innerText = "✓ Correct Architecture: Step 2 runs only on Step 1 success; Exception alerting runs only if Step 2 fails or times out!";
+      } else {
+        feedback.style.color = "#EF4444";
+        feedback.innerText = "⚠️ Review: Ensure standard steps run when successful, and exception notification branches run when previous actions fail or time out.";
+      }
+
+      checkModule2Completion();
+    }
+
+    function checkModule2Completion() {
+      const econOk = document.getElementById("econ-sel-1").value === "planning" &&
+                     document.getElementById("econ-sel-2").value === "build" &&
+                     document.getElementById("econ-sel-3").value === "live";
+
+      const flowOk = document.getElementById("run-after-step2").value === "success" &&
+                     document.getElementById("run-after-exception").value === "failed";
+
+      if (econOk && flowOk) {
+        moduleCompleted[2] = true;
+        document.getElementById("badge-mod-2").innerText = "✓";
+        document.getElementById("tab-mod-2").classList.add("done");
+      } else {
+        moduleCompleted[2] = false;
+        document.getElementById("badge-mod-2").innerText = "2";
+        document.getElementById("tab-mod-2").classList.remove("done");
+      }
+      updateOverallProgress();
+    }
+
+    function selectQuiz(qNum, choiceIdx, el) {
+      const parent = el.parentNode;
+      const choices = parent.querySelectorAll(".quiz-choice");
+      choices.forEach(c => c.classList.remove("correct", "incorrect"));
+
+      const correctAnswers = { 1: 1, 2: 2, 3: 0 };
+      if (choiceIdx === correctAnswers[qNum]) {
+        el.classList.add("correct");
+      } else {
+        el.classList.add("incorrect");
+      }
+
+      const q1 = document.querySelectorAll(".quiz-question")[0].querySelector(".correct");
+      const q2 = document.querySelectorAll(".quiz-question")[1].querySelector(".correct");
+      const q3 = document.querySelectorAll(".quiz-question")[2].querySelector(".correct");
+
+      if (q1 && q2 && q3) {
+        moduleCompleted[3] = true;
+        document.getElementById("badge-mod-3").innerText = "✓";
+        document.getElementById("tab-mod-3").classList.add("done");
+      } else {
+        moduleCompleted[3] = false;
+        document.getElementById("badge-mod-3").innerText = "3";
+        document.getElementById("tab-mod-3").classList.remove("done");
+      }
+      updateOverallProgress();
+    }
+
+    function switchModule(modNum) {
+      for (let i = 1; i <= 3; i++) {
+        document.getElementById(`mod-view-${i}`).style.display = (i === modNum) ? "block" : "none";
+        document.getElementById(`tab-mod-${i}`).classList.toggle("active", i === modNum);
+      }
+    }
+
+    function updateOverallProgress() {
+      const doneCount = Object.values(moduleCompleted).filter(Boolean).length;
+      document.getElementById("progress-text").innerText = `${doneCount} / 3 Modules Complete`;
+
+      if (doneCount === 3) {
+        document.getElementById("footer-summary-status").innerText = "🎉 Excellent! All testing concepts mastered. You are fully prepared to launch the live 4-Corner stress test.";
+        document.getElementById("btn-to-lab").style.animation = "pulse 1.5s infinite";
+      }
+    }
+
+    function resetFullRecap() {
+      if (confirm("Reset the interactive testing recap?\n\nThis will clear all your answers so you can practise the concepts again.")) {
+        userSelections = {};
+        moduleCompleted = { 1: false, 2: false, 3: false };
+        renderMatrix();
+
+        document.getElementById("econ-sel-1").value = "";
+        document.getElementById("econ-sel-2").value = "";
+        document.getElementById("econ-sel-3").value = "";
+        document.getElementById("econ-box-1").classList.remove("correct");
+        document.getElementById("econ-box-2").classList.remove("correct");
+        document.getElementById("econ-box-3").classList.remove("correct");
+
+        document.getElementById("run-after-step2").value = "success";
+        document.getElementById("run-after-exception").value = "success";
+        document.getElementById("flow-feedback").innerText = "";
+
+        document.querySelectorAll(".quiz-choice").forEach(c => c.classList.remove("correct", "incorrect"));
+
+        for (let i = 1; i <= 3; i++) {
+          document.getElementById(`badge-mod-${i}`).innerText = i;
+          document.getElementById(`tab-mod-${i}`).classList.remove("done", "active");
+        }
+
+        switchModule(1);
+        updateOverallProgress();
+      }
+    }
+
+    initRecap();
+  </script>
+</body>
+</html>
