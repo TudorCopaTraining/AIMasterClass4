@@ -267,13 +267,13 @@
     <!-- Bottom Action & Navigation Banner -->
     <section class="recap-footer">
       <div class="recap-footer-text">
-        <h4>Ready to Begin the 4-Corner Systematic Stress Test Lab?</h4>
+        <h4>Module Complete: Ready to Claim Your Certificate?</h4>
         <p id="footer-summary-status">Complete the 3 required modules above to unlock full practical testing confidence.</p>
       </div>
       <div class="footer-btn-group">
         <button class="btn-recap" onclick="resetFullRecap()">↺ Redo Recap</button>
-        <a href="stress_test_lab.html" class="btn-action-primary" id="btn-to-lab">
-          <span>Launch 4-Corner Lab</span>
+        <a href="Certificate.html" class="btn-action-primary" id="btn-to-lab">
+          <span>Claim Certificate</span>
           <span style="font-size: 1.1rem;">➔</span>
         </a>
       </div>
@@ -502,7 +502,7 @@
       }
 
       if (doneCount === 3) {
-        document.getElementById("footer-summary-status").innerText = "🎉 All requirements completed! You are fully prepared to launch the live 4-Corner stress test.";
+        document.getElementById("footer-summary-status").innerText = "🎉 All requirements completed! You have unlocked your module completion certificate.";
         document.getElementById("btn-to-lab").style.animation = "pulse 1.5s infinite";
       } else {
         document.getElementById("footer-summary-status").innerText = "Complete the 3 required modules above to unlock full practical testing confidence.";
