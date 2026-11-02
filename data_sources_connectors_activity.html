@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COPA | Topic 4: Data Sources &amp; Connectors — Interactive Activity</title>
+  <link rel="stylesheet" href="data_sources_connectors_activity.css">
+</head>
+<body>
+
+  <header>
+    <div class="brand-title">
+      <h1>Topic 4: Data Sources &amp; Connectors — Interactive Lab</h1>
+      <p>COPA Level 4 AI &amp; Automation Practitioner | Ecosystem Architecture &amp; Integration</p>
+    </div>
+    <div class="header-actions">
+      <div class="score-badge">Mastery Progress: <strong id="progress-text">0 / 3 Checkpoints</strong></div>
+      <button class="btn-header-reset" onclick="resetActivity()">↺ Reset Activity</button>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    <!-- Hero Briefing Banner -->
+    <section class="hero-banner">
+      <div>
+        <h2>Data Architecture, Connectors &amp; Multi-System Workflow Mapping</h2>
+        <p>
+          Master the fundamentals of <strong>Data Sources (Structured vs Unstructured)</strong>, <strong>API Connectors</strong>, and <strong>Enterprise Security / DLP Policies</strong> across Microsoft Forms, Excel Online, SharePoint, Outlook, and Teams.
+        </p>
+      </div>
+      <div style="text-align: right; font-size: 0.8rem; color: #64748B;">
+        <span>Standards Evidence:</span><br>
+        <strong style="color: var(--copa-navy); font-size: 1rem;">K4 (Connectors) &amp; S2 (Data Integration)</strong>
+      </div>
+    </section>
+
+    <!-- Task Overview & What Must Be Completed -->
+    <section class="task-overview-card">
+      <div class="overview-header">
+        <div class="overview-title">
+          <span class="overview-icon">🔌</span>
+          <div>
+            <h3>Task Overview &amp; What Must Be Completed</h3>
+            <p>Complete the 3 architectural engineering checkpoints below to validate data model classification, end-to-end connector mapping, and security protocols.</p>
+          </div>
+        </div>
+        <div class="overview-status-pill" id="checklist-overall-pill">
+          0 of 3 Checkpoints Completed
+        </div>
+      </div>
+
+      <div class="requirements-grid">
+        <!-- Checkpoint 1 -->
+        <div class="req-item" id="req-box-1" onclick="switchModule(1)">
+          <div class="req-checkbox" id="req-chk-1">1</div>
+          <div class="req-content">
+            <h4>1. Data Taxonomy &amp; Source Identification</h4>
+            <p>Classify 5 workplace information assets into Structured, Unstructured, or Semi-Structured formats.</p>
+            <span class="req-tag">Module 1 Task</span>
+          </div>
+        </div>
+
+        <!-- Checkpoint 2 -->
+        <div class="req-item" id="req-box-2" onclick="switchModule(2)">
+          <div class="req-checkbox" id="req-chk-2">2</div>
+          <div class="req-content">
+            <h4>2. Connector Mapping Lab</h4>
+            <p>Design a 4-tier automation architecture identifying Data Source, User Inputs, Outputs, and Systems Involved.</p>
+            <span class="req-tag">Module 2 Task</span>
+          </div>
+        </div>
+
+        <!-- Checkpoint 3 -->
+        <div class="req-item" id="req-box-3" onclick="switchModule(3)">
+          <div class="req-checkbox" id="req-chk-3">3</div>
+          <div class="req-content">
+            <h4>3. Security, APIs &amp; DLP Governance</h4>
+            <p>Evaluate enterprise security boundaries, OAuth scopes, and Data Loss Prevention (DLP) policies.</p>
+            <span class="req-tag">Module 3 Task</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Module Navigation Tabs -->
+    <nav class="module-nav">
+      <div class="nav-card active" id="tab-mod-1" onclick="switchModule(1)">
+        <div class="nav-num" id="badge-mod-1">1</div>
+        <div class="nav-text">
+          <h4>Module 1: Data Sources &amp; Taxonomy</h4>
+          <span>Structured vs Unstructured</span>
+        </div>
+      </div>
+
+      <div class="nav-card" id="tab-mod-2" onclick="switchModule(2)">
+        <div class="nav-num" id="badge-mod-2">2</div>
+        <div class="nav-text">
+          <h4>Module 2: Connector Mapping Activity</h4>
+          <span>Workflow Integration Designer</span>
+        </div>
+      </div>
+
+      <div class="nav-card" id="tab-mod-3" onclick="switchModule(3)">
+        <div class="nav-num" id="badge-mod-3">3</div>
+        <div class="nav-text">
+          <h4>Module 3: Security &amp; API Governance</h4>
+          <span>OAuth, DLP &amp; Least Privilege</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MODULE 1: Structured vs Unstructured Taxonomy -->
+    <section class="activity-section" id="mod-view-1">
+      <div class="activity-header">
+        <h3>Module 1: Classify Workplace Data Sources &amp; Information Formats</h3>
+        <span class="activity-badge">Data Architecture (K4)</span>
+      </div>
+      <p style="font-size: 0.85rem; color: #475569; margin-bottom: 1.25rem;">
+        Review each workplace data asset below. Select whether it represents <strong>Structured Data</strong> (rigid relational rows/columns with explicit types), <strong>Unstructured Data</strong> (freeform text/media with no fixed schema), or <strong>Semi-Structured Data</strong> (hierarchical key-value tags like JSON/XML).
+      </p>
+
+      <div class="data-class-grid" id="matrix-container">
+        <!-- Injected via JavaScript -->
+      </div>
+    </section>
+
+    <!-- MODULE 2: Connector Mapping Activity -->
+    <section class="activity-section" id="mod-view-2" style="display: none;">
+      <div class="activity-header">
+        <h3>Module 2: Connector Mapping Designer — Multi-System Architecture</h3>
+        <span class="activity-badge">Hands-On Integration Lab</span>
+      </div>
+
+      <p style="font-size: 0.85rem; color: #475569; margin-bottom: 1rem;">
+        Select an operational scenario, then configure the 4 core workflow components: <strong>Data Source</strong>, <strong>User Inputs</strong>, <strong>Outputs</strong>, and <strong>Systems Involved</strong>. Click <em>Verify Architecture</em> to check data contract validity.
+      </p>
+
+      <div class="mapping-builder-card">
+        <div class="mapping-preset-selector">
+          <label>Scenario Architecture Blueprint:</label>
+          <select class="mapping-select" id="mapping-scenario-select" onchange="onScenarioChange()">
+            <option value="holiday">Scenario A: Annual Leave &amp; Emergency Cover Approval Workflow</option>
+            <option value="expenses">Scenario B: Client Travel Expense Audit &amp; Reimbursement Pipeline</option>
+            <option value="it_ticket">Scenario C: Priority IT Incident Triage &amp; Escalation System</option>
+          </select>
+        </div>
+
+        <div class="mapping-grid-4tier">
+          <!-- Tier 1: Data Source -->
+          <div class="tier-box">
+            <h5>📁 1. Master Data Source</h5>
+            <p style="font-size: 0.72rem; color: #94A3B8; margin-bottom: 0.5rem;">Persistent Single Source of Truth (SSoT)</p>
+            <select class="tier-select" id="sel-tier-datasource" onchange="updateCanvasPreview()">
+              <option value="">-- Choose Data Source --</option>
+              <option value="excel_table">Excel Online (Named Table in OneDrive)</option>
+              <option value="sharepoint_list">SharePoint Online Custom List</option>
+              <option value="raw_email_inbox">Local Outlook PST Archive</option>
+              <option value="forms_responses">Microsoft Forms Response Sheet Only</option>
+            </select>
+          </div>
+
+          <!-- Tier 2: User Inputs -->
+          <div class="tier-box">
+            <h5>📝 2. User Intake (Inputs)</h5>
+            <p style="font-size: 0.72rem; color: #94A3B8; margin-bottom: 0.5rem;">Front-end capture mechanism</p>
+            <select class="tier-select" id="sel-tier-userinputs" onchange="updateCanvasPreview()">
+              <option value="">-- Choose Intake Method --</option>
+              <option value="forms_validated">Microsoft Forms (Input Restrictions Enabled)</option>
+              <option value="unstructured_email">Unstructured Plaintext Email to Admin</option>
+              <option value="chat_dm">Informal Microsoft Teams 1:1 Chat Message</option>
+              <option value="paper_form">Printed Paper Form Scanned to PDF</option>
+            </select>
+          </div>
+
+          <!-- Tier 3: Outputs -->
+          <div class="tier-box">
+            <h5>📤 3. Generated Outputs</h5>
+            <p style="font-size: 0.72rem; color: #94A3B8; margin-bottom: 0.5rem;">Results, receipts &amp; notifications</p>
+            <select class="tier-select" id="sel-tier-outputs" onchange="updateCanvasPreview()">
+              <option value="">-- Choose Outputs --</option>
+              <option value="actionable_card_receipt">Outlook Actionable Approval Card + Audit Receipt Email</option>
+              <option value="verbal_acknowledgement">Verbal confirmation during weekly team standup</option>
+              <option value="unmonitored_log">Silent text log stored on desktop C:\ drive</option>
+              <option value="public_teams_broadcast">Broadcast all details to organization-wide channel</option>
+            </select>
+          </div>
+
+          <!-- Tier 4: Systems Involved -->
+          <div class="tier-box">
+            <h5>🔗 4. Systems Involved</h5>
+            <p style="font-size: 0.72rem; color: #94A3B8; margin-bottom: 0.5rem;">Orchestration connectors</p>
+            <select class="tier-select" id="sel-tier-systems" onchange="updateCanvasPreview()">
+              <option value="">-- Choose Connected Stack --</option>
+              <option value="m365_stack">Forms + Power Automate + Excel + Outlook + Teams</option>
+              <option value="single_desktop_app">Stand-alone Excel Macro on local PC</option>
+              <option value="unconnected_silos">Isolated legacy software with manual copy-paste</option>
+              <option value="unauthenticated_web">Public webhook with no tenant authentication</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+          <button class="btn-validate-mapping" onclick="verifyConnectorMapping()">✓ Verify Architecture &amp; Connector Contract</button>
+          <span style="font-size: 0.75rem; color: #94A3B8;">Standards: EPA K4, K5 &amp; S2</span>
+        </div>
+
+        <div>
+          <label style="color: #38BDF8; font-size: 0.8rem; font-weight: bold; display: block; margin-bottom: 0.35rem;">Live Integration Pipeline Contract:</label>
+          <div class="workflow-canvas-diagram" id="workflow-canvas-preview">// Select components above to visualize the end-to-end connector diagram...</div>
+        </div>
+      </div>
+      <div id="mapping-validation-feedback" style="font-size: 0.85rem; font-weight: bold;"></div>
+    </section>
+
+    <!-- MODULE 3: Security, APIs & DLP Governance -->
+    <section class="activity-section" id="mod-view-3" style="display: none;">
+      <div class="activity-header">
+        <h3>Module 3: API Security, Least Privilege &amp; Data Loss Prevention (DLP)</h3>
+        <span class="activity-badge">Governance &amp; Compliance (K6)</span>
+      </div>
+
+      <div class="quiz-box">
+        <h4>1. At a high level, how does a Power Automate 'Connector' interact with underlying services (like SharePoint or Outlook)?</h4>
+        <div class="quiz-opt" onclick="selectQuiz(1, 0, this)">
+          A) It directly modifies the raw binary code on Microsoft's physical server hard drives.
+        </div>
+        <div class="quiz-opt" onclick="selectQuiz(1, 1, this)">
+          B) It acts as an API wrapper that translates trigger events and user actions into authenticated REST HTTP requests (GET, POST, PATCH) with OAuth2 tokens.
+        </div>
+        <div class="quiz-opt" onclick="selectQuiz(1, 2, this)">
+          C) It takes screenshots of the user interface and runs desktop OCR macros in the background.
+        </div>
+      </div>
+
+      <div class="quiz-box">
+        <h4>2. An apprentice creates a flow that reads confidential payroll rows from Excel and uses an unapproved personal Dropbox connector to back it up. What enterprise security safeguard blocks this?</h4>
+        <div class="quiz-opt" onclick="selectQuiz(2, 0, this)">
+          A) Data Loss Prevention (DLP) Policies, which segregate Business vs Non-Business connectors and block data exfiltration across boundaries.
+        </div>
+        <div class="quiz-opt" onclick="selectQuiz(2, 1, this)">
+          B) Outlook Junk Email Filters.
+        </div>
+        <div class="quiz-opt" onclick="selectQuiz(2, 2, this)">
+          C) The monitor's refresh rate.
+        </div>
+      </div>
+
+      <div class="quiz-box">
+        <h4>3. When configuring an automated connector for a business approval flow, what represents security best practice for account authentication?</h4>
+        <div class="quiz-opt" onclick="selectQuiz(3, 0, this)">
+          A) Hardcoding an individual director's personal login credentials directly into every action.
+        </div>
+        <div class="quiz-opt" onclick="selectQuiz(3, 1, this)">
+          B) Using dedicated Service Principals or managed connection references following the Principle of Least Privilege.
+        </div>
+        <div class="quiz-opt" onclick="selectQuiz(3, 2, this)">
+          C) Disabling Multi-Factor Authentication (MFA) across all organizational accounts.
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Action & Navigation Banner -->
+    <section class="lab-footer">
+      <div class="lab-footer-text">
+        <h4>Ready to Document Your Workplace Integration Architecture?</h4>
+        <p id="footer-summary-status">Complete the 3 practical checkpoints above to achieve full integration mastery.</p>
+      </div>
+      <div class="footer-btn-group">
+        <button class="btn-footer-reset" onclick="resetActivity()">↺ Redo Activity</button>
+        <a href="workplace_epa_task.html" class="btn-action-primary" id="btn-to-task">
+          <span>Proceed to Workplace EPA Task</span>
+          <span style="font-size: 1.1rem;">➔</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const taxonomyData = [
+      {
+        id: "tax_1",
+        title: "Excel Online Table with named columns: RequestID, SubmissionDate, CostCenter, and Amount",
+        desc: "Strict rows, columns, and assigned data types (integers, dates, currency) enabling deterministic querying.",
+        correct: "structured"
+      },
+      {
+        id: "tax_2",
+        title: "A 3-page scanned PDF handover memo containing freeform bullet points and meeting notes",
+        desc: "Unformatted narrative text with no rigid schema, requiring human reading or AI parsing to interpret.",
+        correct: "unstructured"
+      },
+      {
+        id: "tax_3",
+        title: "JSON payload returned from a Microsoft Forms trigger containing key-value pairs",
+        desc: "Hierarchical data structure with tag labels (e.g. 'responder': 'john@co.uk') but flexible internal schema.",
+        correct: "semi_structured"
+      },
+      {
+        id: "tax_4",
+        title: "SharePoint Online List with enforced column constraints and single-line text validation",
+        desc: "Cloud database schema providing indexed columns, version history, and row-level metadata.",
+        correct: "structured"
+      },
+      {
+        id: "tax_5",
+        title: "Voice messages or audio recordings left on an emergency customer helpline",
+        desc: "Raw audio media streams lacking columnar indexes or predefined relational attributes.",
+        correct: "unstructured"
+      }
+    ];
+
+    const taxonomyTypes = [
+      { key: "structured", label: "Structured Data" },
+      { key: "semi_structured", label: "Semi-Structured (JSON/XML)" },
+      { key: "unstructured", label: "Unstructured Data" }
+    ];
+
+    let userTaxonomy = {};
+    let moduleCompleted = { 1: false, 2: false, 3: false };
+
+    function initActivity() {
+      renderTaxonomy();
+      onScenarioChange();
+      updateOverallProgress();
+    }
+
+    function renderTaxonomy() {
+      const container = document.getElementById("matrix-container");
+      container.innerHTML = "";
+
+      taxonomyData.forEach((item, idx) => {
+        const card = document.createElement("div");
+        card.className = "data-item-card";
+        card.id = "item-" + item.id;
+
+        let chipsHtml = taxonomyTypes.map(t => {
+          return '<button class="ds-chip" id="btn-' + item.id + '-' + t.key + '" onclick="chooseTaxonomy(\'' + item.id + '\', \'' + t.key + '\')">' +
+                 t.label + '</button>';
+        }).join("");
+
+        card.innerHTML = 
+          '<div class="data-text">' +
+            '<strong>Case ' + (idx + 1) + ': ' + item.title + '</strong>' +
+            '<p>' + item.desc + '</p>' +
+          '</div>' +
+          '<div class="btn-chip-group">' +
+            chipsHtml +
+          '</div>';
+        container.appendChild(card);
+      });
+    }
+
+    function chooseTaxonomy(itemId, chosenKey) {
+      userTaxonomy[itemId] = chosenKey;
+      const target = taxonomyData.find(d => d.id === itemId);
+      const row = document.getElementById("item-" + itemId);
+
+      taxonomyTypes.forEach(t => {
+        const btn = document.getElementById("btn-" + itemId + "-" + t.key);
+        btn.classList.remove("selected");
+      });
+
+      const activeBtn = document.getElementById("btn-" + itemId + "-" + chosenKey);
+      activeBtn.classList.add("selected");
+
+      if (chosenKey === target.correct) {
+        row.classList.remove("matched-wrong");
+        row.classList.add("matched-correct");
+      } else {
+        row.classList.remove("matched-correct");
+        row.classList.add("matched-wrong");
+      }
+
+      checkModule1();
+    }
+
+    function checkModule1() {
+      const allCorrect = taxonomyData.every(d => userTaxonomy[d.id] === d.correct);
+      if (allCorrect) {
+        moduleCompleted[1] = true;
+        document.getElementById("badge-mod-1").innerText = "✓";
+        document.getElementById("tab-mod-1").classList.add("done");
+        document.getElementById("req-box-1").classList.add("completed");
+        document.getElementById("req-chk-1").innerText = "✓";
+      } else {
+        moduleCompleted[1] = false;
+        document.getElementById("badge-mod-1").innerText = "1";
+        document.getElementById("tab-mod-1").classList.remove("done");
+        document.getElementById("req-box-1").classList.remove("completed");
+        document.getElementById("req-chk-1").innerText = "1";
+      }
+      updateOverallProgress();
+    }
+
+    function onScenarioChange() {
+      document.getElementById("sel-tier-datasource").value = "";
+      document.getElementById("sel-tier-userinputs").value = "";
+      document.getElementById("sel-tier-outputs").value = "";
+      document.getElementById("sel-tier-systems").value = "";
+      document.getElementById("mapping-validation-feedback").innerText = "";
+      updateCanvasPreview();
+    }
+
+    function updateCanvasPreview() {
+      const scenario = document.getElementById("mapping-scenario-select").value;
+      const ds = document.getElementById("sel-tier-datasource").value;
+      const inp = document.getElementById("sel-tier-userinputs").value;
+      const out = document.getElementById("sel-tier-outputs").value;
+      const sys = document.getElementById("sel-tier-systems").value;
+      const canvas = document.getElementById("workflow-canvas-preview");
+
+      if (!ds && !inp && !out && !sys) {
+        canvas.innerText = "// Select components above to visualize the end-to-end connector diagram...";
+        return;
+      }
+
+      const dsLabel = ds ? ds.toUpperCase() : "[MISSING DATA SOURCE]";
+      const inpLabel = inp ? inp.toUpperCase() : "[MISSING USER INTAKE]";
+      const outLabel = out ? out.toUpperCase() : "[MISSING OUTPUTS]";
+      const sysLabel = sys ? sys.toUpperCase() : "[MISSING CONNECTORS]";
+
+      canvas.innerText = 
+        "ARCHITECTURE TOPOLOGY: " + scenario.toUpperCase() + "\n" +
+        "┌───────────────────┐       ┌────────────────────────┐       ┌───────────────────────┐\n" +
+        "│ 1. USER INTAKE    │ ────> │ 2. LOGIC ORCHESTRATION │ ────> │ 3. TARGET REPOSITORY  │\n" +
+        "│ " + inpLabel.padEnd(17) + " │       │ " + sysLabel.padEnd(22) + " │       │ " + dsLabel.padEnd(21) + " │\n" +
+        "└───────────────────┘       └────────────────────────┘       └───────────────────────┘\n" +
+        "                                      │\n" +
+        "                                      ▼ 4. GENERATED OUTPUTS\n" +
+        "                            ┌─────────────────────────────────┐\n" +
+        "                            │ " + outLabel.padEnd(31) + " │\n" +
+        "                            └─────────────────────────────────┘";
+    }
+
+    function verifyConnectorMapping() {
+      const ds = document.getElementById("sel-tier-datasource").value;
+      const inp = document.getElementById("sel-tier-userinputs").value;
+      const out = document.getElementById("sel-tier-outputs").value;
+      const sys = document.getElementById("sel-tier-systems").value;
+      const feedback = document.getElementById("mapping-validation-feedback");
+
+      const isDataValid = (ds === "excel_table" || ds === "sharepoint_list");
+      const isInputValid = (inp === "forms_validated");
+      const isOutputValid = (out === "actionable_card_receipt");
+      const isSysValid = (sys === "m365_stack");
+
+      if (isDataValid && isInputValid && isOutputValid && isSysValid) {
+        feedback.style.color = "#10B981";
+        feedback.innerText = "✓ Valid Enterprise Architecture: Loosely coupled M365 connectors, validated input masks, persistent SSoT database, and auditable email outputs.";
+        moduleCompleted[2] = true;
+        document.getElementById("badge-mod-2").innerText = "✓";
+        document.getElementById("tab-mod-2").classList.add("done");
+        document.getElementById("req-box-2").classList.add("completed");
+        document.getElementById("req-chk-2").innerText = "✓";
+      } else {
+        feedback.style.color = "#EF4444";
+        feedback.innerText = "⚠️ Architecture Warning: Ensure you select a structured SSoT (Excel/SharePoint), validated front-end intake (Forms), auditable outputs, and secure M365 connected connectors.";
+        moduleCompleted[2] = false;
+        document.getElementById("badge-mod-2").innerText = "2";
+        document.getElementById("tab-mod-2").classList.remove("done");
+        document.getElementById("req-box-2").classList.remove("completed");
+        document.getElementById("req-chk-2").innerText = "2";
+      }
+      updateOverallProgress();
+    }
+
+    function selectQuiz(qNum, choiceIdx, el) {
+      const parent = el.parentNode;
+      const choices = parent.querySelectorAll(".quiz-opt");
+      choices.forEach(c => c.classList.remove("correct", "incorrect"));
+
+      const correctAnswers = { 1: 1, 2: 0, 3: 1 };
+      if (choiceIdx === correctAnswers[qNum]) {
+        el.classList.add("correct");
+      } else {
+        el.classList.add("incorrect");
+      }
+
+      const q1 = document.querySelectorAll(".quiz-box")[0].querySelector(".correct");
+      const q2 = document.querySelectorAll(".quiz-box")[1].querySelector(".correct");
+      const q3 = document.querySelectorAll(".quiz-box")[2].querySelector(".correct");
+
+      if (q1 && q2 && q3) {
+        moduleCompleted[3] = true;
+        document.getElementById("badge-mod-3").innerText = "✓";
+        document.getElementById("tab-mod-3").classList.add("done");
+        document.getElementById("req-box-3").classList.add("completed");
+        document.getElementById("req-chk-3").innerText = "✓";
+      } else {
+        moduleCompleted[3] = false;
+        document.getElementById("badge-mod-3").innerText = "3";
+        document.getElementById("tab-mod-3").classList.remove("done");
+        document.getElementById("req-box-3").classList.remove("completed");
+        document.getElementById("req-chk-3").innerText = "3";
+      }
+      updateOverallProgress();
+    }
+
+    function switchModule(modNum) {
+      for (let i = 1; i <= 3; i++) {
+        document.getElementById("mod-view-" + i).style.display = (i === modNum) ? "block" : "none";
+        document.getElementById("tab-mod-" + i).classList.toggle("active", i === modNum);
+      }
+    }
+
+    function updateOverallProgress() {
+      const doneCount = Object.values(moduleCompleted).filter(Boolean).length;
+      document.getElementById("progress-text").innerText = doneCount + " / 3 Checkpoints Complete";
+
+      const checklistPill = document.getElementById("checklist-overall-pill");
+      checklistPill.innerText = doneCount + " of 3 Checkpoints Completed";
+      if (doneCount === 3) {
+        checklistPill.classList.add("completed");
+      } else {
+        checklistPill.classList.remove("completed");
+      }
+
+      if (doneCount === 3) {
+        document.getElementById("footer-summary-status").innerText = "🎉 All Data Source & Connector checkpoints mastered! You are ready for live multi-system deployment.";
+        document.getElementById("btn-to-task").style.animation = "pulse 1.5s infinite";
+      } else {
+        document.getElementById("footer-summary-status").innerText = "Complete the 3 practical checkpoints above to achieve full integration mastery.";
+        document.getElementById("btn-to-task").style.animation = "none";
+      }
+    }
+
+    function resetActivity() {
+      if (confirm("Reset the interactive Data Sources & Connectors Lab?\n\nThis will clear all your answers and mapping selections so you can practise again.")) {
+        userTaxonomy = {};
+        moduleCompleted = { 1: false, 2: false, 3: false };
+        renderTaxonomy();
+        onScenarioChange();
+
+        document.querySelectorAll(".quiz-opt").forEach(c => c.classList.remove("correct", "incorrect"));
+        document.getElementById("mapping-validation-feedback").innerText = "";
+
+        for (let i = 1; i <= 3; i++) {
+          document.getElementById("badge-mod-" + i).innerText = i;
+          document.getElementById("tab-mod-" + i).classList.remove("done", "active");
+          document.getElementById("req-box-" + i).classList.remove("completed");
+          document.getElementById("req-chk-" + i).innerText = i;
+        }
+
+        switchModule(1);
+        updateOverallProgress();
+      }
+    }
+
+    initActivity();
+  </script>
+</body>
+</html>
